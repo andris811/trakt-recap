@@ -68,7 +68,10 @@ function App() {
     <div className="min-h-screen bg-zinc-950 p-6 md:p-8">
       <div className="max-w-7xl mx-auto space-y-6">
         <header className="mb-8">
-          <h1 className="text-3xl font-bold text-white">Trakt Recap</h1>
+          <div className="flex items-center gap-2">
+            <img src="/icon.png" alt="Trakt Recap icon" className="w-8 h-8" />
+            <h1 className="text-3xl font-bold text-white">Trakt Recap</h1>
+          </div>
           <p className="text-zinc-400 mt-1">Your personal watch analytics</p>
         </header>
 
