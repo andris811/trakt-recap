@@ -1,0 +1,299 @@
+const axios = require('axios');
+const fs = require('fs').promises;
+const path = require('path');
+
+const TRAKT_API_URL = 'https://api.trakt.tv';
+const CACHE_FILE = path.join(__dirname, '..', 'data', 'content-cache.json');
+const BATCH_SIZE = 10;
+const BATCH_DELAY_MS = 500;
+
+function extractPoster(images) {
+  const posterImages = images?.poster;
+  if (Array.isArray(posterImages) && posterImages.length > 0) {
+    return `https://${posterImages[0]}`;
+  }
+  if (posterImages?.full) return posterImages.full;
+  if (posterImages?.medium) return posterImages.medium;
+  return null;
+}
+
+function extractDetails(data, type) {
+  return {
+    runtime: data.runtime || 0,
+    genres: data.genres || [],
+    poster: extractPoster(data.images),
+    title: data.title,
+    overview: data.overview || null,
+    country: data.country || null,
+    released: type === 'movie' ? (data.released || null) : (data.first_aired || null),
+    year: data.year || null,
+    traktRating: data.rating || null,
+    traktVotes: data.votes || 0,
+    imdbId: data.ids?.imdb || null,
+    commentCount: data.comment_count || 0
+  };
+}
+
+class EnrichmentService {
+  constructor(clientId, accessToken) {
+    this.client = axios.create({
+      baseURL: TRAKT_API_URL,
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'trakt-api-key': clientId,
+        'trakt-api-version': '2',
+        'Content-Type': 'application/json'
+      }
+    });
+    this.cache = {};
+  }
+
+  async loadCache() {
+    try {
+      const content = await fs.readFile(CACHE_FILE, 'utf-8');
+      this.cache = JSON.parse(content);
+    } catch {
+      this.cache = {};
+    }
+  }
+
+  async saveCache() {
+    await fs.writeFile(CACHE_FILE, JSON.stringify(this.cache, null, 2), 'utf-8');
+  }
+
+  async fetchMovieDetails(traktId) {
+    const cacheKey = `movie_${traktId}`;
+    if (this.cache[cacheKey]) {
+      return this.cache[cacheKey];
+    }
+
+    try {
+      const response = await this.client.get(`/movies/${traktId}`, {
+        params: { extended: 'full' }
+      });
+      const enriched = extractDetails(response.data, 'movie');
+      this.cache[cacheKey] = enriched;
+      return enriched;
+    } catch (err) {
+      console.error(`Failed to fetch movie ${traktId}:`, err.message);
+      return { runtime: 0, genres: [], poster: null, title: null, overview: null, country: null, released: null, year: null, traktRating: null, traktVotes: 0, imdbId: null, commentCount: 0 };
+    }
+  }
+
+  async fetchShowDetails(traktId) {
+    const cacheKey = `show_${traktId}`;
+    if (this.cache[cacheKey]) {
+      return this.cache[cacheKey];
+    }
+
+    try {
+      const response = await this.client.get(`/shows/${traktId}`, {
+        params: { extended: 'full' }
+      });
+      const enriched = extractDetails(response.data, 'show');
+      this.cache[cacheKey] = enriched;
+      return enriched;
+    } catch (err) {
+      console.error(`Failed to fetch show ${traktId}:`, err.message);
+      return { runtime: 0, genres: [], poster: null, title: null, overview: null, country: null, released: null, year: null, traktRating: null, traktVotes: 0, imdbId: null, commentCount: 0 };
+    }
+  }
+
+  async enrichEvents(events) {
+    await this.loadCache();
+
+    const uniqueItems = new Map();
+    for (const event of events) {
+      const key = `${event.type}_${event.traktId}`;
+      if (!uniqueItems.has(key)) {
+        uniqueItems.set(key, {
+          key,
+          type: event.type,
+          traktId: event.traktId,
+          poster: event.poster,
+          runtime: event.runtime,
+          genres: event.genres
+        });
+      }
+    }
+
+    const missing = [...uniqueItems.values()].filter(item => !item.poster);
+    const totalMissing = missing.length;
+
+    for (let i = 0; i < missing.length; i += BATCH_SIZE) {
+      const batch = missing.slice(i, i + BATCH_SIZE);
+      await Promise.all(batch.map(async (item) => {
+        const details = item.type === 'movie'
+          ? await this.fetchMovieDetails(item.traktId)
+          : await this.fetchShowDetails(item.traktId);
+        item.runtime = details.runtime;
+        item.genres = details.genres;
+        item.poster = details.poster;
+      }));
+
+      if (i + BATCH_SIZE < missing.length) {
+        await new Promise(r => setTimeout(r, BATCH_DELAY_MS));
+      }
+    }
+
+    for (const item of uniqueItems.values()) {
+      const details = item.type === 'movie'
+        ? await this.fetchMovieDetails(item.traktId)
+        : await this.fetchShowDetails(item.traktId);
+      this.cache[item.key] = details;
+    }
+
+    for (const event of events) {
+      const key = `${event.type}_${event.traktId}`;
+      const cached = this.cache[key];
+      if (cached) {
+        event.runtime = cached.runtime;
+        event.genres = cached.genres;
+        event.poster = cached.poster;
+      }
+    }
+
+    await this.saveCache();
+
+    return {
+      total: events.length,
+      uniqueItems: uniqueItems.size,
+      enriched: totalMissing,
+      wasCached: uniqueItems.size - totalMissing
+    };
+  }
+
+  async getContentDetails(type, traktId) {
+    await this.loadCache();
+    const cacheKey = `${type}_${traktId}`;
+    if (this.cache[cacheKey]) {
+      return this.cache[cacheKey];
+    }
+
+    const details = type === 'movie'
+      ? await this.fetchMovieDetails(traktId)
+      : await this.fetchShowDetails(traktId);
+    await this.saveCache();
+    return details;
+  }
+
+  async getComments(type, traktId, limit = 100) {
+    try {
+      const endpoint = type === 'movie' ? `/movies/${traktId}/comments/recent` : `/shows/${traktId}/comments/recent`;
+      const response = await this.client.get(endpoint, {
+        params: { limit, sort: 'likes' }
+      });
+      return response.data.filter(c => !c.spoiler && c.parent_id === 0);
+    } catch (err) {
+      console.error(`Failed to fetch comments for ${type} ${traktId}:`, err.message);
+      return [];
+    }
+  }
+
+  async getEpisodeDetails(showId, season, number) {
+    const cacheKey = `episode_${showId}_${season}_${number}`;
+    if (this.cache[cacheKey]) {
+      return this.cache[cacheKey];
+    }
+
+    try {
+      const response = await this.client.get(`/shows/${showId}/seasons/${season}/episodes/${number}`, {
+        params: { extended: 'full' }
+      });
+      const data = response.data;
+      const screenshot = data.images?.screenshot;
+      const details = {
+        title: data.title,
+        overview: data.overview || null,
+        runtime: data.runtime || 0,
+        rating: data.rating || null,
+        votes: data.votes || 0,
+        firstAired: data.first_aired || null,
+        imdbId: data.ids?.imdb || null,
+        commentCount: data.comment_count || 0,
+        screenshot: screenshot && screenshot.length > 0 ? `https://${screenshot[0]}` : null
+      };
+      this.cache[cacheKey] = details;
+      await this.saveCache();
+      return details;
+    } catch (err) {
+      console.error(`Failed to fetch episode ${showId} S${season}E${number}:`, err.message);
+      return { title: null, overview: null, runtime: 0, rating: null, votes: 0, firstAired: null, imdbId: null, commentCount: 0, screenshot: null };
+    }
+  }
+
+  async getEpisodeComments(showId, season, number, limit = 100) {
+    try {
+      const response = await this.client.get(`/shows/${showId}/seasons/${season}/episodes/${number}/comments/recent`, {
+        params: { limit, sort: 'likes' }
+      });
+      return response.data.filter(c => !c.spoiler && c.parent_id === 0);
+    } catch (err) {
+      console.error(`Failed to fetch episode comments:`, err.message);
+      return [];
+    }
+  }
+
+  async getSeasonEpisodes(showId, season) {
+    const cacheKey = `season_${showId}_${season}`;
+    if (this.cache[cacheKey]) {
+      return this.cache[cacheKey];
+    }
+
+    try {
+      const response = await this.client.get(`/shows/${showId}/seasons/${season}`, {
+        params: { extended: 'full' }
+      });
+      const episodes = response.data.map(ep => ({
+        number: ep.number,
+        title: ep.title,
+        overview: ep.overview || null,
+        runtime: ep.runtime || 0,
+        rating: ep.rating || null,
+        votes: ep.votes || 0,
+        firstAired: ep.first_aired || null,
+        imdbId: ep.ids?.imdb || null,
+        commentCount: ep.comment_count || 0,
+        screenshot: ep.images?.screenshot?.[0] ? `https://${ep.images.screenshot[0]}` : null
+      }));
+      this.cache[cacheKey] = episodes;
+      await this.saveCache();
+      return episodes;
+    } catch (err) {
+      console.error(`Failed to fetch season ${showId} S${season}:`, err.message);
+      return [];
+    }
+  }
+
+  async getShowSeasons(showId) {
+    const cacheKey = `seasons_${showId}`;
+    if (this.cache[cacheKey]) {
+      return this.cache[cacheKey];
+    }
+
+    try {
+      const response = await this.client.get(`/shows/${showId}/seasons`, {
+        params: { extended: 'full' }
+      });
+      const seasons = response.data
+        .filter(s => s.number > 0)
+        .map(s => ({
+          number: s.number,
+          title: s.title || `Season ${s.number}`,
+          episodeCount: s.episode_count || 0,
+          rating: s.rating || null,
+          votes: s.votes || 0,
+          firstAired: s.first_aired || null,
+          overview: s.overview || null
+        }));
+      this.cache[cacheKey] = seasons;
+      await this.saveCache();
+      return seasons;
+    } catch (err) {
+      console.error(`Failed to fetch seasons for show ${showId}:`, err.message);
+      return [];
+    }
+  }
+}
+
+module.exports = EnrichmentService;
