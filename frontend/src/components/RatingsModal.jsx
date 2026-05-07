@@ -31,7 +31,7 @@ function PosterImage({ src, title }) {
   );
 }
 
-function RatingsModal({ rating, events, onClose, onItemClick }) {
+function RatingsModal({ rating, events, onClose, onItemClick, onOpenSeries }) {
   const ratedItems = useMemo(() => {
     const grouped = new Map();
 
@@ -94,12 +94,22 @@ function RatingsModal({ rating, events, onClose, onItemClick }) {
 
         <div className="overflow-y-auto flex-1 p-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {ratedItems.map((item) => (
+             {ratedItems.map((item) => (
               <div
                 key={item.id}
                 onClick={() => {
                   onClose();
-                  onItemClick(item);
+                  if (item.type === 'movie') {
+                    onOpenSeries && onOpenSeries({
+                      type: 'movie',
+                      traktId: item.traktId,
+                      title: item.title,
+                      poster: item.poster,
+                      genres: item.genres || []
+                    });
+                  } else {
+                    onItemClick(item);
+                  }
                 }}
                 className="flex items-center gap-3 p-3 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 transition-all cursor-pointer group"
               >

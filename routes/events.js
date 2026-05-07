@@ -156,4 +156,28 @@ router.get('/seasons/:showId', async (req, res) => {
   }
 });
 
+router.get('/content/:type/:traktId/people', async (req, res) => {
+  try {
+    const { type, traktId } = req.params;
+    const cast = await enrichmentService.getContentPeople(type, parseInt(traktId));
+    res.json({ cast });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch cast', details: error.message });
+  }
+});
+
+router.get('/person/:personId', async (req, res) => {
+  try {
+    const { personId } = req.params;
+    const [details, movies, shows] = await Promise.all([
+      enrichmentService.getPersonDetails(parseInt(personId)),
+      enrichmentService.getPersonMovies(parseInt(personId)),
+      enrichmentService.getPersonShows(parseInt(personId))
+    ]);
+    res.json({ details, movies, shows });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch person details', details: error.message });
+  }
+});
+
 module.exports = router;

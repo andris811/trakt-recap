@@ -3,6 +3,21 @@ import axios from 'axios';
 import { proxyPoster, formatDuration } from '../utils';
 import SeasonModal from './SeasonModal';
 
+function ActorHeadshot({ src, name }) {
+  const [failed, setFailed] = useState(false);
+  if (!src || failed) {
+    const initial = name ? name.charAt(0).toUpperCase() : '?';
+    return (
+      <div className="w-12 h-12 rounded-full bg-zinc-700 flex items-center justify-center text-zinc-400 font-bold text-sm shrink-0">
+        {initial}
+      </div>
+    );
+  }
+  return (
+    <img src={src} alt="" className="w-12 h-12 rounded-full object-cover shrink-0" loading="lazy" onError={() => setFailed(true)} />
+  );
+}
+
 const COUNTRY_NAMES = {
   us: 'United States', gb: 'United Kingdom', ca: 'Canada', au: 'Australia',
   de: 'Germany', fr: 'France', jp: 'Japan', kr: 'South Korea', cn: 'China',
@@ -113,16 +128,19 @@ function ContentInfo({ contentDetails, loadingDetails, itemType, traktId }) {
   );
 }
 
-export default function SeriesModal({ item, events, showRatings, onClose, onOpenEpisode }) {
+export default function SeriesModal({ item, events, showRatings, onClose, onOpenEpisode, onOpenActor }) {
   const [contentDetails, setContentDetails] = useState(null);
   const [loadingDetails, setLoadingDetails] = useState(true);
   const [seasons, setSeasons] = useState([]);
   const [loadingSeasons, setLoadingSeasons] = useState(true);
   const [seasonEpisodes, setSeasonEpisodes] = useState({});
   const [selectedSeason, setSelectedSeason] = useState(null);
+  const [cast, setCast] = useState([]);
+  const [loadingCast, setLoadingCast] = useState(true);
 
   useEffect(() => {
-    axios.get(`/api/events/content/${item.type}/${item.traktId}`)
+    const contentType = item.type === 'episode' ? 'show' : item.type;
+    axios.get(`/api/events/content/${contentType}/${item.traktId}`)
       .then(res => { setContentDetails(res.data); setLoadingDetails(false); })
       .catch(() => setLoadingDetails(false));
 
@@ -131,10 +149,14 @@ export default function SeriesModal({ item, events, showRatings, onClose, onOpen
         .then(res => { setSeasons(res.data.seasons || []); setLoadingSeasons(false); })
         .catch(() => setLoadingSeasons(false));
     }
+
+    axios.get(`/api/events/content/${contentType}/${item.traktId}/people`)
+      .then(res => { setCast(res.data.cast || []); setLoadingCast(false); })
+      .catch(() => setLoadingCast(false));
   }, [item.traktId, item.type]);
 
   const seriesStats = useMemo(() => {
-    const relatedEvents = events.filter((e) => e.traktId === item.traktId && e.type === item.type);
+    const relatedEvents = events.filter((e) => e.traktId === item.traktId);
     const totalWatches = relatedEvents.length;
     const totalRuntime = relatedEvents.reduce((sum, e) => sum + (e.runtime || 0), 0);
     const totalHours = totalRuntime / 60;
@@ -165,8 +187,8 @@ export default function SeriesModal({ item, events, showRatings, onClose, onOpen
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
       <div className="relative bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-800 w-full max-w-lg overflow-hidden max-h-[90vh] flex flex-col">
-        <div className="relative h-48 bg-zinc-800 shrink-0">
-          <PosterImage src={seriesStats.poster} title={item.title} />
+          <div className="relative h-48 bg-zinc-800 shrink-0">
+            <PosterImage src={contentDetails?.poster || seriesStats.poster} title={item.title} />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/50 to-transparent" />
           <button onClick={onClose} className="absolute top-4 right-4 text-zinc-400 hover:text-white hover:scale-110 text-2xl leading-none transition-all cursor-pointer">&times;</button>
           <div className="absolute bottom-4 left-6 right-6">
@@ -240,6 +262,29 @@ export default function SeriesModal({ item, events, showRatings, onClose, onOpen
                   >
                     <div className="text-zinc-300 text-sm font-medium">Season {season.number}</div>
                     <div className="text-zinc-500 text-xs">{season.episodeCount} episodes</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {!loadingCast && cast.length > 0 && (
+            <div>
+              <div className="text-zinc-500 text-sm mb-3">Cast</div>
+              <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin">
+                {cast.map((actor) => (
+                  <button
+                    key={actor.personId}
+                    onClick={() => onOpenActor && onOpenActor(actor.personId)}
+                    className="shrink-0 flex flex-col items-center gap-2 w-20 text-center cursor-pointer hover:scale-105 transition-transform"
+                  >
+                    <ActorHeadshot src={actor.headshot} name={actor.name} />
+                    <div>
+                      <div className="text-zinc-300 text-xs font-medium leading-tight">{actor.name}</div>
+                      {actor.character && (
+                        <div className="text-zinc-500 text-xs leading-tight">{actor.character}</div>
+                      )}
+                    </div>
                   </button>
                 ))}
               </div>

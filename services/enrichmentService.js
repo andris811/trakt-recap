@@ -294,6 +294,171 @@ class EnrichmentService {
       return [];
     }
   }
+
+  async getContentPeople(type, traktId) {
+    const cacheKey = `people_${type}_${traktId}`;
+    if (this.cache[cacheKey]) {
+      return this.cache[cacheKey];
+    }
+
+    try {
+      const endpoint = type === 'movie' ? `/movies/${traktId}/people` : `/shows/${traktId}/people`;
+      const response = await this.client.get(endpoint, {
+        params: { extended: 'full' }
+      });
+      const cast = (response.data.cast || []).map(person => ({
+        personId: person.person.ids.trakt,
+        name: person.person.name,
+        character: person.character,
+        headshot: person.person.images?.headshot ? `https://${person.person.images.headshot[0]}` : null,
+        tmdbId: person.person.ids.tmdb || null
+      }));
+      this.cache[cacheKey] = cast;
+      await this.saveCache();
+      return cast;
+    } catch (err) {
+      console.error(`Failed to fetch people for ${type} ${traktId}:`, err.message);
+      return [];
+    }
+  }
+
+  async getPersonDetails(personId) {
+    const cacheKey = `person_${personId}`;
+    if (this.cache[cacheKey]) {
+      return this.cache[cacheKey];
+    }
+
+    try {
+      const response = await this.client.get(`/people/${personId}`, {
+        params: { extended: 'full' }
+      });
+      const data = response.data;
+      const details = {
+        name: data.name,
+        biography: data.biography || null,
+        birthday: data.birthday || null,
+        death: data.death || null,
+        birthplace: data.birthplace || null,
+        homepage: data.homepage || null,
+        headshot: data.images?.headshot ? `https://${data.images.headshot[0]}` : null,
+        tmdbId: data.ids?.tmdb || null
+      };
+      this.cache[cacheKey] = details;
+      await this.saveCache();
+      return details;
+    } catch (err) {
+      console.error(`Failed to fetch person ${personId}:`, err.message);
+      return null;
+    }
+  }
+
+  async getPersonMovies(personId) {
+    const cacheKey = `person_movies_${personId}`;
+    if (this.cache[cacheKey] && this.cache[cacheKey].length > 0) {
+      return this.cache[cacheKey];
+    }
+
+    try {
+      const response = await this.client.get(`/people/${personId}/movies`);
+      const castData = response.data.cast || response.data;
+
+      const movies = [];
+      for (const m of castData) {
+        if (!m.movie || !m.movie.ids || !m.movie.ids.trakt) continue;
+
+        const traktId = m.movie.ids.trakt;
+        let details = this.cache[`movie_${traktId}`];
+        if (!details) {
+          try {
+            const res = await this.client.get(`/movies/${traktId}`, { params: { extended: 'full' } });
+            details = {
+              title: res.data.title,
+              year: res.data.year,
+              poster: res.data.images?.poster ? `https://${res.data.images.poster[0]}` : null,
+              released: res.data.released || null,
+              rating: res.data.rating || null
+            };
+            this.cache[`movie_${traktId}`] = details;
+          } catch {
+            details = { title: m.movie.title, year: m.movie.year, poster: null, released: null, rating: null };
+          }
+        }
+
+        movies.push({
+          title: details.title || m.movie.title,
+          year: details.year || m.movie.year,
+          traktId,
+          poster: details.poster,
+          character: m.character || null,
+          released: details.released,
+          rating: details.rating
+        });
+      }
+
+      if (movies.length > 0) {
+        this.cache[cacheKey] = movies;
+        await this.saveCache();
+      }
+      return movies;
+    } catch (err) {
+      console.error(`Failed to fetch movies for person ${personId}:`, err.message);
+      return [];
+    }
+  }
+
+  async getPersonShows(personId) {
+    const cacheKey = `person_shows_${personId}`;
+    if (this.cache[cacheKey] && this.cache[cacheKey].length > 0) {
+      return this.cache[cacheKey];
+    }
+
+    try {
+      const response = await this.client.get(`/people/${personId}/shows`);
+      const castData = response.data.cast || response.data;
+
+      const shows = [];
+      for (const s of castData) {
+        if (!s.show || !s.show.ids || !s.show.ids.trakt) continue;
+
+        const traktId = s.show.ids.trakt;
+        let details = this.cache[`show_${traktId}`];
+        if (!details) {
+          try {
+            const res = await this.client.get(`/shows/${traktId}`, { params: { extended: 'full' } });
+            details = {
+              title: res.data.title,
+              year: res.data.year,
+              poster: res.data.images?.poster ? `https://${res.data.images.poster[0]}` : null,
+              firstAired: res.data.first_aired || null,
+              rating: res.data.rating || null
+            };
+            this.cache[`show_${traktId}`] = details;
+          } catch {
+            details = { title: s.show.title, year: s.show.year, poster: null, firstAired: null, rating: null };
+          }
+        }
+
+        shows.push({
+          title: details.title || s.show.title,
+          year: details.year || s.show.year,
+          traktId,
+          poster: details.poster,
+          character: s.character || null,
+          firstAired: details.firstAired,
+          rating: details.rating
+        });
+      }
+
+      if (shows.length > 0) {
+        this.cache[cacheKey] = shows;
+        await this.saveCache();
+      }
+      return shows;
+    } catch (err) {
+      console.error(`Failed to fetch shows for person ${personId}:`, err.message);
+      return [];
+    }
+  }
 }
 
 module.exports = EnrichmentService;

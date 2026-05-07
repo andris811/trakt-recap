@@ -1,5 +1,83 @@
 [
   {
+    "id": "e-282764-2026-05-05T15:52:00.000Z",
+    "watchedAt": "2026-05-05T15:52:00.000Z",
+    "type": "episode",
+    "title": "S01E10 - Chapter 10: The Dark Lord",
+    "traktId": 282764,
+    "runtime": 25,
+    "genres": [
+      "animation",
+      "fantasy",
+      "science-fiction",
+      "action",
+      "adventure"
+    ],
+    "poster": "https://media.trakt.tv/images/shows/000/282/764/posters/medium/6c27400ec5.jpg.webp",
+    "showTitle": "Star Wars: Maul - Shadow Lord",
+    "season": 1,
+    "episode": 10,
+    "rating": 10
+  },
+  {
+    "id": "e-282764-2026-05-05T15:29:00.000Z",
+    "watchedAt": "2026-05-05T15:29:00.000Z",
+    "type": "episode",
+    "title": "S01E09 - Chapter 9: Strange Allies",
+    "traktId": 282764,
+    "runtime": 25,
+    "genres": [
+      "animation",
+      "fantasy",
+      "science-fiction",
+      "action",
+      "adventure"
+    ],
+    "poster": "https://media.trakt.tv/images/shows/000/282/764/posters/medium/6c27400ec5.jpg.webp",
+    "showTitle": "Star Wars: Maul - Shadow Lord",
+    "season": 1,
+    "episode": 9
+  },
+  {
+    "id": "e-282764-2026-05-05T15:26:00.000Z",
+    "watchedAt": "2026-05-05T15:26:00.000Z",
+    "type": "episode",
+    "title": "S01E08 - Chapter 8: The Creeping Fear",
+    "traktId": 282764,
+    "runtime": 25,
+    "genres": [
+      "animation",
+      "fantasy",
+      "science-fiction",
+      "action",
+      "adventure"
+    ],
+    "poster": "https://media.trakt.tv/images/shows/000/282/764/posters/medium/6c27400ec5.jpg.webp",
+    "showTitle": "Star Wars: Maul - Shadow Lord",
+    "season": 1,
+    "episode": 8
+  },
+  {
+    "id": "e-188205-2026-05-05T15:26:00.000Z",
+    "watchedAt": "2026-05-05T15:26:00.000Z",
+    "type": "episode",
+    "title": "S04E03 - Merrily We Go",
+    "traktId": 188205,
+    "runtime": 50,
+    "genres": [
+      "mystery",
+      "fantasy",
+      "science-fiction",
+      "suspense",
+      "horror",
+      "drama"
+    ],
+    "poster": "https://media.trakt.tv/images/shows/000/188/205/posters/medium/8275df28f8.jpg.webp",
+    "showTitle": "FROM",
+    "season": 4,
+    "episode": 3
+  },
+  {
     "id": "e-1611-2026-05-02T14:13:00.000Z",
     "watchedAt": "2026-05-02T14:13:00.000Z",
     "type": "episode",
@@ -8604,6 +8682,63 @@
     "showTitle": "Merlin",
     "season": 2,
     "episode": 2
+  },
+  {
+    "id": "e-170649-2025-05-14T01:51:00.000Z",
+    "watchedAt": "2025-05-14T01:51:00.000Z",
+    "type": "episode",
+    "title": "S02E10 - Make It Stop",
+    "traktId": 170649,
+    "runtime": 50,
+    "genres": [
+      "action",
+      "adventure",
+      "fantasy",
+      "science-fiction",
+      "drama"
+    ],
+    "poster": "https://media.trakt.tv/images/shows/000/170/649/posters/medium/39eb828a7a.jpg.webp",
+    "showTitle": "Star Wars: Andor",
+    "season": 2,
+    "episode": 10
+  },
+  {
+    "id": "e-170649-2025-05-14T01:49:00.000Z",
+    "watchedAt": "2025-05-14T01:49:00.000Z",
+    "type": "episode",
+    "title": "S02E12 - Jedha, Kyber, Erso",
+    "traktId": 170649,
+    "runtime": 50,
+    "genres": [
+      "action",
+      "adventure",
+      "fantasy",
+      "science-fiction",
+      "drama"
+    ],
+    "poster": "https://media.trakt.tv/images/shows/000/170/649/posters/medium/39eb828a7a.jpg.webp",
+    "showTitle": "Star Wars: Andor",
+    "season": 2,
+    "episode": 12
+  },
+  {
+    "id": "e-170649-2025-05-14T01:45:00.000Z",
+    "watchedAt": "2025-05-14T01:45:00.000Z",
+    "type": "episode",
+    "title": "S02E11 - Who Else Knows?",
+    "traktId": 170649,
+    "runtime": 50,
+    "genres": [
+      "action",
+      "adventure",
+      "fantasy",
+      "science-fiction",
+      "drama"
+    ],
+    "poster": "https://media.trakt.tv/images/shows/000/170/649/posters/medium/39eb828a7a.jpg.webp",
+    "showTitle": "Star Wars: Andor",
+    "season": 2,
+    "episode": 11
   },
   {
     "id": "e-7184-2025-05-12T14:07:00.000Z",
@@ -24856,8 +24991,7 @@
       "fantasy",
       "science-fiction",
       "action",
-      "adventure",
-      "drama"
+      "adventure"
     ],
     "poster": "https://media.trakt.tv/images/shows/000/169/967/posters/medium/af8ebda6c8.jpg.webp",
     "showTitle": "Obi-Wan Kenobi",
@@ -25054,8 +25188,7 @@
       "fantasy",
       "science-fiction",
       "action",
-      "adventure",
-      "drama"
+      "adventure"
     ],
     "poster": "https://media.trakt.tv/images/shows/000/169/967/posters/medium/af8ebda6c8.jpg.webp",
     "showTitle": "Obi-Wan Kenobi",
@@ -25073,8 +25206,7 @@
       "fantasy",
       "science-fiction",
       "action",
-      "adventure",
-      "drama"
+      "adventure"
     ],
     "poster": "https://media.trakt.tv/images/shows/000/169/967/posters/medium/af8ebda6c8.jpg.webp",
     "showTitle": "Obi-Wan Kenobi",
@@ -25092,8 +25224,7 @@
       "fantasy",
       "science-fiction",
       "action",
-      "adventure",
-      "drama"
+      "adventure"
     ],
     "poster": "https://media.trakt.tv/images/shows/000/169/967/posters/medium/af8ebda6c8.jpg.webp",
     "showTitle": "Obi-Wan Kenobi",
@@ -25111,8 +25242,7 @@
       "fantasy",
       "science-fiction",
       "action",
-      "adventure",
-      "drama"
+      "adventure"
     ],
     "poster": "https://media.trakt.tv/images/shows/000/169/967/posters/medium/af8ebda6c8.jpg.webp",
     "showTitle": "Obi-Wan Kenobi",
@@ -25130,8 +25260,7 @@
       "fantasy",
       "science-fiction",
       "action",
-      "adventure",
-      "drama"
+      "adventure"
     ],
     "poster": "https://media.trakt.tv/images/shows/000/169/967/posters/medium/af8ebda6c8.jpg.webp",
     "showTitle": "Obi-Wan Kenobi",

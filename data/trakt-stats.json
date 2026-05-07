@@ -10,7 +10,7 @@
   "shows": {
     "watched": 195,
     "collected": 13,
-    "ratings": 24,
+    "ratings": 27,
     "comments": 0
   },
   "seasons": {
@@ -18,11 +18,11 @@
     "comments": 0
   },
   "episodes": {
-    "plays": 6037,
-    "watched": 5641,
-    "minutes": 233771,
+    "plays": 6044,
+    "watched": 5647,
+    "minutes": 234045,
     "collected": 239,
-    "ratings": 103,
+    "ratings": 104,
     "comments": 0
   },
   "network": {
@@ -31,7 +31,7 @@
     "following": 2
   },
   "ratings": {
-    "total": 186,
+    "total": 190,
     "distribution": {
       "1": 4,
       "2": 4,
@@ -42,7 +42,7 @@
       "7": 8,
       "8": 30,
       "9": 45,
-      "10": 82
+      "10": 86
     }
   }
 }

@@ -11,6 +11,19 @@ app.use(express.json());
 app.use('/api/events', eventsRouter);
 app.use('/api/stats', statsRouter);
 
+app.use('/trakt-images', (req, res) => {
+  const imageUrl = 'https://media.trakt.tv' + req.path;
+  fetch(imageUrl)
+    .then(response => {
+      res.status(response.status);
+      response.headers.forEach((value, name) => {
+        res.setHeader(name, value);
+      });
+      response.body.pipe(res);
+    })
+    .catch(() => res.status(404).send('Image not found'));
+});
+
 app.get('/callback', (req, res) => {
   const code = req.query.code;
   res.send(`

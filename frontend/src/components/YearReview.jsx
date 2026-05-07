@@ -1,8 +1,16 @@
 import { useMemo, useState } from 'react';
 import { formatDuration } from '../utils';
 import YearListModal from './YearListModal';
+import GenreChart from './GenreChart';
 
-export default function YearReview({ events, onOpenSeries, onOpenEpisode }) {
+function formatDaysHours(totalHours) {
+  const days = Math.floor(totalHours / 24);
+  const hours = Math.round(totalHours % 24);
+  if (days === 0) return `${hours}h`;
+  return `${days}d ${hours}h`;
+}
+
+export default function YearReview({ events, onOpenSeries, onOpenEpisode, onGenreClick }) {
   const years = useMemo(() => {
     const yearSet = new Set();
     for (const e of events) {
@@ -18,19 +26,23 @@ export default function YearReview({ events, onOpenSeries, onOpenEpisode }) {
     const yearEvents = events.filter(e => new Date(e.watchedAt).getFullYear() === selectedYear);
     const movies = yearEvents.filter(e => e.type === 'movie');
     const episodes = yearEvents.filter(e => e.type === 'episode');
-    const totalMinutes = yearEvents.reduce((sum, e) => sum + (e.runtime || 0), 0);
+    const totalMinutes = yearEvents.reduce((sum, e) => sum + (e.runtime || 0),0);
     const totalHours = totalMinutes / 60;
 
     const showCounts = {};
+    const showPosters = {};
     for (const e of episodes) {
       if (e.showTitle) {
         showCounts[e.showTitle] = (showCounts[e.showTitle] || 0) + 1;
+        if (e.poster && !showPosters[e.showTitle]) {
+          showPosters[e.showTitle] = e.poster;
+        }
       }
     }
     const topShows = Object.entries(showCounts)
       .sort((a, b) => b[1] - a[1])
       .slice(0, 5)
-      .map(([title, count]) => ({ title, count }));
+      .map(([title, count]) => ({ title, count, poster: showPosters[title] }));
 
     const genreCounts = {};
     for (const e of yearEvents) {
@@ -38,12 +50,8 @@ export default function YearReview({ events, onOpenSeries, onOpenEpisode }) {
         genreCounts[g] = (genreCounts[g] || 0) + 1;
       }
     }
-    const topGenres = Object.entries(genreCounts)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 8)
-      .map(([genre, count]) => ({ genre, count }));
 
-    return { movies, episodes, totalHours, topShows, topGenres };
+    return { movies, episodes, totalHours, topShows, genreCounts };
   }, [events, selectedYear]);
 
   const handleItemClick = (item) => {
@@ -88,7 +96,7 @@ export default function YearReview({ events, onOpenSeries, onOpenEpisode }) {
         </button>
         <div className="bg-zinc-800/50 rounded-lg p-4">
           <div className="text-2xl font-bold text-white">{formatDuration(yearData.totalHours)}</div>
-          <div className="text-zinc-400 text-sm">Watch Time</div>
+          <div className="text-zinc-400 text-sm">Watch Time <span className="text-zinc-500">({formatDaysHours(yearData.totalHours)})</span></div>
         </div>
       </div>
 
@@ -99,11 +107,20 @@ export default function YearReview({ events, onOpenSeries, onOpenEpisode }) {
             {yearData.topShows.map((show, i) => (
               <button
                 key={show.title}
-                onClick={() => onOpenSeries({ type: 'episode', traktId: yearData.episodes.find(e => e.showTitle === show.title)?.traktId, title: show.title, poster: yearData.episodes.find(e => e.showTitle === show.title)?.poster, genres: [] })}
+                onClick={() => onOpenSeries({ type: 'episode', traktId: yearData.episodes.find(e => e.showTitle === show.title)?.traktId, title: show.title, poster: show.poster, genres: [] })}
                 className="w-full flex items-center justify-between p-2 rounded-lg hover:bg-zinc-800/50 transition-all cursor-pointer text-left"
               >
                 <div className="flex items-center gap-3">
                   <span className="text-zinc-500 text-sm w-5">{i + 1}</span>
+                  <div className="w-8 h-12 rounded overflow-hidden bg-zinc-700 shrink-0">
+                    {show.poster ? (
+                      <img src={show.poster} alt="" className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-zinc-400 text-xs font-bold">
+                        {show.title.charAt(0).toUpperCase()}
+                      </div>
+                    )}
+                  </div>
                   <span className="text-zinc-300 text-sm">{show.title}</span>
                 </div>
                 <span className="text-zinc-500 text-sm">{show.count} episodes</span>
@@ -113,16 +130,10 @@ export default function YearReview({ events, onOpenSeries, onOpenEpisode }) {
         </div>
       )}
 
-      {yearData.topGenres.length > 0 && (
+      {Object.keys(yearData.genreCounts).length > 0 && (
         <div>
           <h4 className="text-sm font-semibold text-zinc-300 uppercase tracking-wide mb-3">Top Genres</h4>
-          <div className="flex flex-wrap gap-2">
-            {yearData.topGenres.map(g => (
-              <span key={g.genre} className="px-3 py-1.5 rounded-full text-xs font-medium bg-zinc-800 text-zinc-300 capitalize">
-                {g.genre} ({g.count})
-              </span>
-            ))}
-          </div>
+          <GenreChart genreDistribution={yearData.genreCounts} onGenreClick={onGenreClick} />
         </div>
       )}
 
