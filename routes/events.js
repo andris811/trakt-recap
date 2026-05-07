@@ -111,6 +111,10 @@ async function loadTraktStats() {
 
 router.get('/sync', async (req, res) => {
   try {
+    if (!process.env.TRAKT_ACCESS_TOKEN) {
+      return res.status(400).json({ error: 'TRAKT_ACCESS_TOKEN not set. Complete OAuth flow via /callback first.' });
+    }
+    
     const [rawHistory, traktStats] = await Promise.all([
       traktService.fetchHistory(),
       traktService.fetchStats()
@@ -120,8 +124,8 @@ router.get('/sync', async (req, res) => {
     if (supabase) {
       // Save to Supabase
       await saveHistory(normalized);
-      if (trakStats) {
-        await supabase.from('trakt_stats').delete().neq('id', 0);
+      if (traktStats) {
+        await supabase.from('trakt_stats').delete().neq('id', '');
         await supabase.from('trakt_stats').insert({ stats: traktStats });
       }
     } else {
@@ -129,7 +133,7 @@ router.get('/sync', async (req, res) => {
       const DATA_DIR = path.join(__dirname, '..', 'data');
       await fs.mkdir(DATA_DIR, { recursive: true });
       await fs.writeFile(path.join(DATA_DIR, 'watch-history.json'), JSON.stringify(normalized, null, 2));
-      if (trakStats) {
+      if (traktStats) {
         await fs.writeFile(path.join(DATA_DIR, 'trakt-stats.json'), JSON.stringify(traktStats, null, 2));
       }
     }
@@ -141,7 +145,8 @@ router.get('/sync', async (req, res) => {
       .then(() => saveHistory(normalized))
       .catch(err => console.error('Background enrichment failed:', err.message));
   } catch (error) {
-    res.status(500).json({ error: 'Failed to sync history', details: error.message });
+    console.error('Sync error:', error.response?.data || error.message);
+    res.status(500).json({ error: 'Failed to sync history', details: error.message, traktError: error.response?.data });
   }
 });
 
