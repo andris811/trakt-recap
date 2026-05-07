@@ -15,11 +15,11 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "app.js"
+      "dest": "/app.js"
     },
     {
       "src": "/callback",
-      "dest": "app.js"
+      "dest": "/app.js"
     },
     {
       "handle": "filesystem"
