@@ -104,7 +104,7 @@ async function loadTraktStats() {
       .select('stats')
       .single();
     if (error && error.code !== 'PGRST116') throw error;
-    return data?.stats || null;
+    return (data && data.stats) || null;
   }
   return null;
 }

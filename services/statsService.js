@@ -177,7 +177,7 @@ function calculateStats(events, traktStats) {
     }
   }
 
-  const finalRatingsDistribution = traktStats?.ratings?.distribution || ratingsDistribution;
+  const finalRatingsDistribution = (traktStats && traktStats.ratings && traktStats.ratings.distribution) || ratingsDistribution;
 
   const timeline = [...events]
     .sort((a, b) => new Date(b.watchedAt) - new Date(a.watchedAt))

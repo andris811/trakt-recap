@@ -9,12 +9,12 @@ const BATCH_SIZE = 10;
 const BATCH_DELAY_MS = 500;
 
 function extractPoster(images) {
-  const posterImages = images?.poster;
+  const posterImages = images && images.poster;
   if (Array.isArray(posterImages) && posterImages.length > 0) {
     return `https://${posterImages[0]}`;
   }
-  if (posterImages?.full) return posterImages.full;
-  if (posterImages?.medium) return posterImages.medium;
+  if (posterImages && posterImages.full) return posterImages.full;
+  if (posterImages && posterImages.medium) return posterImages.medium;
   return null;
 }
 
@@ -30,7 +30,7 @@ function extractDetails(data, type) {
     year: data.year || null,
     traktRating: data.rating || null,
     traktVotes: data.votes || 0,
-    imdbId: data.ids?.imdb || null,
+    imdbId: (data.ids && data.ids.imdb) || null,
     commentCount: data.comment_count || 0
   };
 }
@@ -76,7 +76,6 @@ class EnrichmentService {
         key,
         value
       }));
-      // Upsert all entries
       const { error } = await supabase
         .from('content_cache')
         .upsert(entries, { onConflict: 'key' });
@@ -84,54 +83,6 @@ class EnrichmentService {
     } else {
       await fs.writeFile(CACHE_FILE, JSON.stringify(this.cache, null, 2), 'utf-8');
     }
-  }
-  if (posterImages?.full) return posterImages.full;
-  if (posterImages?.medium) return posterImages.medium;
-  return null;
-}
-
-function extractDetails(data, type) {
-  return {
-    runtime: data.runtime || 0,
-    genres: data.genres || [],
-    poster: extractPoster(data.images),
-    title: data.title,
-    overview: data.overview || null,
-    country: data.country || null,
-    released: type === 'movie' ? (data.released || null) : (data.first_aired || null),
-    year: data.year || null,
-    traktRating: data.rating || null,
-    traktVotes: data.votes || 0,
-    imdbId: data.ids?.imdb || null,
-    commentCount: data.comment_count || 0
-  };
-}
-
-class EnrichmentService {
-  constructor(clientId, accessToken) {
-    this.client = axios.create({
-      baseURL: TRAKT_API_URL,
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-        'trakt-api-key': clientId,
-        'trakt-api-version': '2',
-        'Content-Type': 'application/json'
-      }
-    });
-    this.cache = {};
-  }
-
-  async loadCache() {
-    try {
-      const content = await fs.readFile(CACHE_FILE, 'utf-8');
-      this.cache = JSON.parse(content);
-    } catch {
-      this.cache = {};
-    }
-  }
-
-  async saveCache() {
-    await fs.writeFile(CACHE_FILE, JSON.stringify(this.cache, null, 2), 'utf-8');
   }
 
   async fetchMovieDetails(traktId) {
@@ -274,7 +225,7 @@ class EnrichmentService {
         params: { extended: 'full' }
       });
       const data = response.data;
-      const screenshot = data.images?.screenshot;
+      const screenshot = data.images && data.images.screenshot;
       const details = {
         title: data.title,
         overview: data.overview || null,
@@ -282,7 +233,7 @@ class EnrichmentService {
         rating: data.rating || null,
         votes: data.votes || 0,
         firstAired: data.first_aired || null,
-        imdbId: data.ids?.imdb || null,
+        imdbId: (data.ids && data.ids.imdb) || null,
         commentCount: data.comment_count || 0,
         screenshot: screenshot && screenshot.length > 0 ? `https://${screenshot[0]}` : null
       };
@@ -325,9 +276,9 @@ class EnrichmentService {
         rating: ep.rating || null,
         votes: ep.votes || 0,
         firstAired: ep.first_aired || null,
-        imdbId: ep.ids?.imdb || null,
+        imdbId: (ep.ids && ep.ids.imdb) || null,
         commentCount: ep.comment_count || 0,
-        screenshot: ep.images?.screenshot?.[0] ? `https://${ep.images.screenshot[0]}` : null
+        screenshot: (ep.images && ep.images.screenshot && ep.images.screenshot[0]) ? `https://${ep.images.screenshot[0]}` : null
       }));
       this.cache[cacheKey] = episodes;
       await this.saveCache();
@@ -383,7 +334,7 @@ class EnrichmentService {
         personId: person.person.ids.trakt,
         name: person.person.name,
         character: person.character,
-        headshot: person.person.images?.headshot ? `https://${person.person.images.headshot[0]}` : null,
+        headshot: (person.person.images && person.person.images.headshot) ? `https://${person.person.images.headshot[0]}` : null,
         tmdbId: person.person.ids.tmdb || null
       }));
       this.cache[cacheKey] = cast;
@@ -413,8 +364,8 @@ class EnrichmentService {
         death: data.death || null,
         birthplace: data.birthplace || null,
         homepage: data.homepage || null,
-        headshot: data.images?.headshot ? `https://${data.images.headshot[0]}` : null,
-        tmdbId: data.ids?.tmdb || null
+        headshot: (data.images && data.images.headshot) ? `https://${data.images.headshot[0]}` : null,
+        tmdbId: (data.ids && data.ids.tmdb) || null
       };
       this.cache[cacheKey] = details;
       await this.saveCache();
@@ -444,14 +395,14 @@ class EnrichmentService {
         if (!details) {
           try {
             const res = await this.client.get(`/movies/${traktId}`, { params: { extended: 'full' } });
-            details = {
-              title: res.data.title,
-              year: res.data.year,
-              poster: res.data.images?.poster ? `https://${res.data.images.poster[0]}` : null,
-              released: res.data.released || null,
-              rating: res.data.rating || null
-            };
-            this.cache[`movie_${traktId}`] = details;
+             details = {
+               title: res.data.title,
+               year: res.data.year,
+               poster: (res.data.images && res.data.images.poster) ? `https://${res.data.images.poster[0]}` : null,
+               released: res.data.released || null,
+               rating: res.data.rating || null
+             };
+             this.cache[`movie_${traktId}`] = details;
           } catch {
             details = { title: m.movie.title, year: m.movie.year, poster: null, released: null, rating: null };
           }
@@ -498,14 +449,14 @@ class EnrichmentService {
         if (!details) {
           try {
             const res = await this.client.get(`/shows/${traktId}`, { params: { extended: 'full' } });
-            details = {
-              title: res.data.title,
-              year: res.data.year,
-              poster: res.data.images?.poster ? `https://${res.data.images.poster[0]}` : null,
-              firstAired: res.data.first_aired || null,
-              rating: res.data.rating || null
-            };
-            this.cache[`show_${traktId}`] = details;
+             details = {
+               title: res.data.title,
+               year: res.data.year,
+               poster: (res.data.images && res.data.images.poster) ? `https://${res.data.images.poster[0]}` : null,
+               firstAired: res.data.first_aired || null,
+               rating: res.data.rating || null
+             };
+             this.cache[`show_${traktId}`] = details;
           } catch {
             details = { title: s.show.title, year: s.show.year, poster: null, firstAired: null, rating: null };
           }
