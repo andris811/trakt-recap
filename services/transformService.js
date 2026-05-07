@@ -4,7 +4,7 @@ function normalizeHistory(rawHistory) {
     const media = isMovie ? item.movie : item.show;
 
     const event = {
-      id: `${isMovie ? 'm' : 'e'}-${media.ids.trakt}-${item.watched_at}`,
+      id: String(item.id),
       watchedAt: item.watched_at,
       type: isMovie ? 'movie' : 'episode',
       title: isMovie ? media.title : item.show.title,

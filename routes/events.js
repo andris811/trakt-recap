@@ -30,24 +30,41 @@ const ratingsService = new RatingsService(
 // Fallback to file storage if Supabase not configured
 async function saveHistory(data) {
   if (supabase) {
-    // Use upsert to handle duplicates
+    // Deduplicate by id
+    const seen = new Set();
+    const deduped = data.filter(item => {
+      if (seen.has(item.id)) return false;
+      seen.add(item.id);
+      return true;
+    });
+    
+    console.log(`Data: ${data.length} items, after dedup: ${deduped.length} items`);
+    
+    // Use upsert to handle any remaining duplicates
     const { error } = await supabase
       .from('watch_history')
-      .upsert(data.map(item => ({
-        id: item.id,
-        trakt_id: item.traktId,
-        type: item.type,
-        title: item.title,
-        show_title: item.showTitle,
-        season: item.season,
-        episode: item.episode,
-        runtime: item.runtime,
-        genres: item.genres,
-        poster: item.poster,
-        watched_at: item.watchedAt,
-        rating: item.rating
-      })), { onConflict: 'id' });
-    if (error) throw error;
+      .upsert(
+        deduped.map(item => ({
+          id: item.id,
+          trakt_id: item.traktId,
+          type: item.type,
+          title: item.title,
+          show_title: item.showTitle,
+          season: item.season,
+          episode: item.episode,
+          runtime: item.runtime,
+          genres: item.genres,
+          poster: item.poster,
+          watched_at: item.watchedAt,
+          rating: item.rating
+        })),
+        { onConflict: 'id', ignoreDuplicates: false }
+      );
+    
+    if (error) {
+      console.error('Upsert error:', error);
+      throw error;
+    }
   } else {
     // Fallback to file
     await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2), 'utf-8');
