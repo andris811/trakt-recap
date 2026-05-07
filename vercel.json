@@ -13,18 +13,18 @@
       "use": "@vercel/node"
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/(.*)",
-      "destination": "/app.js"
+      "src": "/api/(.*)",
+      "dest": "/app.js"
     },
     {
-      "source": "/callback",
-      "destination": "/app.js"
+      "src": "/callback",
+      "dest": "/app.js"
     },
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/(.*)",
+      "dest": "/frontend/dist/$1"
     }
   ]
 }
