@@ -11,14 +11,14 @@ const rl = readline.createInterface({
 
 const CLIENT_ID = process.env.TRAKT_CLIENT_ID;
 const CLIENT_SECRET = process.env.TRAKT_CLIENT_SECRET;
-const REDIRECT_URI = process.env.TRAKT_REDIRECT_URI || 'urn:ietf:wg:oauth:2.0:oob';
+const REDIRECT_URI = process.env.TRAKT_REDIRECT_URI;
 
 if (!CLIENT_ID || !CLIENT_SECRET) {
   console.error('Error: TRAKT_CLIENT_ID and TRAKT_CLIENT_SECRET must be set in .env');
   process.exit(1);
 }
 
-const authUrl = `https://trakt.tv/oauth/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}`;
+const authUrl = `https://trakt.tv/oauth/authorize?response_type=code&client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(process.env.TRAKT_REDIRECT_URI)}`;
 
 console.log('=== Trakt Access Token Generator ===\n');
 console.log('Opening Trakt authorization page in your browser...');
