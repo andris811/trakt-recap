@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "nodeVersion": "18.x",
   "builds": [
     {
       "src": "frontend/package.json",
