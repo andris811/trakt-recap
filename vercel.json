@@ -21,6 +21,10 @@
     {
       "source": "/callback",
       "destination": "/app.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
