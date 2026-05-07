@@ -145,7 +145,7 @@ router.get('/sync', async (req, res) => {
     if (supabase) {
       // Save to Supabase
       await saveHistory(normalized);
-      if (trakStats) {
+      if (traktStats) {
         await supabase.from('trakt_stats').delete().neq('id', '');
         await supabase.from('trakt_stats').insert({ stats: traktStats });
       }
@@ -154,8 +154,8 @@ router.get('/sync', async (req, res) => {
       const DATA_DIR = path.join(__dirname, '..', 'data');
       await fs.mkdir(DATA_DIR, { recursive: true });
       await fs.writeFile(path.join(DATA_DIR, 'watch-history.json'), JSON.stringify(normalized, null, 2));
-      if (trakStats) {
-        await fs.writeFile(path.join(DATA_DIR, 'trakt-stats.json'), JSON.stringify(trakStats, null, 2));
+      if (traktStats) {
+        await fs.writeFile(path.join(DATA_DIR, 'trakt-stats.json'), JSON.stringify(traktStats, null, 2));
       }
     }
     
