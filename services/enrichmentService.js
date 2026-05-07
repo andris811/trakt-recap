@@ -1,6 +1,7 @@
 const axios = require('axios');
 const fs = require('fs').promises;
 const path = require('path');
+const supabase = require('./supabaseClient');
 
 const TRAKT_API_URL = 'https://api.trakt.tv';
 const CACHE_FILE = path.join(__dirname, '..', 'data', 'content-cache.json');
@@ -11,6 +12,78 @@ function extractPoster(images) {
   const posterImages = images?.poster;
   if (Array.isArray(posterImages) && posterImages.length > 0) {
     return `https://${posterImages[0]}`;
+  }
+  if (posterImages?.full) return posterImages.full;
+  if (posterImages?.medium) return posterImages.medium;
+  return null;
+}
+
+function extractDetails(data, type) {
+  return {
+    runtime: data.runtime || 0,
+    genres: data.genres || [],
+    poster: extractPoster(data.images),
+    title: data.title,
+    overview: data.overview || null,
+    country: data.country || null,
+    released: type === 'movie' ? (data.released || null) : (data.first_aired || null),
+    year: data.year || null,
+    traktRating: data.rating || null,
+    traktVotes: data.votes || 0,
+    imdbId: data.ids?.imdb || null,
+    commentCount: data.comment_count || 0
+  };
+}
+
+class EnrichmentService {
+  constructor(clientId, accessToken) {
+    this.client = axios.create({
+      baseURL: TRAKT_API_URL,
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'trakt-api-key': clientId,
+        'trakt-api-version': '2',
+        'Content-Type': 'application/json'
+      }
+    });
+    this.cache = {};
+  }
+
+  async loadCache() {
+    if (supabase) {
+      const { data, error } = await supabase
+        .from('content_cache')
+        .select('key, value');
+      if (!error && data) {
+        this.cache = {};
+        for (const item of data) {
+          this.cache[item.key] = item.value;
+        }
+      }
+    } else {
+      try {
+        const content = await fs.readFile(CACHE_FILE, 'utf-8');
+        this.cache = JSON.parse(content);
+      } catch {
+        this.cache = {};
+      }
+    }
+  }
+
+  async saveCache() {
+    if (supabase) {
+      const entries = Object.entries(this.cache).map(([key, value]) => ({
+        key,
+        value
+      }));
+      // Upsert all entries
+      const { error } = await supabase
+        .from('content_cache')
+        .upsert(entries, { onConflict: 'key' });
+      if (error) console.error('Failed to save cache to Supabase:', error.message);
+    } else {
+      await fs.writeFile(CACHE_FILE, JSON.stringify(this.cache, null, 2), 'utf-8');
+    }
   }
   if (posterImages?.full) return posterImages.full;
   if (posterImages?.medium) return posterImages.medium;

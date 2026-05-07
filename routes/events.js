@@ -5,12 +5,12 @@ const TraktService = require('../services/traktService');
 const EnrichmentService = require('../services/enrichmentService');
 const RatingsService = require('../services/ratingsService');
 const { normalizeHistory } = require('../services/transformService');
+const supabase = require('../services/supabaseClient');
 
 const router = express.Router();
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const DATA_FILE = path.join(DATA_DIR, 'watch-history.json');
-const STATS_FILE = path.join(DATA_DIR, 'trakt-stats.json');
 
 const traktService = new TraktService(
   process.env.TRAKT_CLIENT_ID,
@@ -27,40 +27,86 @@ const ratingsService = new RatingsService(
   process.env.TRAKT_ACCESS_TOKEN
 );
 
-async function ensureDataDir() {
-  try {
-    await fs.access(DATA_DIR);
-  } catch {
-    await fs.mkdir(DATA_DIR, { recursive: true });
+// Fallback to file storage if Supabase not configured
+async function saveHistory(data) {
+  if (supabase) {
+    // Delete existing and insert new
+    await supabase.from('watch_history').delete().neq('id', '');
+    const { error } = await supabase
+      .from('watch_history')
+      .insert(data.map(item => ({
+        id: item.id,
+        trakt_id: item.traktId,
+        type: item.type,
+        title: item.title,
+        show_title: item.showTitle,
+        season: item.season,
+        episode: item.episode,
+        runtime: item.runtime,
+        genres: item.genres,
+        poster: item.poster,
+        watched_at: item.watchedAt,
+        rating: item.rating
+      })));
+    if (error) throw error;
+  } else {
+    // Fallback to file
+    await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2), 'utf-8');
   }
 }
 
-async function saveHistory(data) {
-  await ensureDataDir();
-  await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2), 'utf-8');
-}
-
 async function loadHistory() {
-  try {
-    const content = await fs.readFile(DATA_FILE, 'utf-8');
-    return JSON.parse(content);
-  } catch {
-    return [];
+  if (supabase) {
+    const { data, error } = await supabase
+      .from('watch_history')
+      .select('*')
+      .order('watched_at', { ascending: false });
+    if (error) throw error;
+    return data.map(item => ({
+      id: item.id,
+      traktId: item.trakt_id,
+      type: item.type,
+      title: item.title,
+      showTitle: item.show_title,
+      season: item.season,
+      episode: item.episode,
+      runtime: item.runtime,
+      genres: item.genres,
+      poster: item.poster,
+      watchedAt: item.watched_at,
+      rating: item.rating
+    }));
+  } else {
+    // Fallback to file
+    try {
+      const content = await fs.readFile(DATA_FILE, 'utf-8');
+      return JSON.parse(content);
+    } catch {
+      return [];
+    }
   }
 }
 
 async function saveTraktStats(data) {
-  await ensureDataDir();
-  await fs.writeFile(STATS_FILE, JSON.stringify(data, null, 2), 'utf-8');
+  if (supabase) {
+    await supabase.from('trakt_stats').delete().neq('id', '');
+    const { error } = await supabase
+      .from('trakt_stats')
+      .insert({ stats: data });
+    if (error) throw error;
+  }
 }
 
 async function loadTraktStats() {
-  try {
-    const content = await fs.readFile(STATS_FILE, 'utf-8');
-    return JSON.parse(content);
-  } catch {
-    return null;
+  if (supabase) {
+    const { data, error } = await supabase
+      .from('trakt_stats')
+      .select('stats')
+      .single();
+    if (error && error.code !== 'PGRST116') throw error;
+    return data?.stats || null;
   }
+  return null;
 }
 
 router.get('/sync', async (req, res) => {
@@ -70,9 +116,24 @@ router.get('/sync', async (req, res) => {
       traktService.fetchStats()
     ]);
     const normalized = normalizeHistory(rawHistory);
-    await saveHistory(normalized);
-    await saveTraktStats(traktStats);
-
+    
+    if (supabase) {
+      // Save to Supabase
+      await saveHistory(normalized);
+      if (trakStats) {
+        await supabase.from('trakt_stats').delete().neq('id', 0);
+        await supabase.from('trakt_stats').insert({ stats: traktStats });
+      }
+    } else {
+      // Fallback to file
+      const DATA_DIR = path.join(__dirname, '..', 'data');
+      await fs.mkdir(DATA_DIR, { recursive: true });
+      await fs.writeFile(path.join(DATA_DIR, 'watch-history.json'), JSON.stringify(normalized, null, 2));
+      if (trakStats) {
+        await fs.writeFile(path.join(DATA_DIR, 'trakt-stats.json'), JSON.stringify(traktStats, null, 2));
+      }
+    }
+    
     res.json({ count: normalized.length, message: 'Sync complete. Enrichment running in background.' });
 
     enrichmentService.enrichEvents(normalized)
