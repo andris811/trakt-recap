@@ -40,30 +40,35 @@ async function saveHistory(data) {
     
     console.log(`Data: ${data.length} items, after dedup: ${deduped.length} items`);
     
-    // Use upsert to handle any remaining duplicates
-    const { error } = await supabase
-      .from('watch_history')
-      .upsert(
-        deduped.map(item => ({
-          id: item.id,
-          trakt_id: item.traktId,
-          type: item.type,
-          title: item.title,
-          show_title: item.showTitle,
-          season: item.season,
-          episode: item.episode,
-          runtime: item.runtime,
-          genres: item.genres,
-          poster: item.poster,
-          watched_at: item.watchedAt,
-          rating: item.rating
-        })),
-        { onConflict: 'id', ignoreDuplicates: false }
-      );
-    
-    if (error) {
-      console.error('Upsert error:', error);
-      throw error;
+    try {
+      // Try to use upsert
+      const { error } = await supabase
+        .from('watch_history')
+        .upsert(
+          deduped.map(item => ({
+            id: item.id,
+            trakt_id: item.traktId,
+            type: item.type,
+            title: item.title,
+            show_title: item.showTitle,
+            season: item.season,
+            episode: item.episode,
+            runtime: item.runtime,
+            genres: item.genres,
+            poster: item.poster,
+            watched_at: item.watchedAt,
+            rating: item.rating
+          })),
+          { onConflict: 'id', ignoreDuplicates: false }
+        );
+      
+      if (error) {
+        console.error('Upsert error:', error);
+        throw error;
+      }
+    } catch (err) {
+      console.error('Failed to save to Supabase:', err.message);
+      throw err;
     }
   } else {
     // Fallback to file
