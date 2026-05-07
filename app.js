@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const path = require('path');
 const eventsRouter = require('./routes/events');
 const statsRouter = require('./routes/stats');
 
@@ -8,6 +9,10 @@ const app = express();
 app.use(express.json());
 app.use('/api/events', eventsRouter);
 app.use('/api/stats', statsRouter);
+
+// Serve frontend static files
+const frontendDist = path.join(__dirname, 'frontend', 'dist');
+app.use(express.static(frontendDist));
 
 app.get('/callback', async (req, res) => {
   const code = req.query.code;
@@ -47,6 +52,11 @@ app.get('/callback', async (req, res) => {
       </html>
     `);
   }
+});
+
+// SPA catch-all - serve index.html for all other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(frontendDist, 'index.html'));
 });
 
 // Export for Vercel serverless

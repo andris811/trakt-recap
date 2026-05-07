@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "node --watch app.js",
-    "build": "cd frontend && npm install && npm run build"
+    "build": "cd frontend && npm install && npm run build",
+    "vercel-build": "cd frontend && npm install && npm run build"
   },
   "engines": {
     "node": ">=18"
