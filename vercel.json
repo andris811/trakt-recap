@@ -2,6 +2,10 @@
   "version": 2,
   "builds": [
     {
+      "src": "app.js",
+      "use": "@vercel/node"
+    },
+    {
       "src": "frontend/package.json",
       "use": "@vercel/static-build",
       "config": {
@@ -9,14 +13,18 @@
       }
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/(.*)",
-      "destination": "/app.js"
+      "src": "/api/(.*)",
+      "dest": "/app.js"
     },
     {
-      "source": "/callback",
-      "destination": "/app.js"
+      "src": "/callback",
+      "dest": "/app.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/dist/$1"
     }
   ]
 }
