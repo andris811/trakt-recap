@@ -145,7 +145,7 @@ router.get('/sync', async (req, res) => {
     if (supabase) {
       // Save to Supabase
       await saveHistory(normalized);
-      if (traktStats) {
+      if (trakStats) {
         await supabase.from('trakt_stats').delete().neq('id', '');
         await supabase.from('trakt_stats').insert({ stats: traktStats });
       }
@@ -154,17 +154,22 @@ router.get('/sync', async (req, res) => {
       const DATA_DIR = path.join(__dirname, '..', 'data');
       await fs.mkdir(DATA_DIR, { recursive: true });
       await fs.writeFile(path.join(DATA_DIR, 'watch-history.json'), JSON.stringify(normalized, null, 2));
-      if (traktStats) {
-        await fs.writeFile(path.join(DATA_DIR, 'trakt-stats.json'), JSON.stringify(traktStats, null, 2));
+      if (trakStats) {
+        await fs.writeFile(path.join(DATA_DIR, 'trakt-stats.json'), JSON.stringify(trakStats, null, 2));
       }
     }
     
-    res.json({ count: normalized.length, message: 'Sync complete. Enrichment running in background.' });
-
-    enrichmentService.enrichEvents(normalized)
-      .then(() => ratingsService.syncAndApply(normalized))
-      .then(() => saveHistory(normalized))
-      .catch(err => console.error('Background enrichment failed:', err.message));
+    // Wait for enrichment to complete (important for Vercel serverless)
+    try {
+      const enrichmentResult = await enrichmentService.enrichEvents(normalized);
+      console.log('Enrichment complete:', enrichmentResult);
+      await ratingsService.syncAndApply(normalized);
+      await saveHistory(normalized);
+    } catch (enrichError) {
+      console.error('Enrichment failed:', enrichError.message);
+    }
+    
+    res.json({ count: normalized.length, message: 'Sync complete.' });
   } catch (error) {
     console.error('Sync error:', error.response?.data || error.message);
     res.status(500).json({ error: 'Failed to sync history', details: error.message, traktError: error.response?.data });
