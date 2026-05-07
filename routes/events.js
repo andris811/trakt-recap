@@ -30,11 +30,10 @@ const ratingsService = new RatingsService(
 // Fallback to file storage if Supabase not configured
 async function saveHistory(data) {
   if (supabase) {
-    // Delete existing and insert new
-    await supabase.from('watch_history').delete().neq('id', '');
+    // Use upsert to handle duplicates
     const { error } = await supabase
       .from('watch_history')
-      .insert(data.map(item => ({
+      .upsert(data.map(item => ({
         id: item.id,
         trakt_id: item.traktId,
         type: item.type,
@@ -47,7 +46,7 @@ async function saveHistory(data) {
         poster: item.poster,
         watched_at: item.watchedAt,
         rating: item.rating
-      })));
+      })), { onConflict: 'id' });
     if (error) throw error;
   } else {
     // Fallback to file
