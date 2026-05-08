@@ -83,8 +83,13 @@ router.get('/', async (req, res) => {
       loadTraktStats()
     ]);
     console.log(`Calculating stats for ${events.length} events`);
+    console.log('Trakt stats loaded:', !!traktStats);
+    if (traktStats) {
+      console.log('Trakt stats ratings:', JSON.stringify(traktStats.ratings));
+    }
     const stats = calculateStats(events, traktStats);
     console.log('Stats calculated:', JSON.stringify(stats.coreStats));
+    console.log('Ratings distribution:', JSON.stringify(stats.personalBehavior.ratingsDistribution));
     res.json(stats);
   } catch (error) {
     console.error('Stats error:', error.message);

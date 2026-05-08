@@ -68,6 +68,7 @@ class RatingsService {
   }
 
   async fetchRatings() {
+    console.log('Fetching ratings from Trakt...');
     let allRatings = [];
     let page = 1;
     const perPage = 100;
@@ -79,24 +80,33 @@ class RatingsService {
       const data = response.data;
       if (!data || data.length === 0) break;
       allRatings = allRatings.concat(data);
+      console.log(`Page ${page}: Fetched ${data.length} ratings, total: ${allRatings.length}`);
       if (data.length < perPage) break;
       page++;
     }
 
+    console.log(`Total ratings fetched from Trakt: ${allRatings.length}`);
     this.ratingsMap = {};
+    let movieCount = 0, showCount = 0, episodeCount = 0;
 
     for (const item of allRatings) {
       if (item.movie) {
         this.ratingsMap[`movie_${item.movie.ids.trakt}`] = item.rating;
+        movieCount++;
       } else if (item.show && !item.episode) {
         this.ratingsMap[`show_${item.show.ids.trakt}`] = item.rating;
+        showCount++;
       } else if (item.episode) {
         const showId = item.show && item.show.ids && item.show.ids.trakt;
         if (showId !== undefined && item.episode.season !== undefined && item.episode.number !== undefined) {
           this.ratingsMap[`episode_${showId}_${item.episode.season}_${item.episode.number}`] = item.rating;
+          episodeCount++;
         }
       }
     }
+
+    console.log(`Ratings parsed: ${movieCount} movies, ${showCount} shows, ${episodeCount} episodes`);
+    console.log(`Total entries in ratingsMap: ${Object.keys(this.ratingsMap).length}`);
 
     await this.saveCache();
     return this.ratingsMap;
@@ -118,12 +128,15 @@ class RatingsService {
       }
     }
 
+    let movieApplied = 0, episodeApplied = 0;
+
     for (const event of events) {
       if (event.type === 'movie') {
         const key = `movie_${event.traktId}`;
         if (this.ratingsMap[key] !== undefined) {
           event.rating = this.ratingsMap[key];
           applied++;
+          movieApplied++;
         }
       } else if (event.type === 'episode' && event.season !== undefined && event.episode !== undefined) {
         // Try episode-specific rating first
@@ -131,14 +144,17 @@ class RatingsService {
         if (this.ratingsMap[epKey] !== undefined) {
           event.rating = this.ratingsMap[epKey];
           applied++;
+          episodeApplied++;
         } else if (showRatings[event.traktId] !== undefined) {
           // Fall back to show rating
           event.rating = showRatings[event.traktId];
           applied++;
+          episodeApplied++;
         }
       }
     }
 
+    console.log(`Applied ${applied} ratings: ${movieApplied} movies, ${episodeApplied} episodes`);
     return applied;
   }
 
