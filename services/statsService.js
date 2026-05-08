@@ -130,10 +130,21 @@ function calculateStats(events, traktStats) {
     maxBingeLength = currentBingeMinutes;
   }
 
+  // Use Trakt's official stats for total watch time (most accurate)
   if (traktStats) {
     coreStats.totalMovies = traktStats.movies.plays;
     coreStats.totalEpisodes = traktStats.episodes.plays;
     coreStats.totalWatchTimeMinutes = traktStats.movies.minutes + traktStats.episodes.minutes;
+  } else {
+    // Fallback: calculate from events (only works if runtime is populated)
+    for (const event of events) {
+      if (event.type === 'movie') {
+        coreStats.totalMovies++;
+      } else {
+        coreStats.totalEpisodes++;
+      }
+      coreStats.totalWatchTimeMinutes += event.runtime || 0;
+    }
   }
 
   coreStats.totalWatchTimeHours = Math.round((coreStats.totalWatchTimeMinutes / 60) * 100) / 100;
