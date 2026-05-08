@@ -1,6 +1,5 @@
 const express = require('express');
 const axios = require('axios');
-const path = require('path');
 const eventsRouter = require('./routes/events');
 const statsRouter = require('./routes/stats');
 
@@ -41,10 +40,7 @@ app.use('/trakt-images', async (req, res) => {
   }
 });
 
-// Serve frontend static files
-const frontendDist = path.join(__dirname, 'frontend', 'dist');
-app.use(express.static(frontendDist));
-
+// Callback route
 app.get('/callback', async (req, res) => {
   const code = req.query.code;
   
@@ -85,10 +81,4 @@ app.get('/callback', async (req, res) => {
   }
 });
 
-// SPA catch-all - serve index.html for all other routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(frontendDist, 'index.html'));
-});
-
-// Export for Vercel serverless
-module.exports = app;
+// Callback route
