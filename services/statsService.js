@@ -66,7 +66,12 @@ function calculateStats(events, traktStats) {
     }
 
     if (event.rating != null) {
-      ratingsDistribution[String(event.rating)] = (ratingsDistribution[String(event.rating)] || 0) + 1;
+      // Count rating only once per unique content (avoid duplicates from re-watches)
+      const contentKey = `${event.type}_${event.traktId}_${event.season || ''}_${event.episode || ''}`;
+      if (!ratedContent.has(contentKey)) {
+        ratedContent.add(contentKey);
+        ratingsDistribution[String(event.rating)] = (ratingsDistribution[String(event.rating)] || 0) + 1;
+      }
     }
 
     const rewatchKey = `${event.type}-${event.traktId}`;
@@ -181,7 +186,8 @@ function calculateStats(events, traktStats) {
     }
   }
 
-  const finalRatingsDistribution = (traktStats && traktStats.ratings && traktStats.ratings.distribution) || ratingsDistribution;
+  // Use personal ratings from events, not Trakt's overall stats
+  const finalRatingsDistribution = ratingsDistribution;
 
   const timeline = [...events]
     .sort((a, b) => new Date(b.watchedAt) - new Date(a.watchedAt))
