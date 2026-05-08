@@ -61,7 +61,7 @@ function calculateStats(events, traktStats) {
       yearlyBreakdown[year].episodes++;
     }
 
-    for (const genre of event.genres) {
+    for (const genre of (event.genres || [])) {
       genreDistribution[genre] = (genreDistribution[genre] || 0) + 1;
     }
 

@@ -26,7 +26,7 @@ class TraktService {
       try {
         const response = await this.client.get('/users/me/history', {
           params: {
-            limit: perPage,
+            per_page: perPage,
             page: page
           }
         });

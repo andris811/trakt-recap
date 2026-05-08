@@ -1,9 +1,8 @@
 const axios = require('axios');
-const fs = require('fs').promises;
-const path = require('path');
+const supabase = require('./supabaseClient');
 
 const TRAKT_API_URL = 'https://api.trakt.tv';
-const CACHE_FILE = path.join(__dirname, '..', 'data', 'ratings-cache.json');
+const CACHE_KEY = 'ratings_map';
 
 class RatingsService {
   constructor(clientId, accessToken) {
@@ -20,7 +19,24 @@ class RatingsService {
   }
 
   async loadCache() {
+    if (supabase) {
+      const { data, error } = await supabase
+        .from('content_cache')
+        .select('value')
+        .eq('key', CACHE_KEY)
+        .single();
+      
+      if (!error && data) {
+        this.ratingsMap = data.value || {};
+        return;
+      }
+    }
+    
+    // Fallback to file (for local development)
     try {
+      const fs = require('fs').promises;
+      const path = require('path');
+      const CACHE_FILE = path.join(__dirname, '..', 'data', 'ratings-cache.json');
       const content = await fs.readFile(CACHE_FILE, 'utf-8');
       this.ratingsMap = JSON.parse(content);
     } catch {
@@ -29,17 +45,36 @@ class RatingsService {
   }
 
   async saveCache() {
-    await fs.writeFile(CACHE_FILE, JSON.stringify(this.ratingsMap, null, 2), 'utf-8');
+    if (supabase) {
+      const { error } = await supabase
+        .from('content_cache')
+        .upsert({ key: CACHE_KEY, value: this.ratingsMap }, { onConflict: 'key' });
+      
+      if (error) {
+        console.error('Failed to save ratings cache to Supabase:', error.message);
+      }
+      return;
+    }
+    
+    // Fallback to file (for local development)
+    try {
+      const fs = require('fs').promises;
+      const path = require('path');
+      const CACHE_FILE = path.join(__dirname, '..', 'data', 'ratings-cache.json');
+      await fs.writeFile(CACHE_FILE, JSON.stringify(this.ratingsMap, null, 2), 'utf-8');
+    } catch (err) {
+      console.error('Failed to save ratings cache to file:', err.message);
+    }
   }
 
   async fetchRatings() {
     let allRatings = [];
     let page = 1;
-    const perPage = 1000;
+    const perPage = 100;
 
     while (true) {
       const response = await this.client.get('/sync/ratings', {
-        params: { limit: perPage, page }
+        params: { per_page: perPage, page }
       });
       const data = response.data;
       if (!data || data.length === 0) break;
