@@ -123,7 +123,7 @@ class EnrichmentService {
     }
   }
 
-  async enrichEvents(events, saveCallback) {
+  async enrichEvents(events, saveCallback, maxItems) {
     await this.loadCache();
 
     const uniqueItems = new Map();
@@ -146,8 +146,11 @@ class EnrichmentService {
 
     console.log(`Enrichment: ${totalMissing} items need enrichment out of ${uniqueItems.size} unique items`);
 
-    for (let i = 0; i < missing.length; i += BATCH_SIZE) {
-      const batch = missing.slice(i, i + BATCH_SIZE);
+    const batchSize = maxItems || BATCH_SIZE;
+    let enriched = 0;
+    
+    for (let i = 0; i < missing.length; i += batchSize) {
+      const batch = missing.slice(i, i + batchSize);
       await Promise.all(batch.map(async (item) => {
         const details = item.type === 'movie'
           ? await this.fetchMovieDetails(item.traktId)
@@ -166,7 +169,15 @@ class EnrichmentService {
         };
       }
 
-      if (i + BATCH_SIZE < missing.length) {
+      enriched += batch.length;
+      console.log(`Enriched ${enriched}/${totalMissing} items`);
+
+      // Save cache periodically
+      if (enriched % 50 === 0) {
+        await this.saveCache();
+      }
+
+      if (i + batchSize < missing.length) {
         await new Promise(r => setTimeout(r, BATCH_DELAY_MS));
       }
     }

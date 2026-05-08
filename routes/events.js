@@ -78,12 +78,35 @@ async function saveHistory(data) {
 
 async function loadHistory() {
   if (supabase) {
-    const { data, error } = await supabase
-      .from('watch_history')
-      .select('*')
-      .order('watched_at', { ascending: false });
-    if (error) throw error;
-    return data.map(item => ({
+    console.log('Loading history from Supabase (events)...');
+    let allData = [];
+    let page = 0;
+    const pageSize = 1000;
+    
+    while (true) {
+      const { data, error } = await supabase
+        .from('watch_history')
+        .select('*')
+        .order('watched_at', { ascending: false })
+        .range(page * pageSize, (page + 1) * pageSize - 1);
+      
+      if (error) {
+        console.error('Supabase select error:', error);
+        throw error;
+      }
+      
+      if (!data || data.length === 0) break;
+      
+      allData = allData.concat(data);
+      console.log(`Loaded ${data.length} items, total: ${allData.length}`);
+      
+      if (data.length < pageSize) break;
+      page++;
+    }
+    
+    console.log(`Loaded ${allData.length} items from Supabase`);
+    
+    return allData.map(item => ({
       id: item.id,
       traktId: item.trakt_id,
       type: item.type,
@@ -132,6 +155,9 @@ async function loadTraktStats() {
 
 router.get('/sync', async (req, res) => {
   try {
+    // Prevent caching
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    
     if (!process.env.TRAKT_ACCESS_TOKEN) {
       return res.status(400).json({ error: 'TRAKT_ACCESS_TOKEN not set. Complete OAuth flow via /callback first.' });
     }
@@ -161,16 +187,31 @@ router.get('/sync', async (req, res) => {
       }
     }
     
-    res.json({ count: normalized.length, message: 'Sync complete. Enrichment running in background.' });
-
-    // Run enrichment in background with save callback
-    enrichmentService.enrichEvents(normalized, async (events) => {
-      console.log('Save callback called, saving enriched data to Supabase...');
-      await saveHistory(events);
-    })
-      .then(() => ratingsService.syncAndApply(normalized))
-      .then(() => saveHistory(normalized))
-      .catch(err => console.error('Background enrichment failed:', err.message));
+    // Wait for enrichment to complete (limit to 100 items to avoid Vercel timeout)
+    try {
+      const enrichmentResult = await enrichmentService.enrichEvents(normalized, async (events) => {
+        console.log('Saving enriched data to Supabase...');
+        await saveHistory(events);
+      }, 100); // Only enrich 100 items per request
+      
+      console.log('Enrichment complete:', enrichmentResult);
+      await ratingsService.syncAndApply(normalized);
+      await saveHistory(normalized);
+      
+      res.json({ 
+        count: normalized.length, 
+        message: 'Sync complete.', 
+        enrichment: enrichmentResult 
+      });
+    } catch (enrichError) {
+      console.error('Enrichment failed:', enrichError.message);
+      // Still return success for sync, but mention enrichment issue
+      res.json({ 
+        count: normalized.length, 
+        message: 'Sync complete. Enrichment partially failed.', 
+        enrichmentError: enrichError.message 
+      });
+    }
   } catch (error) {
     console.error('Sync error:', error.response?.data || error.message);
     res.status(500).json({ error: 'Failed to sync history', details: error.message, traktError: error.response?.data });

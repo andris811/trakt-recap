@@ -15,17 +15,37 @@ const traktService = new TraktService(
 async function loadHistory() {
   if (supabase) {
     console.log('Loading history from Supabase...');
-    const { data, error } = await supabase
-      .from('watch_history')
-      .select('*')
-      .order('watched_at', { ascending: false });
-    if (error) {
-      console.error('Supabase select error:', error);
-      throw error;
+    let allData = [];
+    let page = 0;
+    const pageSize = 1000;
+    
+    while (true) {
+      const { data, error } = await supabase
+        .from('watch_history')
+        .select('*')
+        .order('watched_at', { ascending: false })
+        .range(page * pageSize, (page + 1) * pageSize - 1);
+      
+      if (error) {
+        console.error('Supabase select error:', error);
+        throw error;
+      }
+      
+      if (!data || data.length === 0) break;
+      
+      allData = allData.concat(data);
+      console.log(`Loaded ${data.length} items, total: ${allData.length}`);
+      
+      if (data.length < pageSize) break;
+      page++;
     }
-    console.log(`Loaded ${data.length} items from Supabase`);
-    console.log('First item sample:', data[0]);
-    return data.map(item => ({
+    
+    console.log(`Loaded ${allData.length} items from Supabase`);
+    if (allData.length > 0) {
+      console.log('First item sample:', allData[0]);
+    }
+    
+    return allData.map(item => ({
       id: item.id,
       traktId: item.trakt_id,
       type: item.type,
