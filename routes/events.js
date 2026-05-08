@@ -187,31 +187,17 @@ router.get('/sync', async (req, res) => {
       }
     }
     
-    // Wait for enrichment to complete (limit to 100 items to avoid Vercel timeout)
-    try {
-      const enrichmentResult = await enrichmentService.enrichEvents(normalized, async (events) => {
-        console.log('Saving enriched data to Supabase...');
-        await saveHistory(events);
-      }, 100); // Only enrich 100 items per request
-      
-      console.log('Enrichment complete:', enrichmentResult);
-      await ratingsService.syncAndApply(normalized);
-      await saveHistory(normalized);
-      
-      res.json({ 
-        count: normalized.length, 
-        message: 'Sync complete.', 
-        enrichment: enrichmentResult 
-      });
-    } catch (enrichError) {
-      console.error('Enrichment failed:', enrichError.message);
-      // Still return success for sync, but mention enrichment issue
-      res.json({ 
-        count: normalized.length, 
-        message: 'Sync complete. Enrichment partially failed.', 
-        enrichmentError: enrichError.message 
-      });
-    }
+    // Don't wait for enrichment - just save the data and return immediately
+    res.json({ count: normalized.length, message: 'Sync complete. Enrichment will run in background.' });
+
+    // Run enrichment in background (don't wait for it)
+    enrichmentService.enrichEvents(normalized, async (events) => {
+      console.log('Saving enriched data to Supabase...');
+      await saveHistory(events);
+    })
+      .then(() => ratingsService.syncAndApply(normalized))
+      .then(() => saveHistory(normalized))
+      .catch(err => console.error('Background task failed:', err.message));
   } catch (error) {
     console.error('Sync error:', error.response?.data || error.message);
     res.status(500).json({ error: 'Failed to sync history', details: error.message, traktError: error.response?.data });
