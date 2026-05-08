@@ -75,7 +75,7 @@ class RatingsService {
 
     while (true) {
       const response = await this.client.get('/sync/ratings', {
-        params: { per_page: perPage, page }
+        params: { limit: perPage, page }
       });
       const data = response.data;
       if (!data || data.length === 0) break;
