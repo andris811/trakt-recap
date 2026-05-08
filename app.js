@@ -23,6 +23,24 @@ app.get('/debug', (req, res) => {
   });
 });
 
+// Proxy Trakt images
+app.use('/trakt-images', async (req, res) => {
+  try {
+    const imagePath = req.path.replace(/^\/trakt-images/, '');
+    const imageUrl = `https://media.trakt.tv${imagePath}`;
+    const response = await axios.get(imageUrl, { responseType: 'stream' });
+    
+    // Forward content type
+    if (response.headers['content-type']) {
+      res.setHeader('Content-Type', response.headers['content-type']);
+    }
+    
+    response.data.pipe(res);
+  } catch (error) {
+    res.status(404).send('Image not found');
+  }
+});
+
 // Serve frontend static files
 const frontendDist = path.join(__dirname, 'frontend', 'dist');
 app.use(express.static(frontendDist));
