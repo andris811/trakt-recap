@@ -24,6 +24,7 @@ function calculateStats(events, traktStats) {
   const dayOfWeek = { Mon: 0, Tue: 0, Wed: 0, Thu: 0, Fri: 0, Sat: 0, Sun: 0 };
   const monthlyTrends = {};
   const dateSet = new Set();
+  const ratedContent = new Set();
 
   const sortedByTime = [...events].sort((a, b) => new Date(a.watchedAt) - new Date(b.watchedAt));
 
