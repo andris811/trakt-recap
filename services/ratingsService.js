@@ -143,9 +143,17 @@ class RatingsService {
   }
 
   async syncAndApply(events) {
+    console.log('Loading ratings cache...');
     await this.loadCache();
+    console.log(`Ratings cache loaded, ${Object.keys(this.ratingsMap).length} entries`);
+    
+    console.log('Fetching ratings from Trakt...');
     await this.fetchRatings();
-    return this.applyRatings(events);
+    console.log(`Ratings fetched, ${Object.keys(this.ratingsMap).length} total entries`);
+    
+    const applied = this.applyRatings(events);
+    console.log(`Applied ${applied} ratings to events`);
+    return applied;
   }
 }
 
