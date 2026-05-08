@@ -163,8 +163,11 @@ router.get('/sync', async (req, res) => {
     
     res.json({ count: normalized.length, message: 'Sync complete. Enrichment running in background.' });
 
-    // Run enrichment in background (best effort)
-    enrichmentService.enrichEvents(normalized)
+    // Run enrichment in background with save callback
+    enrichmentService.enrichEvents(normalized, async (events) => {
+      console.log('Save callback called, saving enriched data to Supabase...');
+      await saveHistory(events);
+    })
       .then(() => ratingsService.syncAndApply(normalized))
       .then(() => saveHistory(normalized))
       .catch(err => console.error('Background enrichment failed:', err.message));

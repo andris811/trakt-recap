@@ -123,7 +123,7 @@ class EnrichmentService {
     }
   }
 
-  async enrichEvents(events) {
+  async enrichEvents(events, saveCallback) {
     await this.loadCache();
 
     const uniqueItems = new Map();
@@ -157,10 +157,21 @@ class EnrichmentService {
         item.poster = details.poster;
       }));
 
+      // Update cache
+      for (const item of batch) {
+        this.cache[item.key] = {
+          runtime: item.runtime,
+          genres: item.genres,
+          poster: item.poster
+        };
+      }
+
       if (i + BATCH_SIZE < missing.length) {
         await new Promise(r => setTimeout(r, BATCH_DELAY_MS));
       }
     }
+
+    await this.saveCache();
 
     // Update events with enriched data
     for (const event of events) {
@@ -173,7 +184,11 @@ class EnrichmentService {
       }
     }
 
-    await this.saveCache();
+    // Save to Supabase if callback provided
+    if (saveCallback) {
+      console.log('Saving enriched data to Supabase...');
+      await saveCallback(events);
+    }
 
     return {
       total: events.length,
