@@ -1,4 +1,4 @@
-function calculateStats(events, traktStats) {
+function calculateStats(events, traktStats, ratingsMap) {
   const coreStats = {
     totalMovies: 0,
     totalEpisodes: 0,
@@ -25,6 +25,28 @@ function calculateStats(events, traktStats) {
   const monthlyTrends = {};
   const dateSet = new Set();
   const ratedContent = new Set();
+
+  // Apply ratings from ratingsMap if provided
+  if (ratingsMap) {
+    console.log('Applying ratings from ratingsMap...');
+    let applied = 0;
+    for (const event of events) {
+      if (event.type === 'movie') {
+        const key = `movie_${event.traktId}`;
+        if (ratingsMap[key] !== undefined) {
+          event.rating = ratingsMap[key];
+          applied++;
+        }
+      } else if (event.type === 'episode' && event.season !== undefined && event.episode !== undefined) {
+        const epKey = `episode_${event.traktId}_${event.season}_${event.episode}`;
+        if (ratingsMap[epKey] !== undefined) {
+          event.rating = ratingsMap[epKey];
+          applied++;
+        }
+      }
+    }
+    console.log(`Applied ${applied} ratings from ratingsMap`);
+  }
 
   const sortedByTime = [...events].sort((a, b) => new Date(a.watchedAt) - new Date(b.watchedAt));
 

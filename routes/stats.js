@@ -2,12 +2,18 @@ const express = require('express');
 const router = express.Router();
 const { calculateStats } = require('../services/statsService');
 const TraktService = require('../services/traktService');
+const RatingsService = require('../services/ratingsService');
 const supabase = require('../services/supabaseClient');
 const { normalizeHistory } = require('../services/transformService');
 
 console.log('Stats route loaded, supabase:', !!supabase);
 
 const traktService = new TraktService(
+  process.env.TRAKT_CLIENT_ID,
+  process.env.TRAKT_ACCESS_TOKEN
+);
+
+const ratingsService = new RatingsService(
   process.env.TRAKT_CLIENT_ID,
   process.env.TRAKT_ACCESS_TOKEN
 );
@@ -85,9 +91,15 @@ router.get('/', async (req, res) => {
     console.log(`Calculating stats for ${events.length} events`);
     console.log('Trakt stats loaded:', !!traktStats);
     if (traktStats) {
-      console.log('Trakt stats ratings:', JSON.stringify(traktStats.ratings));
+      console.log('Trakt stats movies:', JSON.stringify(traktStats.movies));
+      console.log('Trakt stats episodes:', JSON.stringify(traktStats.episodes));
     }
-    const stats = calculateStats(events, traktStats);
+    
+    // Load ratings cache and apply to events
+    await ratingsService.loadCache();
+    console.log(`Ratings cache loaded, ${Object.keys(ratingsService.ratingsMap).length} entries`);
+    
+    const stats = calculateStats(events, traktStats, ratingsService.ratingsMap);
     console.log('Stats calculated:', JSON.stringify(stats.coreStats));
     console.log('Ratings distribution:', JSON.stringify(stats.personalBehavior.ratingsDistribution));
     res.json(stats);
