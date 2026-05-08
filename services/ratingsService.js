@@ -91,9 +91,10 @@ class RatingsService {
       } else if (item.show && !item.episode) {
         this.ratingsMap[`show_${item.show.ids.trakt}`] = item.rating;
       } else if (item.episode) {
-        const showId = item.show && item.show.ids && item.show.ids.trakt;
-        if (showId !== undefined && item.episode.season !== undefined && item.episode.number !== undefined) {
-          this.ratingsMap[`episode_${showId}_${item.episode.season}_${item.episode.number}`] = item.rating;
+        // Use episode's trakt ID, not show's (to match event.traktId)
+        const episodeId = item.episode.ids && item.episode.ids.trakt;
+        if (episodeId !== undefined && item.episode.season !== undefined && item.episode.number !== undefined) {
+          this.ratingsMap[`episode_${episodeId}_${item.episode.season}_${item.episode.number}`] = item.rating;
         }
       }
     }

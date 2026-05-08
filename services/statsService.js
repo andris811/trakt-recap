@@ -83,9 +83,13 @@ function calculateStats(events, traktStats) {
 
     if (event.showTitle) {
       if (!showCounts[event.showTitle]) {
-        showCounts[event.showTitle] = { title: event.showTitle, poster: event.poster || null, traktId: event.traktId, count: 0 };
+        showCounts[event.showTitle] = { title: event.showTitle, poster: null, traktId: event.traktId, count: 0 };
       }
       showCounts[event.showTitle].count++;
+      // Always update poster if we have a valid one
+      if (event.poster) {
+        showCounts[event.showTitle].poster = event.poster;
+      }
     }
 
     const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
