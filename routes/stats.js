@@ -5,6 +5,8 @@ const TraktService = require('../services/traktService');
 const supabase = require('../services/supabaseClient');
 const { normalizeHistory } = require('../services/transformService');
 
+console.log('Stats route loaded, supabase:', !!supabase);
+
 const traktService = new TraktService(
   process.env.TRAKT_CLIENT_ID,
   process.env.TRAKT_ACCESS_TOKEN
@@ -12,11 +14,17 @@ const traktService = new TraktService(
 
 async function loadHistory() {
   if (supabase) {
+    console.log('Loading history from Supabase...');
     const { data, error } = await supabase
       .from('watch_history')
       .select('*')
       .order('watched_at', { ascending: false });
-    if (error) throw error;
+    if (error) {
+      console.error('Supabase select error:', error);
+      throw error;
+    }
+    console.log(`Loaded ${data.length} items from Supabase`);
+    console.log('First item sample:', data[0]);
     return data.map(item => ({
       id: item.id,
       traktId: item.trakt_id,
@@ -32,6 +40,7 @@ async function loadHistory() {
       rating: item.rating
     }));
   }
+  console.log('Supabase not configured, returning empty array');
   return [];
 }
 
@@ -53,7 +62,9 @@ router.get('/', async (req, res) => {
       loadHistory(),
       loadTraktStats()
     ]);
+    console.log(`Calculating stats for ${events.length} events`);
     const stats = calculateStats(events, traktStats);
+    console.log('Stats calculated:', JSON.stringify(stats.coreStats));
     res.json(stats);
   } catch (error) {
     console.error('Stats error:', error.message);
