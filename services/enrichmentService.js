@@ -141,8 +141,10 @@ class EnrichmentService {
       }
     }
 
-    const missing = [...uniqueItems.values()].filter(item => !item.poster);
+    const missing = [...uniqueItems.values()].filter(item => !item.poster || !item.genres || item.genres.length === 0);
     const totalMissing = missing.length;
+
+    console.log(`Enrichment: ${totalMissing} items need enrichment out of ${uniqueItems.size} unique items`);
 
     for (let i = 0; i < missing.length; i += BATCH_SIZE) {
       const batch = missing.slice(i, i + BATCH_SIZE);
@@ -160,13 +162,7 @@ class EnrichmentService {
       }
     }
 
-    for (const item of uniqueItems.values()) {
-      const details = item.type === 'movie'
-        ? await this.fetchMovieDetails(item.traktId)
-        : await this.fetchShowDetails(item.traktId);
-      this.cache[item.key] = details;
-    }
-
+    // Update events with enriched data
     for (const event of events) {
       const key = `${event.type}_${event.traktId}`;
       const cached = this.cache[key];

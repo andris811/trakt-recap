@@ -23,26 +23,40 @@ class TraktService {
     const perPage = 100;
 
     while (true) {
-      const response = await this.client.get('/users/me/history', {
-        params: {
-          limit: perPage,
-          page: page
+      try {
+        const response = await this.client.get('/users/me/history', {
+          params: {
+            limit: perPage,
+            page: page
+          }
+        });
+
+        const data = response.data;
+
+        if (!data || data.length === 0) {
+          console.log(`Page ${page}: No more data, stopping pagination`);
+          break;
         }
-      });
 
-      const data = response.data;
+        allHistory = allHistory.concat(data);
+        console.log(`Page ${page}: Fetched ${data.length} items, total: ${allHistory.length}`);
 
-      if (!data || data.length === 0) {
+        if (data.length < perPage) {
+          console.log(`Page ${page}: Got ${data.length} items (< ${perPage}), stopping pagination`);
+          break;
+        }
+
+        page++;
+        
+        // Safety check to avoid infinite loops
+        if (page > 200) {
+          console.log('Safety: Reached 200 pages, stopping');
+          break;
+        }
+      } catch (error) {
+        console.error(`Error fetching page ${page}:`, error.response?.data || error.message);
         break;
       }
-
-      allHistory = allHistory.concat(data);
-
-      if (data.length < perPage) {
-        break;
-      }
-
-      page++;
     }
 
     return allHistory;
