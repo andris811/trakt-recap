@@ -102,6 +102,16 @@ function App() {
     const result = [];
     const seriesAdded = new Set();
     const episodeResults = [];
+    const seriesPosters = {};
+
+    // First pass: collect all posters for each series
+    for (const event of events) {
+      if (event.type === 'episode' && event.showTitle && event.poster) {
+        if (!seriesPosters[event.traktId]) {
+          seriesPosters[event.traktId] = event.poster;
+        }
+      }
+    }
 
     for (const event of events) {
       const isEpisode = event.type === 'episode' || event.season !== undefined;
@@ -113,7 +123,7 @@ function App() {
             id: `series-${event.traktId}`,
             title: event.showTitle,
             traktId: event.traktId,
-            poster: event.poster,
+            poster: seriesPosters[event.traktId] || event.poster,
             type: 'show',
             watchedAt: event.watchedAt
           });

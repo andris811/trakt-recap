@@ -91,10 +91,9 @@ class RatingsService {
       } else if (item.show && !item.episode) {
         this.ratingsMap[`show_${item.show.ids.trakt}`] = item.rating;
       } else if (item.episode) {
-        // Use episode's trakt ID, not show's (to match event.traktId)
-        const episodeId = item.episode.ids && item.episode.ids.trakt;
-        if (episodeId !== undefined && item.episode.season !== undefined && item.episode.number !== undefined) {
-          this.ratingsMap[`episode_${episodeId}_${item.episode.season}_${item.episode.number}`] = item.rating;
+        const showId = item.show && item.show.ids && item.show.ids.trakt;
+        if (showId !== undefined && item.episode.season !== undefined && item.episode.number !== undefined) {
+          this.ratingsMap[`episode_${showId}_${item.episode.season}_${item.episode.number}`] = item.rating;
         }
       }
     }
@@ -110,6 +109,15 @@ class RatingsService {
       delete event.rating;
     }
 
+    // Build a map of show traktId -> rating for quick lookup
+    const showRatings = {};
+    for (const [key, rating] of Object.entries(this.ratingsMap)) {
+      if (key.startsWith('show_')) {
+        const showId = key.replace('show_', '');
+        showRatings[showId] = rating;
+      }
+    }
+
     for (const event of events) {
       if (event.type === 'movie') {
         const key = `movie_${event.traktId}`;
@@ -118,9 +126,14 @@ class RatingsService {
           applied++;
         }
       } else if (event.type === 'episode' && event.season !== undefined && event.episode !== undefined) {
-        const key = `episode_${event.traktId}_${event.season}_${event.episode}`;
-        if (this.ratingsMap[key] !== undefined) {
-          event.rating = this.ratingsMap[key];
+        // Try episode-specific rating first
+        const epKey = `episode_${event.traktId}_${event.season}_${event.episode}`;
+        if (this.ratingsMap[epKey] !== undefined) {
+          event.rating = this.ratingsMap[epKey];
+          applied++;
+        } else if (showRatings[event.traktId] !== undefined) {
+          // Fall back to show rating
+          event.rating = showRatings[event.traktId];
           applied++;
         }
       }
