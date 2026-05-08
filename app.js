@@ -10,6 +10,19 @@ app.use(express.json());
 app.use('/api/events', eventsRouter);
 app.use('/api/stats', statsRouter);
 
+// Debug endpoint
+app.get('/debug', (req, res) => {
+  res.json({
+    hasSupabaseUrl: !!process.env.SUPABASE_URL,
+    hasSupabaseKey: !!process.env.SUPABASE_ANON_KEY,
+    hasTraktClientId: !!process.env.TRAKT_CLIENT_ID,
+    hasTraktSecret: !!process.env.TRAKT_CLIENT_SECRET,
+    hasTraktToken: !!process.env.TRAKT_ACCESS_TOKEN,
+    hasRedirectUri: !!process.env.TRAKT_REDIRECT_URI,
+    nodeEnv: process.env.NODE_ENV
+  });
+});
+
 // Serve frontend static files
 const frontendDist = path.join(__dirname, 'frontend', 'dist');
 app.use(express.static(frontendDist));
