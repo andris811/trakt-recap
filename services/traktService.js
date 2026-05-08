@@ -20,7 +20,7 @@ class TraktService {
   async fetchHistory() {
     let allHistory = [];
     let page = 1;
-    const perPage = 1000;
+    const perPage = 100;
 
     while (true) {
       const response = await this.client.get('/users/me/history', {
@@ -38,7 +38,7 @@ class TraktService {
 
       allHistory = allHistory.concat(data);
 
-      if (data.length < 100) {
+      if (data.length < perPage) {
         break;
       }
 

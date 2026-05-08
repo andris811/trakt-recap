@@ -140,6 +140,8 @@ router.get('/sync', async (req, res) => {
       traktService.fetchHistory(),
       traktService.fetchStats()
     ]);
+    
+    console.log(`Fetched ${rawHistory.length} history items from Trakt`);
     const normalized = normalizeHistory(rawHistory);
     
     if (supabase) {
@@ -159,17 +161,13 @@ router.get('/sync', async (req, res) => {
       }
     }
     
-    // Wait for enrichment to complete (important for Vercel serverless)
-    try {
-      const enrichmentResult = await enrichmentService.enrichEvents(normalized);
-      console.log('Enrichment complete:', enrichmentResult);
-      await ratingsService.syncAndApply(normalized);
-      await saveHistory(normalized);
-    } catch (enrichError) {
-      console.error('Enrichment failed:', enrichError.message);
-    }
-    
-    res.json({ count: normalized.length, message: 'Sync complete.' });
+    res.json({ count: normalized.length, message: 'Sync complete. Enrichment running in background.' });
+
+    // Run enrichment in background (best effort)
+    enrichmentService.enrichEvents(normalized)
+      .then(() => ratingsService.syncAndApply(normalized))
+      .then(() => saveHistory(normalized))
+      .catch(err => console.error('Background enrichment failed:', err.message));
   } catch (error) {
     console.error('Sync error:', error.response?.data || error.message);
     res.status(500).json({ error: 'Failed to sync history', details: error.message, traktError: error.response?.data });
