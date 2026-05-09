@@ -41,9 +41,9 @@ app.use('/trakt-images', async (req, res) => {
   }
 });
 
-// Serve frontend static files
-const frontendDist = path.join(__dirname, 'frontend', 'dist');
-app.use(express.static(frontendDist));
+// Serve frontend static files from root directory
+const rootDir = __dirname;
+app.use(express.static(rootDir));
 
 app.get('/callback', async (req, res) => {
   const code = req.query.code;
@@ -87,7 +87,7 @@ app.get('/callback', async (req, res) => {
 
 // SPA catch-all - serve index.html for all other routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(frontendDist, 'index.html'));
+  res.sendFile(path.join(rootDir, 'index.html'));
 });
 
 // Export for Vercel serverless
