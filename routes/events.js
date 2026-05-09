@@ -77,8 +77,21 @@ async function saveHistory(data) {
 }
 
 async function loadHistory() {
+  let history = [];
+  
+  // First: Load local JSON file (full history - 6296 items)
+  try {
+    const localData = await fs.readFile(DATA_FILE, 'utf-8');
+    const localHistory = JSON.parse(localData);
+    console.log(`Loaded ${localHistory.length} items from local JSON file`);
+    history = localHistory;
+  } catch (err) {
+    console.log('No local JSON file found, will use Supabase only');
+  }
+  
+  // Second: Load from Supabase (recent data)
   if (supabase) {
-    console.log('Loading history from Supabase (events)...');
+    console.log('Loading recent history from Supabase...');
     let allData = [];
     let page = 0;
     const pageSize = 1000;
@@ -92,43 +105,50 @@ async function loadHistory() {
       
       if (error) {
         console.error('Supabase select error:', error);
-        throw error;
+        break;
       }
       
       if (!data || data.length === 0) break;
       
       allData = allData.concat(data);
-      console.log(`Loaded ${data.length} items, total: ${allData.length}`);
+      console.log(`Loaded ${data.length} items from Supabase, total: ${allData.length}`);
       
       if (data.length < pageSize) break;
       page++;
     }
     
-    console.log(`Loaded ${allData.length} items from Supabase`);
-    
-    return allData.map(item => ({
-      id: item.id,
-      traktId: item.trakt_id,
-      type: item.type,
-      title: item.title,
-      showTitle: item.show_title,
-      season: item.season,
-      episode: item.episode,
-      runtime: item.runtime,
-      genres: item.genres,
-      poster: item.poster,
-      watchedAt: item.watched_at,
-      rating: item.rating
-    }));
-  } else {
-    // Fallback to file
-    try {
-      const content = await fs.readFile(DATA_FILE, 'utf-8');
-      return JSON.parse(content);
-    } catch {
-      return [];
+    if (allData.length > 0) {
+      const supabaseHistory = allData.map(item => ({
+        id: item.id,
+        traktId: item.trakt_id,
+        type: item.type,
+        title: item.title,
+        showTitle: item.show_title,
+        season: item.season,
+        episode: item.episode,
+        runtime: item.runtime,
+        genres: item.genres,
+        poster: item.poster,
+        watchedAt: item.watched_at,
+        rating: item.rating
+      }));
+      
+      // Merge: Add Supabase items to local history (Supabase items are newer)
+      const existingIds = new Set(history.map(h => h.id));
+      for (const item of supabaseHistory) {
+        if (!existingIds.has(item.id)) {
+          history.push(item);
+        }
+      }
+      console.log(`Merged: ${history.length} total items (local + Supabase)`);
     }
   }
+  
+  // Sort by watchedAt descending
+  history.sort((a, b) => new Date(b.watchedAt) - new Date(a.watchedAt));
+  console.log(`Final history: ${history.length} items`);
+  
+  return history;
 }
 
 async function saveTraktStats(data) {
@@ -258,14 +278,12 @@ router.post('/enrich', async (req, res) => {
   try {
     const events = await loadHistory();
     
-    // Count items needing enrichment
     const needsEnrichment = events.filter(e => !e.poster || !e.genres || e.genres.length === 0);
     console.log(`Items needing enrichment: ${needsEnrichment.length} out of ${events.length}`);
     
-    // Process all items (no limit) but save progress periodically
     const result = await enrichmentService.enrichEvents(events, async (enrichedEvents) => {
       await saveHistory(enrichedEvents);
-    }, 50); // Process 50 at a time, save periodically
+    }, 50);
     
     await ratingsService.syncAndApply(events);
     await saveHistory(events);
@@ -280,6 +298,75 @@ router.post('/enrich', async (req, res) => {
   } catch (error) {
     console.error('Enrichment error:', error.message);
     res.status(500).json({ error: 'Failed to enrich data', details: error.message });
+  }
+});
+
+// Import full history from Trakt export JSON
+router.post('/import', async (req, res) => {
+  try {
+    const { history, traktStats } = req.body;
+    
+    if (!history || !Array.isArray(history)) {
+      return res.status(400).json({ error: 'Invalid request. Provide { history: [...] }' });
+    }
+    
+    console.log(`Importing ${history.length} items from JSON export...`);
+    
+    // Normalize the history
+    const normalized = history.map(normalizeHistory);
+    console.log(`Normalized ${normalized.length} items`);
+    
+    // Save to local JSON file
+    await fs.mkdir(DATA_DIR, { recursive: true });
+    await fs.writeFile(DATA_FILE, JSON.stringify(normalized, null, 2), 'utf-8');
+    console.log(`Saved ${normalized.length} items to local JSON file`);
+    
+    if (traktStats) {
+      await fs.writeFile(path.join(DATA_DIR, 'trakt-stats.json'), JSON.stringify(traktStats, null, 2), 'utf-8');
+      console.log('Saved trakt stats to local file');
+    }
+    
+    // Also save to Supabase
+    if (supabase) {
+      await supabase.from('watch_history').delete().neq('id', '');
+      
+      const { error } = await supabase
+        .from('watch_history')
+        .insert(normalized.map(item => ({
+          id: item.id,
+          trakt_id: item.traktId,
+          type: item.type,
+          title: item.title,
+          show_title: item.showTitle,
+          season: item.season,
+          episode: item.episode,
+          runtime: item.runtime,
+          genres: item.genres,
+          poster: item.poster,
+          watched_at: item.watchedAt,
+          rating: item.rating
+        })));
+      
+      if (error) {
+        console.error('Supabase insert error:', error);
+      } else {
+        console.log(`Saved ${normalized.length} items to Supabase`);
+      }
+      
+      if (traktStats) {
+        await supabase.from('trakt_stats').delete().neq('id', '');
+        await supabase.from('trakt_stats').insert({ stats: traktStats });
+      }
+    }
+    
+    res.json({
+      message: 'Import complete',
+      count: normalized.length,
+      source: 'json_export'
+    });
+  } catch (error) {
+    console.error('Import error:', error.message);
+    res.status(500).json({ error: 'Failed to import data', details: error.message });
   }
 });
 
