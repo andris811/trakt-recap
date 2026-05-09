@@ -172,7 +172,7 @@ async function loadHistory() {
   // Apply enrichment from content cache (posters, genres, runtime)
   try {
     const cachePath = path.join(DATA_DIR, 'content-cache.json');
-    const cache = JSON.parse(require('fs').readFileSync(cachePath, 'utf-8'));
+    const cache = JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
     let enriched = 0;
     
     for (const item of history) {

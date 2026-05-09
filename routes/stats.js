@@ -184,8 +184,6 @@ router.get('/', async (req, res) => {
     console.log(`Ratings cache loaded, ${Object.keys(ratingsService.ratingsMap).length} entries`);
     
     // Also load ratings from export files for additional coverage
-    const fs = require('fs');
-    const path = require('path');
     const exportRatings = {};
     
     try {
