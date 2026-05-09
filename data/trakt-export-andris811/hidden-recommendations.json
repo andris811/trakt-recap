@@ -1,0 +1,19 @@
+[
+  {
+    "hidden_at": "2019-02-23T13:42:48.000Z",
+    "type": "show",
+    "show": {
+      "title": "Doctor Who",
+      "year": 1963,
+      "ids": {
+        "trakt": 120,
+        "slug": "doctor-who",
+        "tvdb": 76107,
+        "imdb": "tt0056751",
+        "tmdb": 121,
+        "tvrage": null
+      },
+      "aired_episodes": 694
+    }
+  }
+]

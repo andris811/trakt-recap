@@ -1,0 +1,73 @@
+{
+  "all": "2026-05-09T09:58:04.000Z",
+  "movies": {
+    "watched_at": "2026-05-09T07:33:33.000Z",
+    "collected_at": "2017-09-09T12:46:18.000Z",
+    "rated_at": "2025-02-21T15:57:17.000Z",
+    "watchlisted_at": "2026-03-28T14:38:10.000Z",
+    "favorited_at": "2013-07-21T20:35:24.000Z",
+    "recommendations_at": "2013-07-21T20:35:24.000Z",
+    "commented_at": "2013-07-21T20:35:24.000Z",
+    "paused_at": "2026-05-08T11:22:38.000Z",
+    "hidden_at": "2013-07-21T20:35:24.000Z"
+  },
+  "episodes": {
+    "watched_at": "2026-05-09T09:58:04.000Z",
+    "collected_at": "2024-04-19T08:46:58.000Z",
+    "rated_at": "2026-05-06T02:52:21.000Z",
+    "watchlisted_at": "2025-03-14T09:52:24.000Z",
+    "commented_at": "2013-07-21T20:35:24.000Z",
+    "paused_at": "2026-05-09T09:58:04.000Z"
+  },
+  "shows": {
+    "rated_at": "2026-05-06T02:59:06.000Z",
+    "watchlisted_at": "2026-03-01T14:35:51.000Z",
+    "favorited_at": "2013-07-21T20:35:24.000Z",
+    "recommendations_at": "2013-07-21T20:35:24.000Z",
+    "commented_at": "2013-07-21T20:35:24.000Z",
+    "hidden_at": "2019-02-23T13:42:48.000Z",
+    "dropped_at": "2026-05-09T09:58:04.000Z"
+  },
+  "seasons": {
+    "rated_at": "2019-11-28T03:44:58.000Z",
+    "watchlisted_at": "2013-07-21T20:35:24.000Z",
+    "commented_at": "2013-07-21T20:35:24.000Z",
+    "hidden_at": "2013-07-21T20:35:24.000Z"
+  },
+  "comments": {
+    "liked_at": "2020-12-27T13:36:50.000Z",
+    "reacted_at": "2013-07-21T20:35:24.000Z",
+    "blocked_at": "2013-07-21T20:35:24.000Z"
+  },
+  "lists": {
+    "liked_at": "2013-07-21T20:35:24.000Z",
+    "reacted_at": "2013-07-21T20:35:24.000Z",
+    "updated_at": "2021-02-24T07:42:01.000Z",
+    "commented_at": "2013-07-21T20:35:24.000Z"
+  },
+  "watchlist": {
+    "updated_at": "2026-03-28T14:38:10.000Z"
+  },
+  "favorites": {
+    "updated_at": "2020-07-24T22:02:15.000Z"
+  },
+  "recommendations": {
+    "updated_at": "2020-07-24T22:02:15.000Z"
+  },
+  "collaborations": {
+    "updated_at": "2013-07-21T20:35:24.000Z"
+  },
+  "account": {
+    "settings_at": "2025-02-21T15:42:07.000Z",
+    "followed_at": "2013-07-21T20:35:24.000Z",
+    "following_at": "2013-07-21T20:35:24.000Z",
+    "pending_at": "2013-07-21T20:35:24.000Z",
+    "requested_at": "2013-07-21T20:35:24.000Z"
+  },
+  "saved_filters": {
+    "updated_at": "2013-07-21T20:35:24.000Z"
+  },
+  "notes": {
+    "updated_at": "2013-07-21T20:35:24.000Z"
+  }
+}

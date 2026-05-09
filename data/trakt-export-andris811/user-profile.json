@@ -1,0 +1,26 @@
+{
+  "username": "andris811",
+  "private": false,
+  "deleted": false,
+  "name": "András Varga",
+  "vip": false,
+  "vip_ep": false,
+  "director": false,
+  "ids": {
+    "slug": "andris811",
+    "trakt": 265809
+  },
+  "joined_at": "2013-07-21T20:35:24.000Z",
+  "location": "",
+  "about": "",
+  "gender": "male",
+  "age": null,
+  "images": {
+    "avatar": {
+      "full": "https://secure.gravatar.com/avatar/ccd3088861408f1f261f42b9f6a4df86?d=https%3A%2F%2Fwalter-r2.trakt.tv%2Fhotlink-ok%2Fplaceholders%2Fmedium%2Ffry.png&r=pg&s=256"
+    }
+  },
+  "vip_og": false,
+  "vip_years": 0,
+  "vip_cover_image": null
+}

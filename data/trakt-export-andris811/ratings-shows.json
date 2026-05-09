@@ -1,0 +1,488 @@
+[
+  {
+    "rated_at": "2026-05-06T02:59:06.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "Star Wars: Andor",
+      "year": 2022,
+      "ids": {
+        "trakt": 170649,
+        "slug": "star-wars-andor",
+        "tvdb": 393189,
+        "imdb": "tt9253284",
+        "tmdb": 83867,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "rated_at": "2026-05-06T02:52:36.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "Star Wars: Maul - Shadow Lord",
+      "year": 2026,
+      "ids": {
+        "trakt": 282764,
+        "slug": "star-wars-maul-shadow-lord",
+        "tvdb": 462715,
+        "imdb": "tt36594331",
+        "tmdb": 289219,
+        "tvrage": null
+      },
+      "aired_episodes": 10
+    }
+  },
+  {
+    "rated_at": "2026-05-03T13:12:00.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "Supernatural",
+      "year": 2005,
+      "ids": {
+        "trakt": 1611,
+        "slug": "supernatural",
+        "tvdb": 78901,
+        "imdb": "tt0460681",
+        "tmdb": 1622,
+        "tvrage": null
+      },
+      "aired_episodes": 327
+    }
+  },
+  {
+    "rated_at": "2025-01-06T00:00:00.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "Arcane",
+      "year": 2021,
+      "ids": {
+        "trakt": 154164,
+        "slug": "arcane",
+        "tvdb": 371028,
+        "imdb": "tt11126994",
+        "tmdb": 94605,
+        "tvrage": null
+      },
+      "aired_episodes": 18
+    }
+  },
+  {
+    "rated_at": "2024-06-11T00:00:00.000Z",
+    "rating": 2,
+    "type": "show",
+    "show": {
+      "title": "The Acolyte",
+      "year": 2024,
+      "ids": {
+        "trakt": 170568,
+        "slug": "the-acolyte",
+        "tvdb": 393197,
+        "imdb": "tt12262202",
+        "tmdb": 114479,
+        "tvrage": null
+      },
+      "aired_episodes": 8
+    }
+  },
+  {
+    "rated_at": "2024-04-05T00:00:00.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "Shōgun",
+      "year": 2024,
+      "ids": {
+        "trakt": 170054,
+        "slug": "shogun-2024",
+        "tvdb": 392573,
+        "imdb": "tt2788316",
+        "tmdb": 126308,
+        "tvrage": null
+      },
+      "aired_episodes": 10
+    }
+  },
+  {
+    "rated_at": "2022-12-03T18:29:35.000Z",
+    "rating": 9,
+    "type": "show",
+    "show": {
+      "title": "Wednesday",
+      "year": 2022,
+      "ids": {
+        "trakt": 173996,
+        "slug": "wednesday",
+        "tvdb": 397060,
+        "imdb": "tt13443470",
+        "tmdb": 119051,
+        "tvrage": null
+      },
+      "aired_episodes": 16
+    }
+  },
+  {
+    "rated_at": "2021-10-06T00:00:00.000Z",
+    "rating": 9,
+    "type": "show",
+    "show": {
+      "title": "Squid Game",
+      "year": 2021,
+      "ids": {
+        "trakt": 162712,
+        "slug": "squid-game",
+        "tvdb": 383275,
+        "imdb": "tt10919420",
+        "tmdb": 93405,
+        "tvrage": null
+      },
+      "aired_episodes": 22
+    }
+  },
+  {
+    "rated_at": "2021-01-26T00:00:00.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "Attack on Titan",
+      "year": 2013,
+      "ids": {
+        "trakt": 1420,
+        "slug": "attack-on-titan",
+        "tvdb": 267440,
+        "imdb": "tt2560140",
+        "tmdb": 1429,
+        "tvrage": null
+      },
+      "aired_episodes": 87
+    }
+  },
+  {
+    "rated_at": "2021-01-26T00:00:00.000Z",
+    "rating": 9,
+    "type": "show",
+    "show": {
+      "title": "Kingdom",
+      "year": 2019,
+      "ids": {
+        "trakt": 139680,
+        "slug": "kingdom-2019",
+        "tvdb": 355228,
+        "imdb": "tt6611916",
+        "tmdb": 70593,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-06-03T05:04:49.000Z",
+    "rating": 9,
+    "type": "show",
+    "show": {
+      "title": "Lost in Space",
+      "year": 2018,
+      "ids": {
+        "trakt": 128262,
+        "slug": "lost-in-space-2018",
+        "tvdb": 343253,
+        "imdb": "tt5232792",
+        "tmdb": 75758,
+        "tvrage": null
+      },
+      "aired_episodes": 28
+    }
+  },
+  {
+    "rated_at": "2020-03-11T16:22:01.000Z",
+    "rating": 9,
+    "type": "show",
+    "show": {
+      "title": "Prison School",
+      "year": 2015,
+      "ids": {
+        "trakt": 97142,
+        "slug": "prison-school",
+        "tvdb": 293267,
+        "imdb": "tt4917066",
+        "tmdb": 64706,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-03-11T16:20:31.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "ERASED",
+      "year": 2016,
+      "ids": {
+        "trakt": 103359,
+        "slug": "erased",
+        "tvdb": 303071,
+        "imdb": "tt5249462",
+        "tmdb": 65249,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2019-11-28T03:44:59.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  },
+  {
+    "rated_at": "2019-08-14T04:06:13.000Z",
+    "rating": 9,
+    "type": "show",
+    "show": {
+      "title": "Legion",
+      "year": 2017,
+      "ids": {
+        "trakt": 113656,
+        "slug": "legion",
+        "tvdb": 320724,
+        "imdb": "tt5114356",
+        "tmdb": 67195,
+        "tvrage": null
+      },
+      "aired_episodes": 27
+    }
+  },
+  {
+    "rated_at": "2019-06-04T00:00:00.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "Chernobyl",
+      "year": 2019,
+      "ids": {
+        "trakt": 145186,
+        "slug": "chernobyl",
+        "tvdb": 360893,
+        "imdb": "tt7366338",
+        "tmdb": 87108,
+        "tvrage": null
+      },
+      "aired_episodes": 5
+    }
+  },
+  {
+    "rated_at": "2018-12-30T00:00:00.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "Grisse",
+      "year": 2018,
+      "ids": {
+        "trakt": 138697,
+        "slug": "grisse",
+        "tvdb": 354694,
+        "imdb": "tt7861584",
+        "tmdb": 83873,
+        "tvrage": null
+      },
+      "aired_episodes": 8
+    }
+  },
+  {
+    "rated_at": "2016-12-26T00:00:00.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "Dirk Gently's Holistic Detective Agency",
+      "year": 2016,
+      "ids": {
+        "trakt": 108103,
+        "slug": "dirk-gently-s-holistic-detective-agency",
+        "tvdb": 312505,
+        "imdb": "tt4047038",
+        "tmdb": 67773,
+        "tvrage": null
+      },
+      "aired_episodes": 18
+    }
+  },
+  {
+    "rated_at": "2014-10-18T00:00:00.000Z",
+    "rating": 9,
+    "type": "show",
+    "show": {
+      "title": "Marvel's Agents of S.H.I.E.L.D.",
+      "year": 2013,
+      "ids": {
+        "trakt": 1394,
+        "slug": "marvel-s-agents-of-s-h-i-e-l-d",
+        "tvdb": 263365,
+        "imdb": "tt2364582",
+        "tmdb": 1403,
+        "tvrage": null
+      },
+      "aired_episodes": 136
+    }
+  },
+  {
+    "rated_at": "2014-08-08T22:53:04.000Z",
+    "rating": 8,
+    "type": "show",
+    "show": {
+      "title": "Under the Dome",
+      "year": 2013,
+      "ids": {
+        "trakt": 46073,
+        "slug": "under-the-dome",
+        "tvdb": 264492,
+        "imdb": "tt1553656",
+        "tmdb": 46331,
+        "tvrage": null
+      },
+      "aired_episodes": 39
+    }
+  },
+  {
+    "rated_at": "2014-08-08T22:52:13.000Z",
+    "rating": 9,
+    "type": "show",
+    "show": {
+      "title": "Hannibal",
+      "year": 2013,
+      "ids": {
+        "trakt": 39825,
+        "slug": "hannibal",
+        "tvdb": 259063,
+        "imdb": "tt2243973",
+        "tmdb": 40008,
+        "tvrage": null
+      },
+      "aired_episodes": 39
+    }
+  },
+  {
+    "rated_at": "2014-08-08T22:51:59.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "Game of Thrones",
+      "year": 2011,
+      "ids": {
+        "trakt": 1390,
+        "slug": "game-of-thrones",
+        "tvdb": 121361,
+        "imdb": "tt0944947",
+        "tmdb": 1399,
+        "tvrage": null
+      },
+      "aired_episodes": 73
+    }
+  },
+  {
+    "rated_at": "2014-08-08T22:51:38.000Z",
+    "rating": 8,
+    "type": "show",
+    "show": {
+      "title": "Falling Skies",
+      "year": 2011,
+      "ids": {
+        "trakt": 34818,
+        "slug": "falling-skies",
+        "tvdb": 205281,
+        "imdb": "tt1462059",
+        "tmdb": 34967,
+        "tvrage": null
+      },
+      "aired_episodes": 52
+    }
+  },
+  {
+    "rated_at": "2013-08-19T00:00:00.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "American Horror Story",
+      "year": 2011,
+      "ids": {
+        "trakt": 1404,
+        "slug": "american-horror-story",
+        "tvdb": 250487,
+        "imdb": "tt1844624",
+        "tmdb": 1413,
+        "tvrage": null
+      },
+      "aired_episodes": 132
+    }
+  },
+  {
+    "rated_at": "2011-04-26T00:00:00.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "Stargate Universe",
+      "year": 2009,
+      "ids": {
+        "trakt": 5121,
+        "slug": "stargate-universe",
+        "tvdb": 83237,
+        "imdb": "tt1286039",
+        "tmdb": 5148,
+        "tvrage": null
+      },
+      "aired_episodes": 40
+    }
+  },
+  {
+    "rated_at": "2010-08-15T00:00:00.000Z",
+    "rating": 2,
+    "type": "show",
+    "show": {
+      "title": "The Langoliers",
+      "year": 1995,
+      "ids": {
+        "trakt": 164166,
+        "slug": "the-langoliers-1995",
+        "tvdb": 211741,
+        "imdb": "tt0112040",
+        "tmdb": 18197,
+        "tvrage": null
+      },
+      "aired_episodes": 2
+    }
+  },
+  {
+    "rated_at": "2010-07-21T00:00:00.000Z",
+    "rating": 10,
+    "type": "show",
+    "show": {
+      "title": "Monk",
+      "year": 2002,
+      "ids": {
+        "trakt": 1683,
+        "slug": "monk",
+        "tvdb": 78490,
+        "imdb": "tt0312172",
+        "tmdb": 1695,
+        "tvrage": null
+      },
+      "aired_episodes": 124
+    }
+  }
+]

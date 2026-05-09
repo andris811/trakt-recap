@@ -1,0 +1,216 @@
+{
+  "user": {
+    "username": "andris811",
+    "private": false,
+    "deleted": false,
+    "name": "András Varga",
+    "vip": false,
+    "vip_ep": false,
+    "director": false,
+    "ids": {
+      "slug": "andris811",
+      "trakt": 265809,
+      "uuid": "a7089f3490b6f6d63f316559e86617d2605a85c2"
+    },
+    "joined_at": "2013-07-21T20:35:24.000Z",
+    "location": "",
+    "about": "",
+    "gender": "male",
+    "age": null,
+    "images": {
+      "avatar": {
+        "full": "https://secure.gravatar.com/avatar/ccd3088861408f1f261f42b9f6a4df86?d=https%3A%2F%2Fwalter-r2.trakt.tv%2Fhotlink-ok%2Fplaceholders%2Fmedium%2Ffry.png&r=pg&s=256"
+      }
+    },
+    "vip_og": false,
+    "vip_years": 0,
+    "vip_cover_image": null,
+    "dob": "1989-08-11",
+    "email": "vargan89@gmail.com"
+  },
+  "account": {
+    "timezone": "Asia/Shanghai",
+    "date_format": "ymd",
+    "time_24hr": false,
+    "cover_image": null,
+    "token": null,
+    "display_ads": true
+  },
+  "browsing": {
+    "watch_popup_action": "ask",
+    "hide_watching_now": false,
+    "list_popup_action": "ask",
+    "week_start_day": "1",
+    "watch_after_rating": "",
+    "watch_only_once": false,
+    "other_site_ratings": false,
+    "release_date_ignore_runtime": false,
+    "display_early_ratings": false,
+    "hide_episode_type_tags": false,
+    "hide_unsaved_filters_prompt": false,
+    "spoilers": {
+      "episodes": "show",
+      "shows": "show",
+      "movies": "show",
+      "comments": "show",
+      "ratings": "show",
+      "actors": "show"
+    },
+    "calendar": {
+      "period": "week",
+      "start_day": "today",
+      "layout": "list",
+      "image_type": "logo",
+      "hide_specials": false,
+      "autoscroll": false
+    },
+    "progress": {
+      "on_deck": {
+        "sort": "added",
+        "sort_how": "asc",
+        "refresh": false,
+        "simple_progress": false,
+        "only_favorites": false
+      },
+      "watched": {
+        "refresh": false,
+        "simple_progress": false,
+        "include_specials": false,
+        "include_watchlisted": false,
+        "include_collected": false,
+        "sort": "added",
+        "sort_how": "asc",
+        "use_last_activity": false,
+        "grid_view": false
+      },
+      "collected": {
+        "refresh": false,
+        "simple_progress": false,
+        "include_specials": false,
+        "include_watchlisted": false,
+        "include_watched": false,
+        "sort": "added",
+        "sort_how": "asc",
+        "use_last_activity": false,
+        "grid_view": false
+      }
+    },
+    "watchnow": {
+      "country": "hu",
+      "favorites": [],
+      "only_favorites": false
+    },
+    "dark_knight": "false",
+    "app_theme": "purple",
+    "welcome": {
+      "completed_at": "2021-06-03T01:43:22.000Z",
+      "exit_step": null
+    },
+    "genres": {
+      "favorites": [
+        "superhero",
+        "fantasy",
+        "anime",
+        "science-fiction",
+        "adventure",
+        "mystery",
+        "drama"
+      ],
+      "disliked": []
+    },
+    "comments": {
+      "blocked_uids": []
+    },
+    "recommendations": {
+      "ignore_collected": false,
+      "ignore_watchlisted": false
+    },
+    "rewatching": {
+      "adjust_percentage": false
+    },
+    "profile": {
+      "favorites": {
+        "sort_by": "random",
+        "sort_how": "asc"
+      },
+      "most_watched_shows": {
+        "sort_by": "plays",
+        "tab": "last_30_days"
+      },
+      "most_watched_movies": {
+        "sort_by": "time",
+        "tab": "last_30_days"
+      }
+    },
+    "search": {
+      "image_type": "poster",
+      "recent_queries": []
+    },
+    "yir": {
+      "shows_most_played": "played",
+      "movies_most_played": "watched"
+    }
+  },
+  "connections": {
+    "facebook": false,
+    "twitter": false,
+    "mastodon": false,
+    "google": true,
+    "tumblr": false,
+    "medium": false,
+    "slack": false,
+    "apple": true,
+    "dropbox": false,
+    "microsoft": false
+  },
+  "sharing_text": {
+    "watching": "I'm watching [item]",
+    "watched": "I just watched [item]",
+    "rated": null
+  },
+  "sharing": {
+    "app": {
+      "new_follower": true,
+      "comment_mention": true,
+      "comment_reply": true,
+      "comment_like": true,
+      "list_comment": true,
+      "list_like": true,
+      "pending_collaboration": true,
+      "weekly_digest": true,
+      "mir": true
+    }
+  },
+  "limits": {
+    "list": {
+      "count": 10,
+      "item_count": 250
+    },
+    "watchlist": {
+      "item_count": 250
+    },
+    "favorites": {
+      "item_count": 100
+    },
+    "search": {
+      "recent_count": 5
+    },
+    "collection": {
+      "item_count": 1000
+    },
+    "notes": {
+      "item_count": 100
+    },
+    "saved_filters": {
+      "count": 5
+    },
+    "recommendations": {
+      "item_count": 100
+    }
+  },
+  "permissions": {
+    "commenting": true,
+    "liking": true,
+    "following": true
+  }
+}

@@ -1,0 +1,128 @@
+[
+  {
+    "type": "movie",
+    "movie": {
+      "ids": {
+        "imdb": "tt9685342",
+        "plex": {
+          "guid": "5e16255c69144a003c4899cf",
+          "slug": "a-writers-odyssey"
+        },
+        "slug": "a-writer-s-odyssey-2021",
+        "tmdb": 611698,
+        "trakt": 455556
+      },
+      "year": 2021,
+      "title": "A Writer's Odyssey"
+    },
+    "rank": 1,
+    "id": 574253762,
+    "listed_at": "2021-02-24T07:34:38.000Z",
+    "notes": null
+  },
+  {
+    "type": "movie",
+    "movie": {
+      "ids": {
+        "imdb": "tt9597838",
+        "plex": {
+          "guid": "5d7770997a53e9001e7a6d1a",
+          "slug": "shock-wave-2"
+        },
+        "slug": "shock-wave-2-2020",
+        "tmdb": 559974,
+        "trakt": 410745
+      },
+      "year": 2020,
+      "title": "Shock Wave 2"
+    },
+    "rank": 2,
+    "id": 574253775,
+    "listed_at": "2021-02-24T07:35:19.000Z",
+    "notes": null
+  },
+  {
+    "type": "movie",
+    "movie": {
+      "ids": {
+        "imdb": "tt10627720",
+        "plex": {
+          "guid": "5e1622c35dd66b00406dca13",
+          "slug": "ne-zha"
+        },
+        "slug": "ne-zha-2019",
+        "tmdb": 615453,
+        "trakt": 459090
+      },
+      "year": 2019,
+      "title": "Ne Zha"
+    },
+    "rank": 3,
+    "id": 574253822,
+    "listed_at": "2021-02-24T07:36:39.000Z",
+    "notes": null
+  },
+  {
+    "type": "movie",
+    "movie": {
+      "ids": {
+        "imdb": "tt6466464",
+        "plex": {
+          "guid": "5d776caa51dd69001fe3dd46",
+          "slug": "the-monkey-king-3"
+        },
+        "slug": "the-monkey-king-3-2018",
+        "tmdb": 437543,
+        "trakt": 283868
+      },
+      "year": 2018,
+      "title": "The Monkey King 3"
+    },
+    "rank": 4,
+    "id": 574253852,
+    "listed_at": "2021-02-24T07:37:54.000Z",
+    "notes": null
+  },
+  {
+    "type": "movie",
+    "movie": {
+      "ids": {
+        "imdb": "tt7605074",
+        "plex": {
+          "guid": "5d77706723d5a3001f53955a",
+          "slug": "the-wandering-earth"
+        },
+        "slug": "the-wandering-earth-2019",
+        "tmdb": 535167,
+        "trakt": 386938
+      },
+      "year": 2019,
+      "title": "The Wandering Earth"
+    },
+    "rank": 5,
+    "id": 574254200,
+    "listed_at": "2021-02-24T07:38:49.000Z",
+    "notes": null
+  },
+  {
+    "type": "movie",
+    "movie": {
+      "ids": {
+        "imdb": "tt9368628",
+        "plex": {
+          "guid": "5d7770b3fb0d55001f5f6ff1",
+          "slug": "the-new-king-of-comedy"
+        },
+        "slug": "the-new-king-of-comedy-2019",
+        "tmdb": 575138,
+        "trakt": 426907
+      },
+      "year": 2019,
+      "title": "The New King of Comedy"
+    },
+    "rank": 6,
+    "id": 574254415,
+    "listed_at": "2021-02-24T07:41:37.000Z",
+    "notes": null
+  }
+]

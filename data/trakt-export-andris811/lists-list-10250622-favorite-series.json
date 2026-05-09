@@ -1,0 +1,247 @@
+[
+  {
+    "type": "show",
+    "show": {
+      "ids": {
+        "imdb": "tt0460681",
+        "plex": {
+          "guid": "5d9c086de9d5a1001f4d9d3f",
+          "slug": "supernatural"
+        },
+        "slug": "supernatural",
+        "tmdb": 1622,
+        "tvdb": 78901,
+        "trakt": 1611
+      },
+      "year": 2005,
+      "title": "Supernatural",
+      "aired_episodes": 327
+    },
+    "rank": 1,
+    "id": 465017009,
+    "listed_at": "2019-11-07T00:36:48.000Z",
+    "notes": null
+  },
+  {
+    "type": "episode",
+    "show": {
+      "ids": {
+        "imdb": "tt5607976",
+        "plex": {
+          "guid": "5d9c080fec357c001f9a97e6",
+          "slug": "his-dark-materials"
+        },
+        "slug": "his-dark-materials",
+        "tmdb": 68507,
+        "tvdb": 360295,
+        "trakt": 144668
+      },
+      "year": 2019,
+      "title": "His Dark Materials",
+      "aired_episodes": 23
+    },
+    "episode": {
+      "ids": {
+        "imdb": "tt8785334",
+        "plex": {
+          "guid": "5de7da594b8a40001d3975f8"
+        },
+        "tmdb": 1970989,
+        "tvdb": 7427005,
+        "trakt": 3401376
+      },
+      "title": "The Idea of North",
+      "number": 2,
+      "season": 1
+    },
+    "rank": 2,
+    "id": 465017510,
+    "listed_at": "2019-11-07T00:39:07.000Z",
+    "notes": null
+  },
+  {
+    "type": "episode",
+    "show": {
+      "ids": {
+        "imdb": "tt0458290",
+        "plex": {
+          "guid": "5d9c08097b5c2e001e652b09",
+          "slug": "star-wars-the-clone-wars"
+        },
+        "slug": "star-wars-the-clone-wars",
+        "tmdb": 4194,
+        "tvdb": 83268,
+        "trakt": 4170
+      },
+      "year": 2008,
+      "title": "Star Wars: The Clone Wars",
+      "aired_episodes": 133
+    },
+    "episode": {
+      "ids": {
+        "imdb": "tt2493140",
+        "plex": {
+          "guid": "5d9c0d674eefaa001f6092fd"
+        },
+        "tmdb": 1010369,
+        "tvdb": 4382257,
+        "trakt": 1390015
+      },
+      "title": "Bound for Rescue",
+      "number": 8,
+      "season": 5
+    },
+    "rank": 3,
+    "id": 465018164,
+    "listed_at": "2019-11-07T00:40:19.000Z",
+    "notes": null
+  },
+  {
+    "type": "episode",
+    "show": {
+      "ids": {
+        "imdb": "tt1830617",
+        "plex": {
+          "guid": "5d9c086e08fddd001f29abb5",
+          "slug": "grimm"
+        },
+        "slug": "grimm",
+        "tmdb": 39351,
+        "tvdb": 248736,
+        "trakt": 39185
+      },
+      "year": 2011,
+      "title": "Grimm",
+      "aired_episodes": 122
+    },
+    "episode": {
+      "ids": {
+        "imdb": "tt5115916",
+        "plex": {
+          "guid": "5d9c12d408fddd001f31b150"
+        },
+        "tmdb": 1141686,
+        "tvdb": 5374706,
+        "trakt": 2031616
+      },
+      "title": "Star-Crossed",
+      "number": 9,
+      "season": 5
+    },
+    "rank": 4,
+    "id": 465018400,
+    "listed_at": "2019-11-07T00:39:10.000Z",
+    "notes": null
+  },
+  {
+    "type": "episode",
+    "show": {
+      "ids": {
+        "imdb": "tt3909224",
+        "plex": {
+          "guid": "5d9c08510aaccd001f8eefde",
+          "slug": "the-seven-deadly-sins"
+        },
+        "slug": "the-seven-deadly-sins",
+        "tmdb": 62104,
+        "tvdb": 284131,
+        "trakt": 79352
+      },
+      "year": 2014,
+      "title": "The Seven Deadly Sins",
+      "aired_episodes": 96
+    },
+    "episode": {
+      "ids": {
+        "imdb": "tt10621532",
+        "plex": {
+          "guid": "65dcb8c16bf622569cbb28cd"
+        },
+        "tmdb": 1921871,
+        "tvdb": 7352759,
+        "trakt": 3702913
+      },
+      "title": "The Light That Drives Off Darkness",
+      "number": 1,
+      "season": 3
+    },
+    "rank": 5,
+    "id": 465018465,
+    "listed_at": "2019-11-07T00:39:40.000Z",
+    "notes": null
+  },
+  {
+    "type": "episode",
+    "show": {
+      "ids": {
+        "imdb": "tt5651844",
+        "plex": {
+          "guid": "5d9c0808e264b7001fc3a73d",
+          "slug": "travelers-2016"
+        },
+        "slug": "travelers-2016",
+        "tmdb": 67683,
+        "tvdb": 314544,
+        "trakt": 109913
+      },
+      "year": 2016,
+      "title": "Travelers",
+      "aired_episodes": 34
+    },
+    "episode": {
+      "ids": {
+        "imdb": "tt8153470",
+        "plex": {
+          "guid": "5de7da56b99a0a001da6ca79"
+        },
+        "tmdb": 1619106,
+        "tvdb": 6902999,
+        "trakt": 2948193
+      },
+      "title": "Ilsa",
+      "number": 1,
+      "season": 3
+    },
+    "rank": 6,
+    "id": 465018502,
+    "listed_at": "2019-11-07T00:39:41.000Z",
+    "notes": null
+  },
+  {
+    "type": "episode",
+    "show": {
+      "ids": {
+        "imdb": "tt7949218",
+        "plex": {
+          "guid": "5d9c090508fddd001f2a6066",
+          "slug": "see"
+        },
+        "slug": "see",
+        "tmdb": 80752,
+        "tvdb": 361565,
+        "trakt": 145781
+      },
+      "year": 2019,
+      "title": "See",
+      "aired_episodes": 24
+    },
+    "episode": {
+      "ids": {
+        "imdb": "tt8755680",
+        "plex": {
+          "guid": "5e161373c2a81f001ed36dcd"
+        },
+        "tmdb": 1963461,
+        "tvdb": 7428286,
+        "trakt": 3791495
+      },
+      "title": "The River",
+      "number": 4,
+      "season": 1
+    },
+    "rank": 7,
+    "id": 465018987,
+    "listed_at": "2019-11-07T00:40:40.000Z",
+    "notes": null
+  }
+]

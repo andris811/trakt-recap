@@ -1,0 +1,3122 @@
+[
+  {
+    "rated_at": "2026-05-06T02:52:21.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 10,
+      "title": "Chapter 10: The Dark Lord",
+      "ids": {
+        "trakt": 13934699,
+        "tvdb": 11573081,
+        "imdb": "tt39389486",
+        "tmdb": 6876370,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Star Wars: Maul - Shadow Lord",
+      "year": 2026,
+      "ids": {
+        "trakt": 282764,
+        "slug": "star-wars-maul-shadow-lord",
+        "tvdb": 462715,
+        "imdb": "tt36594331",
+        "tmdb": 289219,
+        "tvrage": null
+      },
+      "aired_episodes": 10
+    }
+  },
+  {
+    "rated_at": "2026-05-03T07:48:37.000Z",
+    "rating": 3,
+    "type": "episode",
+    "episode": {
+      "season": 10,
+      "number": 11,
+      "title": "There's No Place Like Home",
+      "ids": {
+        "trakt": 999055,
+        "tvdb": 5035026,
+        "imdb": "tt4274892",
+        "tmdb": 1019247,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Supernatural",
+      "year": 2005,
+      "ids": {
+        "trakt": 1611,
+        "slug": "supernatural",
+        "tvdb": 78901,
+        "imdb": "tt0460681",
+        "tmdb": 1622,
+        "tvrage": null
+      },
+      "aired_episodes": 327
+    }
+  },
+  {
+    "rated_at": "2026-05-03T02:01:15.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 1,
+      "title": "THE BEGINNING AND THE END",
+      "ids": {
+        "trakt": 12075914,
+        "tvdb": 10573348,
+        "imdb": "tt29137511",
+        "tmdb": 5450885,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "ONE PIECE",
+      "year": 2023,
+      "ids": {
+        "trakt": 184618,
+        "slug": "one-piece-2023",
+        "tvdb": 392276,
+        "imdb": "tt11737520",
+        "tmdb": 111110,
+        "tvrage": null
+      },
+      "aired_episodes": 16
+    }
+  },
+  {
+    "rated_at": "2026-05-03T02:01:09.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 2,
+      "title": "GOOD WHALE HUNTING",
+      "ids": {
+        "trakt": 13670413,
+        "tvdb": 11426052,
+        "imdb": "tt38079830",
+        "tmdb": 6640514,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "ONE PIECE",
+      "year": 2023,
+      "ids": {
+        "trakt": 184618,
+        "slug": "one-piece-2023",
+        "tvdb": 392276,
+        "imdb": "tt11737520",
+        "tmdb": 111110,
+        "tvrage": null
+      },
+      "aired_episodes": 16
+    }
+  },
+  {
+    "rated_at": "2026-05-03T02:01:03.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 3,
+      "title": "WHISKY BUSINESS",
+      "ids": {
+        "trakt": 13670415,
+        "tvdb": 11426053,
+        "imdb": "tt38079831",
+        "tmdb": 6640515,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "ONE PIECE",
+      "year": 2023,
+      "ids": {
+        "trakt": 184618,
+        "slug": "one-piece-2023",
+        "tvdb": 392276,
+        "imdb": "tt11737520",
+        "tmdb": 111110,
+        "tvrage": null
+      },
+      "aired_episodes": 16
+    }
+  },
+  {
+    "rated_at": "2026-05-03T02:00:57.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 4,
+      "title": "BIG TROUBLE IN LITTLE GARDEN",
+      "ids": {
+        "trakt": 13670416,
+        "tvdb": 11426054,
+        "imdb": "tt38079833",
+        "tmdb": 6640516,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "ONE PIECE",
+      "year": 2023,
+      "ids": {
+        "trakt": 184618,
+        "slug": "one-piece-2023",
+        "tvdb": 392276,
+        "imdb": "tt11737520",
+        "tmdb": 111110,
+        "tvrage": null
+      },
+      "aired_episodes": 16
+    }
+  },
+  {
+    "rated_at": "2026-05-03T02:00:50.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 5,
+      "title": "WAX ON, WAX OFF",
+      "ids": {
+        "trakt": 13670418,
+        "tvdb": 11426055,
+        "imdb": "tt38079834",
+        "tmdb": 6640518,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "ONE PIECE",
+      "year": 2023,
+      "ids": {
+        "trakt": 184618,
+        "slug": "one-piece-2023",
+        "tvdb": 392276,
+        "imdb": "tt11737520",
+        "tmdb": 111110,
+        "tvrage": null
+      },
+      "aired_episodes": 16
+    }
+  },
+  {
+    "rated_at": "2026-05-03T02:00:39.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 6,
+      "title": "NAMI DEEREST",
+      "ids": {
+        "trakt": 13670419,
+        "tvdb": 11426056,
+        "imdb": "tt38079837",
+        "tmdb": 6640519,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "ONE PIECE",
+      "year": 2023,
+      "ids": {
+        "trakt": 184618,
+        "slug": "one-piece-2023",
+        "tvdb": 392276,
+        "imdb": "tt11737520",
+        "tmdb": 111110,
+        "tvrage": null
+      },
+      "aired_episodes": 16
+    }
+  },
+  {
+    "rated_at": "2023-12-12T14:14:51.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 0,
+      "number": 3,
+      "title": "The Giggle",
+      "ids": {
+        "trakt": 11058279,
+        "tvdb": 10493358,
+        "imdb": "tt22987384",
+        "tmdb": 4930545,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Doctor Who",
+      "year": 2024,
+      "ids": {
+        "trakt": 213360,
+        "slug": "doctor-who-2024",
+        "tvdb": 449991,
+        "imdb": "tt31433814",
+        "tmdb": 239770,
+        "tvrage": null
+      },
+      "aired_episodes": 16
+    }
+  },
+  {
+    "rated_at": "2022-06-23T00:40:36.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 6,
+      "title": "Part VI",
+      "ids": {
+        "trakt": 6010070,
+        "tvdb": 9083891,
+        "imdb": "tt13841824",
+        "tmdb": 3635495,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Obi-Wan Kenobi",
+      "year": 2022,
+      "ids": {
+        "trakt": 169967,
+        "slug": "obi-wan-kenobi",
+        "tvdb": 393199,
+        "imdb": "tt8466564",
+        "tmdb": 92830,
+        "tvrage": null
+      },
+      "aired_episodes": 6
+    }
+  },
+  {
+    "rated_at": "2022-05-03T11:04:12.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 19,
+      "title": "Hinokami",
+      "ids": {
+        "trakt": 3561945,
+        "tvdb": 7222645,
+        "imdb": "tt10433100",
+        "tmdb": 1798125,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Demon Slayer: Kimetsu no Yaiba",
+      "year": 2019,
+      "ids": {
+        "trakt": 131598,
+        "slug": "demon-slayer-kimetsu-no-yaiba",
+        "tvdb": 348545,
+        "imdb": "tt9335498",
+        "tmdb": 85937,
+        "tvrage": null
+      },
+      "aired_episodes": 63
+    }
+  },
+  {
+    "rated_at": "2022-05-03T11:04:06.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 18,
+      "title": "A Forged Bond",
+      "ids": {
+        "trakt": 3561944,
+        "tvdb": 7222643,
+        "imdb": "tt10433098",
+        "tmdb": 1798124,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Demon Slayer: Kimetsu no Yaiba",
+      "year": 2019,
+      "ids": {
+        "trakt": 131598,
+        "slug": "demon-slayer-kimetsu-no-yaiba",
+        "tvdb": 348545,
+        "imdb": "tt9335498",
+        "tmdb": 85937,
+        "tvrage": null
+      },
+      "aired_episodes": 63
+    }
+  },
+  {
+    "rated_at": "2021-04-26T00:00:00.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 10,
+      "title": "The Grey",
+      "ids": {
+        "trakt": 4603247,
+        "tvdb": 8056254,
+        "imdb": "tt13351086",
+        "tmdb": 2529612,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "For All Mankind",
+      "year": 2019,
+      "ids": {
+        "trakt": 140481,
+        "slug": "for-all-mankind",
+        "tvdb": 356202,
+        "imdb": "tt7772588",
+        "tmdb": 87917,
+        "tvrage": null
+      },
+      "aired_episodes": 47
+    }
+  },
+  {
+    "rated_at": "2021-03-05T15:46:36.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 9,
+      "title": "The Series Finale",
+      "ids": {
+        "trakt": 4697985,
+        "tvdb": 8120638,
+        "imdb": "tt13778978",
+        "tmdb": 2724621,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "WandaVision",
+      "year": 2021,
+      "ids": {
+        "trakt": 146518,
+        "slug": "wandavision",
+        "tvdb": 362392,
+        "imdb": "tt9140560",
+        "tmdb": 85271,
+        "tvrage": null
+      },
+      "aired_episodes": 9
+    }
+  },
+  {
+    "rated_at": "2021-03-02T02:35:57.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 8,
+      "title": "Turning Point 1",
+      "ids": {
+        "trakt": 4772085,
+        "tvdb": 8145560,
+        "imdb": "tt14104744",
+        "tmdb": 2696390,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Mushoku Tensei: Jobless Reincarnation",
+      "year": 2021,
+      "ids": {
+        "trakt": 156460,
+        "slug": "mushoku-tensei-jobless-reincarnation",
+        "tvdb": 371310,
+        "imdb": "tt13293588",
+        "tmdb": 94664,
+        "tvrage": null
+      },
+      "aired_episodes": 47
+    }
+  },
+  {
+    "rated_at": "2021-02-26T14:23:06.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 8,
+      "title": "Previously On",
+      "ids": {
+        "trakt": 4673249,
+        "tvdb": 8105218,
+        "imdb": "tt13776714",
+        "tmdb": 2639821,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "WandaVision",
+      "year": 2021,
+      "ids": {
+        "trakt": 146518,
+        "slug": "wandavision",
+        "tvdb": 362392,
+        "imdb": "tt9140560",
+        "tmdb": 85271,
+        "tvrage": null
+      },
+      "aired_episodes": 9
+    }
+  },
+  {
+    "rated_at": "2021-02-18T02:23:43.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 3,
+      "number": 5,
+      "title": "Sister Rising",
+      "ids": {
+        "trakt": 4526763,
+        "tvdb": 7991883,
+        "imdb": "tt11213816",
+        "tmdb": 2617091,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "American Gods",
+      "year": 2017,
+      "ids": {
+        "trakt": 46366,
+        "slug": "american-gods",
+        "tvdb": 253573,
+        "imdb": "tt1898069",
+        "tmdb": 46639,
+        "tvrage": null
+      },
+      "aired_episodes": 26
+    }
+  },
+  {
+    "rated_at": "2020-12-23T00:00:00.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 8,
+      "title": "Chapter 16: The Rescue",
+      "ids": {
+        "trakt": 4527890,
+        "tvdb": 7993548,
+        "imdb": "tt13052880",
+        "tmdb": 2464381,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Mandalorian",
+      "year": 2019,
+      "ids": {
+        "trakt": 137178,
+        "slug": "the-mandalorian",
+        "tvdb": 361753,
+        "imdb": "tt8111088",
+        "tmdb": 82856,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "rated_at": "2020-12-11T14:33:14.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 7,
+      "title": "Chapter 15: The Believer",
+      "ids": {
+        "trakt": 4527889,
+        "tvdb": 7993546,
+        "imdb": "tt13052876",
+        "tmdb": 2464380,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Mandalorian",
+      "year": 2019,
+      "ids": {
+        "trakt": 137178,
+        "slug": "the-mandalorian",
+        "tvdb": 361753,
+        "imdb": "tt8111088",
+        "tmdb": 82856,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "rated_at": "2020-11-30T08:44:14.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 4,
+      "title": "Tower of the Angels",
+      "ids": {
+        "trakt": 4533122,
+        "tvdb": 7997665,
+        "imdb": "tt8994280",
+        "tmdb": 2470651,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "His Dark Materials",
+      "year": 2019,
+      "ids": {
+        "trakt": 144668,
+        "slug": "his-dark-materials",
+        "tvdb": 360295,
+        "imdb": "tt5607976",
+        "tmdb": 68507,
+        "tvrage": null
+      },
+      "aired_episodes": 23
+    }
+  },
+  {
+    "rated_at": "2020-06-03T05:03:08.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 10,
+      "title": "Ninety-Seven",
+      "ids": {
+        "trakt": 3878080,
+        "tvdb": 7493467,
+        "imdb": "tt9413334",
+        "tmdb": 1997105,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Lost in Space",
+      "year": 2018,
+      "ids": {
+        "trakt": 128262,
+        "slug": "lost-in-space-2018",
+        "tvdb": 343253,
+        "imdb": "tt5232792",
+        "tmdb": 75758,
+        "tvrage": null
+      },
+      "aired_episodes": 28
+    }
+  },
+  {
+    "rated_at": "2020-05-19T02:25:41.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 6,
+      "title": "The Ricks Must Be Crazy",
+      "ids": {
+        "trakt": 1944044,
+        "tvdb": 5292290,
+        "imdb": "tt4832268",
+        "tmdb": 1091842,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Rick and Morty",
+      "year": 2013,
+      "ids": {
+        "trakt": 69829,
+        "slug": "rick-and-morty",
+        "tvdb": 275274,
+        "imdb": "tt2861424",
+        "tmdb": 60625,
+        "tvrage": null
+      },
+      "aired_episodes": 81
+    }
+  },
+  {
+    "rated_at": "2020-05-07T05:05:44.000Z",
+    "rating": 5,
+    "type": "episode",
+    "episode": {
+      "season": 9,
+      "number": 8,
+      "title": "The Apple Doesn't Fall Far from the Alibi",
+      "ids": {
+        "trakt": 3149555,
+        "tvdb": 6865265,
+        "imdb": "tt8245468",
+        "tmdb": 1677256,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Shameless",
+      "year": 2011,
+      "ids": {
+        "trakt": 34160,
+        "slug": "shameless-2011",
+        "tvdb": 161511,
+        "imdb": "tt1586680",
+        "tmdb": 34307,
+        "tvrage": null
+      },
+      "aired_episodes": 134
+    }
+  },
+  {
+    "rated_at": "2020-05-05T05:46:21.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 7,
+      "number": 12,
+      "title": "Victory and Death",
+      "ids": {
+        "trakt": 3109446,
+        "tvdb": 7688832,
+        "imdb": "tt9313978",
+        "tmdb": 2231675,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Star Wars: The Clone Wars",
+      "year": 2008,
+      "ids": {
+        "trakt": 4170,
+        "slug": "star-wars-the-clone-wars",
+        "tvdb": 83268,
+        "imdb": "tt0458290",
+        "tmdb": 4194,
+        "tvrage": null
+      },
+      "aired_episodes": 133
+    }
+  },
+  {
+    "rated_at": "2020-04-24T11:08:04.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 7,
+      "number": 10,
+      "title": "The Phantom Apprentice",
+      "ids": {
+        "trakt": 3109435,
+        "tvdb": 7640587,
+        "imdb": "tt9313966",
+        "tmdb": 2201895,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Star Wars: The Clone Wars",
+      "year": 2008,
+      "ids": {
+        "trakt": 4170,
+        "slug": "star-wars-the-clone-wars",
+        "tvdb": 83268,
+        "imdb": "tt0458290",
+        "tmdb": 4194,
+        "tvrage": null
+      },
+      "aired_episodes": 133
+    }
+  },
+  {
+    "rated_at": "2020-04-20T09:12:08.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 3,
+      "number": 6,
+      "title": "Decoherence",
+      "ids": {
+        "trakt": 3986383,
+        "tvdb": 7579000,
+        "imdb": "tt10011156",
+        "tmdb": 2199050,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Westworld",
+      "year": 2016,
+      "ids": {
+        "trakt": 99718,
+        "slug": "westworld",
+        "tvdb": 296762,
+        "imdb": "tt0475784",
+        "tmdb": 63247,
+        "tvrage": null
+      },
+      "aired_episodes": 36
+    }
+  },
+  {
+    "rated_at": "2020-04-18T08:46:44.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 7,
+      "number": 9,
+      "title": "Old Friends Not Forgotten",
+      "ids": {
+        "trakt": 3109433,
+        "tvdb": 7640583,
+        "imdb": "tt9313962",
+        "tmdb": 2201894,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Star Wars: The Clone Wars",
+      "year": 2008,
+      "ids": {
+        "trakt": 4170,
+        "slug": "star-wars-the-clone-wars",
+        "tvdb": 83268,
+        "imdb": "tt0458290",
+        "tmdb": 4194,
+        "tvrage": null
+      },
+      "aired_episodes": 133
+    }
+  },
+  {
+    "rated_at": "2020-04-09T15:21:03.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 4,
+      "title": "The Riddle of the Sphinx",
+      "ids": {
+        "trakt": 2953994,
+        "tvdb": 6690283,
+        "imdb": "tt6243300",
+        "tmdb": 1472420,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Westworld",
+      "year": 2016,
+      "ids": {
+        "trakt": 99718,
+        "slug": "westworld",
+        "tvdb": 296762,
+        "imdb": "tt0475784",
+        "tmdb": 63247,
+        "tvrage": null
+      },
+      "aired_episodes": 36
+    }
+  },
+  {
+    "rated_at": "2020-04-09T14:05:38.000Z",
+    "rating": 4,
+    "type": "episode",
+    "episode": {
+      "season": 7,
+      "number": 10,
+      "title": "Ride or Die",
+      "ids": {
+        "trakt": 2340401,
+        "tvdb": 5749167,
+        "imdb": "tt5745134",
+        "tmdb": 1229597,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Shameless",
+      "year": 2011,
+      "ids": {
+        "trakt": 34160,
+        "slug": "shameless-2011",
+        "tvdb": 161511,
+        "imdb": "tt1586680",
+        "tmdb": 34307,
+        "tvrage": null
+      },
+      "aired_episodes": 134
+    }
+  },
+  {
+    "rated_at": "2020-04-01T05:35:37.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 7,
+      "title": "Someday, My Family",
+      "ids": {
+        "trakt": 1147589,
+        "tvdb": 4530800,
+        "imdb": "tt3025098",
+        "tmdb": 923927,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The \"Hentai\" Prince and the Stony Cat",
+      "year": 2013,
+      "ids": {
+        "trakt": 68461,
+        "slug": "the-hentai-prince-and-the-stony-cat",
+        "tvdb": 264047,
+        "imdb": "tt2622974",
+        "tmdb": 53347,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-03-28T04:34:11.000Z",
+    "rating": 5,
+    "type": "episode",
+    "episode": {
+      "season": 7,
+      "number": 6,
+      "title": "Deal No Deal",
+      "ids": {
+        "trakt": 2590747,
+        "tvdb": 7600135,
+        "imdb": "tt9313944",
+        "tmdb": 2170503,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Star Wars: The Clone Wars",
+      "year": 2008,
+      "ids": {
+        "trakt": 4170,
+        "slug": "star-wars-the-clone-wars",
+        "tvdb": 83268,
+        "imdb": "tt0458290",
+        "tmdb": 4194,
+        "tvrage": null
+      },
+      "aired_episodes": 133
+    }
+  },
+  {
+    "rated_at": "2020-03-15T03:58:20.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 6,
+      "title": "Episode 6",
+      "ids": {
+        "trakt": 3985282,
+        "tvdb": 7579063,
+        "imdb": "tt9256460",
+        "tmdb": 2071805,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Kingdom",
+      "year": 2019,
+      "ids": {
+        "trakt": 139680,
+        "slug": "kingdom-2019",
+        "tvdb": 355228,
+        "imdb": "tt6611916",
+        "tmdb": 70593,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-03-15T03:02:22.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 5,
+      "title": "Episode 5",
+      "ids": {
+        "trakt": 3985281,
+        "tvdb": 7579062,
+        "imdb": "tt9256456",
+        "tmdb": 2071804,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Kingdom",
+      "year": 2019,
+      "ids": {
+        "trakt": 139680,
+        "slug": "kingdom-2019",
+        "tvdb": 355228,
+        "imdb": "tt6611916",
+        "tmdb": 70593,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-03-14T06:58:41.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 3,
+      "title": "Episode 3",
+      "ids": {
+        "trakt": 3985277,
+        "tvdb": 7579060,
+        "imdb": "tt9256452",
+        "tmdb": 2071802,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Kingdom",
+      "year": 2019,
+      "ids": {
+        "trakt": 139680,
+        "slug": "kingdom-2019",
+        "tvdb": 355228,
+        "imdb": "tt6611916",
+        "tmdb": 70593,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-03-14T06:57:31.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 4,
+      "title": "Episode 4",
+      "ids": {
+        "trakt": 3985279,
+        "tvdb": 7579061,
+        "imdb": "tt9256454",
+        "tmdb": 2071803,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Kingdom",
+      "year": 2019,
+      "ids": {
+        "trakt": 139680,
+        "slug": "kingdom-2019",
+        "tvdb": 355228,
+        "imdb": "tt6611916",
+        "tmdb": 70593,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-03-14T04:27:48.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 2,
+      "title": "Episode 2",
+      "ids": {
+        "trakt": 3985275,
+        "tvdb": 7579059,
+        "imdb": "tt9256450",
+        "tmdb": 2071801,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Kingdom",
+      "year": 2019,
+      "ids": {
+        "trakt": 139680,
+        "slug": "kingdom-2019",
+        "tvdb": 355228,
+        "imdb": "tt6611916",
+        "tmdb": 70593,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-03-14T03:52:17.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 1,
+      "title": "Episode 1",
+      "ids": {
+        "trakt": 3985274,
+        "tvdb": 7579048,
+        "imdb": "tt9256448",
+        "tmdb": 2071800,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Kingdom",
+      "year": 2019,
+      "ids": {
+        "trakt": 139680,
+        "slug": "kingdom-2019",
+        "tvdb": 355228,
+        "imdb": "tt6611916",
+        "tmdb": 70593,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-03-11T04:47:42.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 2,
+      "title": "The Fairy Doesn't Get Mad",
+      "ids": {
+        "trakt": 1146619,
+        "tvdb": 4530795,
+        "imdb": "tt2901046",
+        "tmdb": 923930,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The \"Hentai\" Prince and the Stony Cat",
+      "year": 2013,
+      "ids": {
+        "trakt": 68461,
+        "slug": "the-hentai-prince-and-the-stony-cat",
+        "tvdb": 264047,
+        "imdb": "tt2622974",
+        "tmdb": 53347,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-03-07T11:41:25.000Z",
+    "rating": 5,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 11,
+      "title": "Future",
+      "ids": {
+        "trakt": 2111655,
+        "tvdb": 5468810,
+        "imdb": "tt5360114",
+        "tmdb": 1160305,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "ERASED",
+      "year": 2016,
+      "ids": {
+        "trakt": 103359,
+        "slug": "erased",
+        "tvdb": 303071,
+        "imdb": "tt5249462",
+        "tmdb": 65249,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-03-07T09:57:07.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 8,
+      "title": "Spiral",
+      "ids": {
+        "trakt": 2111652,
+        "tvdb": 5468807,
+        "imdb": "tt5360106",
+        "tmdb": 1160300,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "ERASED",
+      "year": 2016,
+      "ids": {
+        "trakt": 103359,
+        "slug": "erased",
+        "tvdb": 303071,
+        "imdb": "tt5249462",
+        "tmdb": 65249,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-03-07T09:09:09.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 6,
+      "title": "Grim Reaper",
+      "ids": {
+        "trakt": 2108617,
+        "tvdb": 5465993,
+        "imdb": "tt5360098",
+        "tmdb": 1160297,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "ERASED",
+      "year": 2016,
+      "ids": {
+        "trakt": 103359,
+        "slug": "erased",
+        "tvdb": 303071,
+        "imdb": "tt5249462",
+        "tmdb": 65249,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-03-07T08:18:51.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 4,
+      "title": "Accomplishment",
+      "ids": {
+        "trakt": 2108614,
+        "tvdb": 5465991,
+        "imdb": "tt5360094",
+        "tmdb": 1157434,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "ERASED",
+      "year": 2016,
+      "ids": {
+        "trakt": 103359,
+        "slug": "erased",
+        "tvdb": 303071,
+        "imdb": "tt5249462",
+        "tmdb": 65249,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-03-07T07:34:12.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 2,
+      "title": "Palm of the Hand",
+      "ids": {
+        "trakt": 2108608,
+        "tvdb": 5465989,
+        "imdb": "tt5342622",
+        "tmdb": 1157432,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "ERASED",
+      "year": 2016,
+      "ids": {
+        "trakt": 103359,
+        "slug": "erased",
+        "tvdb": 303071,
+        "imdb": "tt5249462",
+        "tmdb": 65249,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "rated_at": "2020-02-29T07:41:01.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 12,
+      "number": 5,
+      "title": "Fugitive of the Judoon",
+      "ids": {
+        "trakt": 3934203,
+        "tvdb": 7538137,
+        "imdb": "tt9354216",
+        "tmdb": 2044561,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Doctor Who",
+      "year": 2005,
+      "ids": {
+        "trakt": 56872,
+        "slug": "doctor-who-2005",
+        "tvdb": 78804,
+        "imdb": "tt0436992",
+        "tmdb": 57243,
+        "tvrage": null
+      },
+      "aired_episodes": 153
+    }
+  },
+  {
+    "rated_at": "2020-02-17T04:25:23.000Z",
+    "rating": 5,
+    "type": "episode",
+    "episode": {
+      "season": 12,
+      "number": 1,
+      "title": "Spyfall (1)",
+      "ids": {
+        "trakt": 3828349,
+        "tvdb": 7461765,
+        "imdb": "tt9354122",
+        "tmdb": 1993116,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Doctor Who",
+      "year": 2005,
+      "ids": {
+        "trakt": 56872,
+        "slug": "doctor-who-2005",
+        "tvdb": 78804,
+        "imdb": "tt0436992",
+        "tmdb": 57243,
+        "tvrage": null
+      },
+      "aired_episodes": 153
+    }
+  },
+  {
+    "rated_at": "2019-12-29T15:33:49.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 8,
+      "title": "Chapter 8: Redemption",
+      "ids": {
+        "trakt": 3770821,
+        "tvdb": 7410449,
+        "imdb": "tt9121546",
+        "tmdb": 2023593,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Mandalorian",
+      "year": 2019,
+      "ids": {
+        "trakt": 137178,
+        "slug": "the-mandalorian",
+        "tvdb": 361753,
+        "imdb": "tt8111088",
+        "tmdb": 82856,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "rated_at": "2019-12-24T08:54:55.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 8,
+      "title": "Much More",
+      "ids": {
+        "trakt": 3790236,
+        "tvdb": 7428575,
+        "imdb": "tt8343780",
+        "tmdb": 1954618,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Witcher",
+      "year": 2019,
+      "ids": {
+        "trakt": 138163,
+        "slug": "the-witcher-2019",
+        "tvdb": 362696,
+        "imdb": "tt5180504",
+        "tmdb": 71912,
+        "tvrage": null
+      },
+      "aired_episodes": 32
+    }
+  },
+  {
+    "rated_at": "2019-12-24T04:25:22.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 8,
+      "title": "Betrayal",
+      "ids": {
+        "trakt": 3401462,
+        "tvdb": 7432835,
+        "imdb": "tt8785770",
+        "tmdb": 1974881,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "His Dark Materials",
+      "year": 2019,
+      "ids": {
+        "trakt": 144668,
+        "slug": "his-dark-materials",
+        "tvdb": 360295,
+        "imdb": "tt5607976",
+        "tmdb": 68507,
+        "tvrage": null
+      },
+      "aired_episodes": 23
+    }
+  },
+  {
+    "rated_at": "2019-12-23T03:37:16.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 10,
+      "title": "A City Upon a Hill",
+      "ids": {
+        "trakt": 3801663,
+        "tvdb": 7466057,
+        "imdb": "tt9537026",
+        "tmdb": 2010330,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "For All Mankind",
+      "year": 2019,
+      "ids": {
+        "trakt": 140481,
+        "slug": "for-all-mankind",
+        "tvdb": 356202,
+        "imdb": "tt7772588",
+        "tmdb": 87917,
+        "tvrage": null
+      },
+      "aired_episodes": 47
+    }
+  },
+  {
+    "rated_at": "2019-12-22T13:56:01.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 3,
+      "title": "Betrayer Moon",
+      "ids": {
+        "trakt": 3790231,
+        "tvdb": 7428568,
+        "imdb": "tt8343770",
+        "tmdb": 1954613,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Witcher",
+      "year": 2019,
+      "ids": {
+        "trakt": 138163,
+        "slug": "the-witcher-2019",
+        "tvdb": 362696,
+        "imdb": "tt5180504",
+        "tmdb": 71912,
+        "tvrage": null
+      },
+      "aired_episodes": 32
+    }
+  },
+  {
+    "rated_at": "2019-12-22T12:47:42.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 2,
+      "title": "Four Marks",
+      "ids": {
+        "trakt": 3790230,
+        "tvdb": 7428567,
+        "imdb": "tt8343768",
+        "tmdb": 1954612,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Witcher",
+      "year": 2019,
+      "ids": {
+        "trakt": 138163,
+        "slug": "the-witcher-2019",
+        "tvdb": 362696,
+        "imdb": "tt5180504",
+        "tmdb": 71912,
+        "tvrage": null
+      },
+      "aired_episodes": 32
+    }
+  },
+  {
+    "rated_at": "2019-12-21T15:36:25.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 1,
+      "title": "The End's Beginning",
+      "ids": {
+        "trakt": 3196093,
+        "tvdb": 7428555,
+        "imdb": "tt8071662",
+        "tmdb": 1927355,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Witcher",
+      "year": 2019,
+      "ids": {
+        "trakt": 138163,
+        "slug": "the-witcher-2019",
+        "tvdb": 362696,
+        "imdb": "tt5180504",
+        "tmdb": 71912,
+        "tvrage": null
+      },
+      "aired_episodes": 32
+    }
+  },
+  {
+    "rated_at": "2019-12-19T03:49:34.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 6,
+      "title": "Chapter 6: The Prisoner",
+      "ids": {
+        "trakt": 3770819,
+        "tvdb": 7410442,
+        "imdb": "tt9121542",
+        "tmdb": 1987336,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Mandalorian",
+      "year": 2019,
+      "ids": {
+        "trakt": 137178,
+        "slug": "the-mandalorian",
+        "tvdb": 361753,
+        "imdb": "tt8111088",
+        "tmdb": 82856,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "rated_at": "2019-12-19T03:45:36.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 7,
+      "title": "Chapter 7: The Reckoning",
+      "ids": {
+        "trakt": 3770820,
+        "tvdb": 7410445,
+        "imdb": "tt9121544",
+        "tmdb": 1987337,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Mandalorian",
+      "year": 2019,
+      "ids": {
+        "trakt": 137178,
+        "slug": "the-mandalorian",
+        "tvdb": 361753,
+        "imdb": "tt8111088",
+        "tmdb": 82856,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "rated_at": "2019-12-16T08:27:39.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 4,
+      "number": 5,
+      "title": "Oppressor",
+      "ids": {
+        "trakt": 3831944,
+        "tvdb": 7459813,
+        "imdb": "tt8665822",
+        "tmdb": 1998227,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  },
+  {
+    "rated_at": "2019-12-16T08:27:03.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 4,
+      "number": 4,
+      "title": "Retrograde",
+      "ids": {
+        "trakt": 3831943,
+        "tvdb": 7459812,
+        "imdb": "tt8665818",
+        "tmdb": 1998226,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  },
+  {
+    "rated_at": "2019-12-16T08:26:57.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 4,
+      "number": 3,
+      "title": "Subduction",
+      "ids": {
+        "trakt": 3831942,
+        "tvdb": 7459811,
+        "imdb": "tt8665812",
+        "tmdb": 1998225,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  },
+  {
+    "rated_at": "2019-12-16T02:54:57.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 4,
+      "number": 2,
+      "title": "Jetsam",
+      "ids": {
+        "trakt": 3831941,
+        "tvdb": 7459810,
+        "imdb": "tt8665808",
+        "tmdb": 1998224,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  },
+  {
+    "rated_at": "2019-12-16T02:54:51.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 4,
+      "number": 1,
+      "title": "New Terra",
+      "ids": {
+        "trakt": 3184362,
+        "tvdb": 6851352,
+        "imdb": "tt8477674",
+        "tmdb": 1858313,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  },
+  {
+    "rated_at": "2019-12-16T02:54:37.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 6,
+      "title": "The Daemon-Cages",
+      "ids": {
+        "trakt": 3401448,
+        "tvdb": 7432833,
+        "imdb": "tt8785764",
+        "tmdb": 1974879,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "His Dark Materials",
+      "year": 2019,
+      "ids": {
+        "trakt": 144668,
+        "slug": "his-dark-materials",
+        "tvdb": 360295,
+        "imdb": "tt5607976",
+        "tmdb": 68507,
+        "tvrage": null
+      },
+      "aired_episodes": 23
+    }
+  },
+  {
+    "rated_at": "2019-12-16T02:54:26.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 7,
+      "title": "The Fight to the Death",
+      "ids": {
+        "trakt": 3401461,
+        "tvdb": 7432834,
+        "imdb": "tt8785754",
+        "tmdb": 1974880,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "His Dark Materials",
+      "year": 2019,
+      "ids": {
+        "trakt": 144668,
+        "slug": "his-dark-materials",
+        "tvdb": 360295,
+        "imdb": "tt5607976",
+        "tmdb": 68507,
+        "tvrage": null
+      },
+      "aired_episodes": 23
+    }
+  },
+  {
+    "rated_at": "2019-12-08T03:11:30.000Z",
+    "rating": 1,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 8,
+      "title": "House of Enlightenment",
+      "ids": {
+        "trakt": 3791499,
+        "tvdb": 7469139,
+        "imdb": "tt8399952",
+        "tmdb": 1999042,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "See",
+      "year": 2019,
+      "ids": {
+        "trakt": 145781,
+        "slug": "see",
+        "tvdb": 361565,
+        "imdb": "tt7949218",
+        "tmdb": 80752,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "rated_at": "2019-12-06T13:41:22.000Z",
+    "rating": 7,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 5,
+      "title": "Chapter 5: The Gunslinger",
+      "ids": {
+        "trakt": 3770818,
+        "tvdb": 7410440,
+        "imdb": "tt9121538",
+        "tmdb": 1987335,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Mandalorian",
+      "year": 2019,
+      "ids": {
+        "trakt": 137178,
+        "slug": "the-mandalorian",
+        "tvdb": 361753,
+        "imdb": "tt8111088",
+        "tmdb": 82856,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "rated_at": "2019-12-02T04:06:14.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 5,
+      "title": "The Lost Boy",
+      "ids": {
+        "trakt": 3401436,
+        "tvdb": 7432832,
+        "imdb": "tt8785926",
+        "tmdb": 1974878,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "His Dark Materials",
+      "year": 2019,
+      "ids": {
+        "trakt": 144668,
+        "slug": "his-dark-materials",
+        "tvdb": 360295,
+        "imdb": "tt5607976",
+        "tmdb": 68507,
+        "tvrage": null
+      },
+      "aired_episodes": 23
+    }
+  },
+  {
+    "rated_at": "2019-12-01T15:09:15.000Z",
+    "rating": 7,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 4,
+      "title": "Chapter 4: Sanctuary",
+      "ids": {
+        "trakt": 3770817,
+        "tvdb": 7410439,
+        "imdb": "tt9121536",
+        "tmdb": 1980404,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Mandalorian",
+      "year": 2019,
+      "ids": {
+        "trakt": 137178,
+        "slug": "the-mandalorian",
+        "tvdb": 361753,
+        "imdb": "tt8111088",
+        "tmdb": 82856,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "rated_at": "2019-11-25T03:37:13.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 4,
+      "title": "Armour",
+      "ids": {
+        "trakt": 3401419,
+        "tvdb": 7432830,
+        "imdb": "tt8785666",
+        "tmdb": 1974877,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "His Dark Materials",
+      "year": 2019,
+      "ids": {
+        "trakt": 144668,
+        "slug": "his-dark-materials",
+        "tvdb": 360295,
+        "imdb": "tt5607976",
+        "tmdb": 68507,
+        "tvrage": null
+      },
+      "aired_episodes": 23
+    }
+  },
+  {
+    "rated_at": "2019-11-22T15:05:53.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 3,
+      "title": "Chapter 3: The Sin",
+      "ids": {
+        "trakt": 3770816,
+        "tvdb": 7410438,
+        "imdb": "tt9121534",
+        "tmdb": 1980403,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Mandalorian",
+      "year": 2019,
+      "ids": {
+        "trakt": 137178,
+        "slug": "the-mandalorian",
+        "tvdb": 361753,
+        "imdb": "tt8111088",
+        "tmdb": 82856,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "rated_at": "2019-11-18T02:42:33.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 3,
+      "title": "The Spies",
+      "ids": {
+        "trakt": 3401395,
+        "tvdb": 7432829,
+        "imdb": "tt8718532",
+        "tmdb": 1974876,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "His Dark Materials",
+      "year": 2019,
+      "ids": {
+        "trakt": 144668,
+        "slug": "his-dark-materials",
+        "tvdb": 360295,
+        "imdb": "tt5607976",
+        "tmdb": 68507,
+        "tvrage": null
+      },
+      "aired_episodes": 23
+    }
+  },
+  {
+    "rated_at": "2019-11-15T16:02:18.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 2,
+      "title": "Chapter 2: The Child",
+      "ids": {
+        "trakt": 3770815,
+        "tvdb": 7410437,
+        "imdb": "tt9121530",
+        "tmdb": 1857024,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Mandalorian",
+      "year": 2019,
+      "ids": {
+        "trakt": 137178,
+        "slug": "the-mandalorian",
+        "tvdb": 361753,
+        "imdb": "tt8111088",
+        "tmdb": 82856,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "rated_at": "2019-11-12T16:38:43.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 10,
+      "title": "Kill Me as If It Were the Last Time",
+      "ids": {
+        "trakt": 3641312,
+        "tvdb": 7406286,
+        "imdb": "tt10359238",
+        "tmdb": 1954645,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Why Women Kill",
+      "year": 2019,
+      "ids": {
+        "trakt": 148726,
+        "slug": "why-women-kill",
+        "tvdb": 365069,
+        "imdb": "tt9054904",
+        "tmdb": 87428,
+        "tvrage": null
+      },
+      "aired_episodes": 20
+    }
+  },
+  {
+    "rated_at": "2019-11-12T15:44:02.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 9,
+      "title": "I Was Just Wondering What Makes Dames Like You So Deadly",
+      "ids": {
+        "trakt": 3641311,
+        "tvdb": 7352471,
+        "imdb": "tt10359278",
+        "tmdb": 1949651,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Why Women Kill",
+      "year": 2019,
+      "ids": {
+        "trakt": 148726,
+        "slug": "why-women-kill",
+        "tvdb": 365069,
+        "imdb": "tt9054904",
+        "tmdb": 87428,
+        "tvrage": null
+      },
+      "aired_episodes": 20
+    }
+  },
+  {
+    "rated_at": "2019-11-12T13:47:29.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 1,
+      "title": "Chapter 1: The Mandalorian",
+      "ids": {
+        "trakt": 3189430,
+        "tvdb": 7133857,
+        "imdb": "tt9095424",
+        "tmdb": 1586260,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Mandalorian",
+      "year": 2019,
+      "ids": {
+        "trakt": 137178,
+        "slug": "the-mandalorian",
+        "tvdb": 361753,
+        "imdb": "tt8111088",
+        "tmdb": 82856,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "rated_at": "2019-11-11T04:53:42.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 2,
+      "title": "The Idea of North",
+      "ids": {
+        "trakt": 3401376,
+        "tvdb": 7427005,
+        "imdb": "tt8785334",
+        "tmdb": 1970989,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "His Dark Materials",
+      "year": 2019,
+      "ids": {
+        "trakt": 144668,
+        "slug": "his-dark-materials",
+        "tvdb": 360295,
+        "imdb": "tt5607976",
+        "tmdb": 68507,
+        "tvrage": null
+      },
+      "aired_episodes": 23
+    }
+  },
+  {
+    "rated_at": "2019-11-04T17:00:22.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 1,
+      "title": "Lyra's Jordan",
+      "ids": {
+        "trakt": 3401362,
+        "tvdb": 7345634,
+        "imdb": "tt8110912",
+        "tmdb": 1858817,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "His Dark Materials",
+      "year": 2019,
+      "ids": {
+        "trakt": 144668,
+        "slug": "his-dark-materials",
+        "tvdb": 360295,
+        "imdb": "tt5607976",
+        "tmdb": 68507,
+        "tvrage": null
+      },
+      "aired_episodes": 23
+    }
+  },
+  {
+    "rated_at": "2019-08-15T14:23:55.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 3,
+      "number": 13,
+      "title": "Abaddon's Gate",
+      "ids": {
+        "trakt": 2924697,
+        "tvdb": 6596548,
+        "imdb": "tt6665364",
+        "tmdb": 1503262,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  },
+  {
+    "rated_at": "2019-08-14T17:05:59.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 3,
+      "number": 8,
+      "title": "It Reaches Out",
+      "ids": {
+        "trakt": 2924690,
+        "tvdb": 6596541,
+        "imdb": "tt6665326",
+        "tmdb": 1480972,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  },
+  {
+    "rated_at": "2019-08-14T07:13:23.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 3,
+      "number": 6,
+      "title": "Immolation",
+      "ids": {
+        "trakt": 2924688,
+        "tvdb": 6596537,
+        "imdb": "tt6665314",
+        "tmdb": 1475003,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  },
+  {
+    "rated_at": "2019-08-14T04:49:23.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 3,
+      "number": 5,
+      "title": "Triple Point",
+      "ids": {
+        "trakt": 2924687,
+        "tvdb": 6596536,
+        "imdb": "tt6665312",
+        "tmdb": 1475002,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  },
+  {
+    "rated_at": "2019-08-12T02:28:37.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 6,
+      "title": "Paradigm Shift",
+      "ids": {
+        "trakt": 2332388,
+        "tvdb": 5739003,
+        "imdb": "tt5625512",
+        "tmdb": 1271096,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  },
+  {
+    "rated_at": "2019-08-11T16:26:38.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 5,
+      "title": "Home",
+      "ids": {
+        "trakt": 2332387,
+        "tvdb": 5739002,
+        "imdb": "tt5625510",
+        "tmdb": 1262478,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  },
+  {
+    "rated_at": "2019-07-21T13:06:36.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 3,
+      "number": 4,
+      "title": "Chapter 23",
+      "ids": {
+        "trakt": 3571971,
+        "tvdb": 7231362,
+        "imdb": "tt9776894",
+        "tmdb": 1812672,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Legion",
+      "year": 2017,
+      "ids": {
+        "trakt": 113656,
+        "slug": "legion",
+        "tvdb": 320724,
+        "imdb": "tt5114356",
+        "tmdb": 67195,
+        "tvrage": null
+      },
+      "aired_episodes": 27
+    }
+  },
+  {
+    "rated_at": "2019-07-18T04:44:04.000Z",
+    "rating": 3,
+    "type": "episode",
+    "episode": {
+      "season": 3,
+      "number": 22,
+      "title": "Chapter Fifty-Seven: Survive the Night",
+      "ids": {
+        "trakt": 3488282,
+        "tvdb": 7142226,
+        "imdb": "tt8590040",
+        "tmdb": 1770962,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Riverdale",
+      "year": 2017,
+      "ids": {
+        "trakt": 107837,
+        "slug": "riverdale",
+        "tvdb": 311954,
+        "imdb": "tt5420376",
+        "tmdb": 69050,
+        "tvrage": null
+      },
+      "aired_episodes": 137
+    }
+  },
+  {
+    "rated_at": "2019-07-17T03:26:26.000Z",
+    "rating": 2,
+    "type": "episode",
+    "episode": {
+      "season": 3,
+      "number": 16,
+      "title": "Chapter Fifty-One: Big Fun",
+      "ids": {
+        "trakt": 3331556,
+        "tvdb": 6997931,
+        "imdb": "tt8590014",
+        "tmdb": 1703027,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Riverdale",
+      "year": 2017,
+      "ids": {
+        "trakt": 107837,
+        "slug": "riverdale",
+        "tvdb": 311954,
+        "imdb": "tt5420376",
+        "tmdb": 69050,
+        "tvrage": null
+      },
+      "aired_episodes": 137
+    }
+  },
+  {
+    "rated_at": "2019-07-16T11:38:12.000Z",
+    "rating": 1,
+    "type": "episode",
+    "episode": {
+      "season": 3,
+      "number": 14,
+      "title": "Chapter Forty-Nine: Fire Walk with Me",
+      "ids": {
+        "trakt": 3331553,
+        "tvdb": 6997780,
+        "imdb": "tt8589998",
+        "tmdb": 1703025,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Riverdale",
+      "year": 2017,
+      "ids": {
+        "trakt": 107837,
+        "slug": "riverdale",
+        "tvdb": 311954,
+        "imdb": "tt5420376",
+        "tmdb": 69050,
+        "tvrage": null
+      },
+      "aired_episodes": 137
+    }
+  },
+  {
+    "rated_at": "2019-07-07T13:52:19.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 3,
+      "number": 8,
+      "title": "Chapter Eight: The Battle of Starcourt",
+      "ids": {
+        "trakt": 3270582,
+        "tvdb": 6934003,
+        "imdb": "tt7911942",
+        "tmdb": 1657335,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Stranger Things",
+      "year": 2016,
+      "ids": {
+        "trakt": 104439,
+        "slug": "stranger-things",
+        "tvdb": 305288,
+        "imdb": "tt4574334",
+        "tmdb": 66732,
+        "tvrage": null
+      },
+      "aired_episodes": 42
+    }
+  },
+  {
+    "rated_at": "2019-07-04T10:11:36.000Z",
+    "rating": 1,
+    "type": "episode",
+    "episode": {
+      "season": 3,
+      "number": 7,
+      "title": "Chapter Forty-Two: The Man in Black",
+      "ids": {
+        "trakt": 3180471,
+        "tvdb": 6848021,
+        "imdb": "tt8451436",
+        "tmdb": 1621309,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Riverdale",
+      "year": 2017,
+      "ids": {
+        "trakt": 107837,
+        "slug": "riverdale",
+        "tvdb": 311954,
+        "imdb": "tt5420376",
+        "tmdb": 69050,
+        "tvrage": null
+      },
+      "aired_episodes": 137
+    }
+  },
+  {
+    "rated_at": "2019-05-21T00:00:00.000Z",
+    "rating": 2,
+    "type": "episode",
+    "episode": {
+      "season": 8,
+      "number": 6,
+      "title": "The Iron Throne",
+      "ids": {
+        "trakt": 3465698,
+        "tvdb": 7121405,
+        "imdb": "tt6027920",
+        "tmdb": 1551830,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Game of Thrones",
+      "year": 2011,
+      "ids": {
+        "trakt": 1390,
+        "slug": "game-of-thrones",
+        "tvdb": 121361,
+        "imdb": "tt0944947",
+        "tmdb": 1399,
+        "tvrage": null
+      },
+      "aired_episodes": 73
+    }
+  },
+  {
+    "rated_at": "2019-05-16T00:00:00.000Z",
+    "rating": 3,
+    "type": "episode",
+    "episode": {
+      "season": 8,
+      "number": 5,
+      "title": "The Bells",
+      "ids": {
+        "trakt": 3465697,
+        "tvdb": 7121404,
+        "imdb": "tt6027916",
+        "tmdb": 1551829,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Game of Thrones",
+      "year": 2011,
+      "ids": {
+        "trakt": 1390,
+        "slug": "game-of-thrones",
+        "tvdb": 121361,
+        "imdb": "tt0944947",
+        "tmdb": 1399,
+        "tvrage": null
+      },
+      "aired_episodes": 73
+    }
+  },
+  {
+    "rated_at": "2019-05-06T14:41:42.000Z",
+    "rating": 4,
+    "type": "episode",
+    "episode": {
+      "season": 8,
+      "number": 4,
+      "title": "The Last of the Starks",
+      "ids": {
+        "trakt": 3465696,
+        "tvdb": 7121403,
+        "imdb": "tt6027914",
+        "tmdb": 1551828,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Game of Thrones",
+      "year": 2011,
+      "ids": {
+        "trakt": 1390,
+        "slug": "game-of-thrones",
+        "tvdb": 121361,
+        "imdb": "tt0944947",
+        "tmdb": 1399,
+        "tvrage": null
+      },
+      "aired_episodes": 73
+    }
+  },
+  {
+    "rated_at": "2019-04-06T13:26:49.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 8,
+      "title": "GOOD HUNTING",
+      "ids": {
+        "trakt": 3411259,
+        "tvdb": 7069826,
+        "imdb": "tt9788498",
+        "tmdb": 1727729,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Love, Death & Robots",
+      "year": 2019,
+      "ids": {
+        "trakt": 142611,
+        "slug": "love-death-robots",
+        "tvdb": 357888,
+        "imdb": "tt9561862",
+        "tmdb": 86831,
+        "tvrage": null
+      },
+      "aired_episodes": 45
+    }
+  },
+  {
+    "rated_at": "2019-02-21T16:40:41.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 19,
+      "title": "Meliodas vs The Ten Commandments",
+      "ids": {
+        "trakt": 2857634,
+        "tvdb": 6504119,
+        "imdb": "tt8470404",
+        "tmdb": 1493148,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Seven Deadly Sins",
+      "year": 2014,
+      "ids": {
+        "trakt": 79352,
+        "slug": "the-seven-deadly-sins",
+        "tvdb": 284131,
+        "imdb": "tt3909224",
+        "tmdb": 62104,
+        "tvrage": null
+      },
+      "aired_episodes": 96
+    }
+  },
+  {
+    "rated_at": "2018-11-27T11:43:39.000Z",
+    "rating": 5,
+    "type": "episode",
+    "episode": {
+      "season": 11,
+      "number": 8,
+      "title": "The Witchfinders",
+      "ids": {
+        "trakt": 3190281,
+        "tvdb": 6894192,
+        "imdb": "tt7693274",
+        "tmdb": 1621455,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Doctor Who",
+      "year": 2005,
+      "ids": {
+        "trakt": 56872,
+        "slug": "doctor-who-2005",
+        "tvdb": 78804,
+        "imdb": "tt0436992",
+        "tmdb": 57243,
+        "tvrage": null
+      },
+      "aired_episodes": 153
+    }
+  },
+  {
+    "rated_at": "2018-11-14T03:21:12.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 11,
+      "number": 6,
+      "title": "Demons of the Punjab",
+      "ids": {
+        "trakt": 3190278,
+        "tvdb": 6872525,
+        "imdb": "tt7693262",
+        "tmdb": 1606441,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Doctor Who",
+      "year": 2005,
+      "ids": {
+        "trakt": 56872,
+        "slug": "doctor-who-2005",
+        "tvdb": 78804,
+        "imdb": "tt0436992",
+        "tmdb": 57243,
+        "tvrage": null
+      },
+      "aired_episodes": 153
+    }
+  },
+  {
+    "rated_at": "2018-06-05T00:00:00.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 11,
+      "number": 20,
+      "title": "Don't Call Me Shurley",
+      "ids": {
+        "trakt": 2152770,
+        "tvdb": 5580902,
+        "imdb": "tt5547512",
+        "tmdb": 1186323,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Supernatural",
+      "year": 2005,
+      "ids": {
+        "trakt": 1611,
+        "slug": "supernatural",
+        "tvdb": 78901,
+        "imdb": "tt0460681",
+        "tmdb": 1622,
+        "tvrage": null
+      },
+      "aired_episodes": 327
+    }
+  },
+  {
+    "rated_at": "2017-07-02T15:53:40.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 10,
+      "number": 12,
+      "title": "The Doctor Falls (2)",
+      "ids": {
+        "trakt": 2549928,
+        "tvdb": 6043690,
+        "imdb": "tt6340142",
+        "tmdb": 1295802,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Doctor Who",
+      "year": 2005,
+      "ids": {
+        "trakt": 56872,
+        "slug": "doctor-who-2005",
+        "tvdb": 78804,
+        "imdb": "tt0436992",
+        "tmdb": 57243,
+        "tvrage": null
+      },
+      "aired_episodes": 153
+    }
+  },
+  {
+    "rated_at": "2017-06-26T16:01:07.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 10,
+      "number": 11,
+      "title": "World Enough and Time (1)",
+      "ids": {
+        "trakt": 2549904,
+        "tvdb": 6043689,
+        "imdb": "tt6340138",
+        "tmdb": 1295801,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Doctor Who",
+      "year": 2005,
+      "ids": {
+        "trakt": 56872,
+        "slug": "doctor-who-2005",
+        "tvdb": 78804,
+        "imdb": "tt0436992",
+        "tmdb": 57243,
+        "tvrage": null
+      },
+      "aired_episodes": 153
+    }
+  },
+  {
+    "rated_at": "2017-06-17T21:12:27.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 10,
+      "number": 10,
+      "title": "The Eaters of Light",
+      "ids": {
+        "trakt": 2549868,
+        "tvdb": 6043688,
+        "imdb": "tt6250158",
+        "tmdb": 1295799,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Doctor Who",
+      "year": 2005,
+      "ids": {
+        "trakt": 56872,
+        "slug": "doctor-who-2005",
+        "tvdb": 78804,
+        "imdb": "tt0436992",
+        "tmdb": 57243,
+        "tvrage": null
+      },
+      "aired_episodes": 153
+    }
+  },
+  {
+    "rated_at": "2017-06-06T17:02:29.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 9,
+      "title": "Something Ricked This Way Comes",
+      "ids": {
+        "trakt": 1168618,
+        "tvdb": 4743890,
+        "imdb": "tt3333840",
+        "tmdb": 973462,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Rick and Morty",
+      "year": 2013,
+      "ids": {
+        "trakt": 69829,
+        "slug": "rick-and-morty",
+        "tvdb": 275274,
+        "imdb": "tt2861424",
+        "tmdb": 60625,
+        "tvrage": null
+      },
+      "aired_episodes": 81
+    }
+  },
+  {
+    "rated_at": "2017-06-04T18:49:13.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 10,
+      "number": 8,
+      "title": "The Lie of the Land (3)",
+      "ids": {
+        "trakt": 2485459,
+        "tvdb": 5951501,
+        "imdb": "tt6333372",
+        "tmdb": 1295795,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Doctor Who",
+      "year": 2005,
+      "ids": {
+        "trakt": 56872,
+        "slug": "doctor-who-2005",
+        "tvdb": 78804,
+        "imdb": "tt0436992",
+        "tmdb": 57243,
+        "tvrage": null
+      },
+      "aired_episodes": 153
+    }
+  },
+  {
+    "rated_at": "2015-02-01T14:51:29.000Z",
+    "rating": 10,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 8,
+      "title": "The Impossible Planet (1)",
+      "ids": {
+        "trakt": 951452,
+        "tvdb": 302434,
+        "imdb": "tt0772457",
+        "tmdb": 941484,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Doctor Who",
+      "year": 2005,
+      "ids": {
+        "trakt": 56872,
+        "slug": "doctor-who-2005",
+        "tvdb": 78804,
+        "imdb": "tt0436992",
+        "tmdb": 57243,
+        "tvrage": null
+      },
+      "aired_episodes": 153
+    }
+  },
+  {
+    "rated_at": "2015-02-01T13:10:18.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 5,
+      "title": "Rise of the Cybermen (1)",
+      "ids": {
+        "trakt": 951449,
+        "tvdb": 302785,
+        "imdb": "tt0562991",
+        "tmdb": 941482,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Doctor Who",
+      "year": 2005,
+      "ids": {
+        "trakt": 56872,
+        "slug": "doctor-who-2005",
+        "tvdb": 78804,
+        "imdb": "tt0436992",
+        "tmdb": 57243,
+        "tvrage": null
+      },
+      "aired_episodes": 153
+    }
+  },
+  {
+    "rated_at": "2015-02-01T13:10:16.000Z",
+    "rating": 9,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 6,
+      "title": "The Age of Steel (2)",
+      "ids": {
+        "trakt": 951450,
+        "tvdb": 308600,
+        "imdb": "tt0756447",
+        "tmdb": 941483,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Doctor Who",
+      "year": 2005,
+      "ids": {
+        "trakt": 56872,
+        "slug": "doctor-who-2005",
+        "tvdb": 78804,
+        "imdb": "tt0436992",
+        "tmdb": 57243,
+        "tvrage": null
+      },
+      "aired_episodes": 153
+    }
+  },
+  {
+    "rated_at": "2015-02-01T13:09:54.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 2,
+      "number": 7,
+      "title": "The Idiot's Lantern",
+      "ids": {
+        "trakt": 951451,
+        "tvdb": 302433,
+        "imdb": "tt0756451",
+        "tmdb": 941490,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Doctor Who",
+      "year": 2005,
+      "ids": {
+        "trakt": 56872,
+        "slug": "doctor-who-2005",
+        "tvdb": 78804,
+        "imdb": "tt0436992",
+        "tmdb": 57243,
+        "tvrage": null
+      },
+      "aired_episodes": 153
+    }
+  },
+  {
+    "rated_at": "2013-07-21T20:37:00.000Z",
+    "rating": 8,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 10,
+      "title": "Buffet Froid",
+      "ids": {
+        "trakt": 875472,
+        "tvdb": 4520367,
+        "imdb": "tt2373019",
+        "tmdb": 870677,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Hannibal",
+      "year": 2013,
+      "ids": {
+        "trakt": 39825,
+        "slug": "hannibal",
+        "tvdb": 259063,
+        "imdb": "tt2243973",
+        "tmdb": 40008,
+        "tvrage": null
+      },
+      "aired_episodes": 39
+    }
+  }
+]

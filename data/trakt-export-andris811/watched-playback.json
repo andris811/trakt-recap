@@ -1,0 +1,1062 @@
+[
+  {
+    "progress": 17.4467,
+    "paused_at": "2026-05-08T11:21:31.000Z",
+    "id": 1749100523,
+    "type": "movie",
+    "movie": {
+      "title": "The Lion Roars",
+      "year": 2002,
+      "ids": {
+        "trakt": 128386,
+        "slug": "the-lion-roars-2002",
+        "imdb": "tt0368894",
+        "tmdb": 206664
+      }
+    }
+  },
+  {
+    "progress": 16.9152,
+    "paused_at": "2026-05-02T14:20:14.000Z",
+    "id": 1744962096,
+    "type": "episode",
+    "episode": {
+      "season": 10,
+      "number": 12,
+      "title": "About a Boy",
+      "ids": {
+        "trakt": 1444091,
+        "tvdb": 5040752,
+        "imdb": "tt4344320",
+        "tmdb": 1033630,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Supernatural",
+      "year": 2005,
+      "ids": {
+        "trakt": 1611,
+        "slug": "supernatural",
+        "tvdb": 78901,
+        "imdb": "tt0460681",
+        "tmdb": 1622,
+        "tvrage": null
+      },
+      "aired_episodes": 327
+    }
+  },
+  {
+    "progress": 45.6656,
+    "paused_at": "2026-04-16T14:07:26.000Z",
+    "id": 1733511607,
+    "type": "movie",
+    "movie": {
+      "title": "Hot Fuzz",
+      "year": 2007,
+      "ids": {
+        "trakt": 2724,
+        "slug": "hot-fuzz-2007",
+        "imdb": "tt0425112",
+        "tmdb": 4638
+      }
+    }
+  },
+  {
+    "progress": 43.0048,
+    "paused_at": "2026-04-09T17:12:21.000Z",
+    "id": 1728880310,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 8,
+      "title": "WORST IN THE EAST",
+      "ids": {
+        "trakt": 10740331,
+        "tvdb": 9931638,
+        "imdb": "tt11758482",
+        "tmdb": 4557395,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "ONE PIECE",
+      "year": 2023,
+      "ids": {
+        "trakt": 184618,
+        "slug": "one-piece-2023",
+        "tvdb": 392276,
+        "imdb": "tt11737520",
+        "tmdb": 111110,
+        "tvrage": null
+      },
+      "aired_episodes": 16
+    }
+  },
+  {
+    "progress": 11.988,
+    "paused_at": "2026-04-06T14:30:30.000Z",
+    "id": 1726899017,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 4,
+      "title": "Episode 4",
+      "ids": {
+        "trakt": 2790904,
+        "tvdb": 6406634,
+        "imdb": null,
+        "tmdb": 1398505,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "A Love So Beautiful",
+      "year": 2017,
+      "ids": {
+        "trakt": 125225,
+        "slug": "a-love-so-beautiful",
+        "tvdb": 337736,
+        "imdb": "tt8434720",
+        "tmdb": 75387,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "progress": 15.635,
+    "paused_at": "2026-04-06T13:38:52.000Z",
+    "id": 1726873353,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 2,
+      "title": "Episode 2",
+      "ids": {
+        "trakt": 2790902,
+        "tvdb": 6406632,
+        "imdb": null,
+        "tmdb": 1398503,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "A Love So Beautiful",
+      "year": 2017,
+      "ids": {
+        "trakt": 125225,
+        "slug": "a-love-so-beautiful",
+        "tvdb": 337736,
+        "imdb": "tt8434720",
+        "tmdb": 75387,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "progress": 8.44082,
+    "paused_at": "2026-04-06T13:38:51.000Z",
+    "id": 1726873335,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 1,
+      "title": "Love Letter",
+      "ids": {
+        "trakt": 2790901,
+        "tvdb": 6406630,
+        "imdb": "tt13765018",
+        "tmdb": 1398495,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "A Love So Beautiful",
+      "year": 2017,
+      "ids": {
+        "trakt": 125225,
+        "slug": "a-love-so-beautiful",
+        "tvdb": 337736,
+        "imdb": "tt8434720",
+        "tmdb": 75387,
+        "tvrage": null
+      },
+      "aired_episodes": 24
+    }
+  },
+  {
+    "progress": 14.3978,
+    "paused_at": "2026-04-06T13:37:20.000Z",
+    "id": 1726872587,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 1,
+      "title": "Summer Break",
+      "ids": {
+        "trakt": 4250313,
+        "tvdb": 7797045,
+        "imdb": null,
+        "tmdb": 2312256,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Bad Kids",
+      "year": 2020,
+      "ids": {
+        "trakt": 163398,
+        "slug": "the-bad-kids",
+        "tvdb": 384075,
+        "imdb": "tt12477942",
+        "tmdb": 104960,
+        "tvrage": null
+      },
+      "aired_episodes": 12
+    }
+  },
+  {
+    "progress": 43.7686,
+    "paused_at": "2026-03-28T14:47:41.000Z",
+    "id": 1720681774,
+    "type": "movie",
+    "movie": {
+      "title": "The Sixth Sense",
+      "year": 1999,
+      "ids": {
+        "trakt": 590,
+        "slug": "the-sixth-sense-1999",
+        "imdb": "tt0167404",
+        "tmdb": 745
+      }
+    }
+  },
+  {
+    "progress": 2.11159,
+    "paused_at": "2026-03-23T16:13:55.000Z",
+    "id": 1717554986,
+    "type": "movie",
+    "movie": {
+      "title": "The Long Walk",
+      "year": 2025,
+      "ids": {
+        "trakt": 449045,
+        "slug": "the-long-walk-2025",
+        "imdb": "tt10374610",
+        "tmdb": 604079
+      }
+    }
+  },
+  {
+    "progress": 7.75928,
+    "paused_at": "2026-03-18T08:17:26.000Z",
+    "id": 1714141898,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 8,
+      "title": "Birthright",
+      "ids": {
+        "trakt": 10873411,
+        "tvdb": 10009423,
+        "imdb": "tt23787584",
+        "tmdb": 4712065,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Monarch: Legacy of Monsters",
+      "year": 2023,
+      "ids": {
+        "trakt": 195644,
+        "slug": "monarch-legacy-of-monsters",
+        "tvdb": 422598,
+        "imdb": "tt17220216",
+        "tmdb": 202411,
+        "tvrage": null
+      },
+      "aired_episodes": 20
+    }
+  },
+  {
+    "progress": 13.907,
+    "paused_at": "2026-03-14T15:37:29.000Z",
+    "id": 1711685711,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 1,
+      "title": "Aftermath",
+      "ids": {
+        "trakt": 6390682,
+        "tvdb": 9959300,
+        "imdb": "tt20412166",
+        "tmdb": 3732547,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Monarch: Legacy of Monsters",
+      "year": 2023,
+      "ids": {
+        "trakt": 195644,
+        "slug": "monarch-legacy-of-monsters",
+        "tvdb": 422598,
+        "imdb": "tt17220216",
+        "tmdb": 202411,
+        "tvrage": null
+      },
+      "aired_episodes": 20
+    }
+  },
+  {
+    "progress": 23.2438,
+    "paused_at": "2026-03-11T15:15:04.000Z",
+    "id": 1709820840,
+    "type": "episode",
+    "episode": {
+      "season": 5,
+      "number": 15,
+      "title": "Summit (1)",
+      "ids": {
+        "trakt": 344213,
+        "tvdb": 85853,
+        "imdb": "tt0709179",
+        "tmdb": 335931,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Stargate SG-1",
+      "year": 1997,
+      "ids": {
+        "trakt": 4605,
+        "slug": "stargate-sg-1",
+        "tvdb": 72449,
+        "imdb": "tt0118480",
+        "tmdb": 4629,
+        "tvrage": null
+      },
+      "aired_episodes": 214
+    }
+  },
+  {
+    "progress": 76.1855,
+    "paused_at": "2026-03-08T12:57:40.000Z",
+    "id": 1707815863,
+    "type": "episode",
+    "episode": {
+      "season": 9,
+      "number": 7,
+      "title": "Bad Boys",
+      "ids": {
+        "trakt": 94049,
+        "tvdb": 4632413,
+        "imdb": "tt3141550",
+        "tmdb": 971177,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Supernatural",
+      "year": 2005,
+      "ids": {
+        "trakt": 1611,
+        "slug": "supernatural",
+        "tvdb": 78901,
+        "imdb": "tt0460681",
+        "tmdb": 1622,
+        "tvrage": null
+      },
+      "aired_episodes": 327
+    }
+  },
+  {
+    "progress": 10.5923,
+    "paused_at": "2026-03-01T11:47:21.000Z",
+    "id": 1703169897,
+    "type": "episode",
+    "episode": {
+      "season": 8,
+      "number": 17,
+      "title": "Goodbye, Stranger",
+      "ids": {
+        "trakt": 94036,
+        "tvdb": 4462188,
+        "imdb": "tt2692382",
+        "tmdb": 162578,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Supernatural",
+      "year": 2005,
+      "ids": {
+        "trakt": 1611,
+        "slug": "supernatural",
+        "tvdb": 78901,
+        "imdb": "tt0460681",
+        "tmdb": 1622,
+        "tvrage": null
+      },
+      "aired_episodes": 327
+    }
+  },
+  {
+    "progress": 10.2893,
+    "paused_at": "2026-02-25T06:16:48.000Z",
+    "id": 1699962170,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 17,
+      "title": "Fourth Children",
+      "ids": {
+        "trakt": 58493,
+        "tvdb": 3901,
+        "imdb": "tt0781964",
+        "tmdb": 949396,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Neon Genesis Evangelion",
+      "year": 1995,
+      "ids": {
+        "trakt": 885,
+        "slug": "neon-genesis-evangelion",
+        "tvdb": 70350,
+        "imdb": "tt0112159",
+        "tmdb": 890,
+        "tvrage": null
+      },
+      "aired_episodes": 26
+    }
+  },
+  {
+    "progress": 21.6142,
+    "paused_at": "2026-02-19T05:48:18.000Z",
+    "id": 1695135730,
+    "type": "movie",
+    "movie": {
+      "title": "Rental Family",
+      "year": 2025,
+      "ids": {
+        "trakt": 972436,
+        "slug": "rental-family-2025",
+        "imdb": "tt14142060",
+        "tmdb": 1208348
+      }
+    }
+  },
+  {
+    "progress": 62.5124,
+    "paused_at": "2026-02-16T10:20:11.000Z",
+    "id": 1693003986,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 2,
+      "title": "The Bicycle Thief",
+      "ids": {
+        "trakt": 75742,
+        "tvdb": 1084191,
+        "imdb": "tt1492032",
+        "tmdb": 64966,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Modern Family",
+      "year": 2009,
+      "ids": {
+        "trakt": 1412,
+        "slug": "modern-family",
+        "tvdb": 95011,
+        "imdb": "tt1442437",
+        "tmdb": 1421,
+        "tvrage": null
+      },
+      "aired_episodes": 250
+    }
+  },
+  {
+    "progress": 37.8058,
+    "paused_at": "2026-02-16T09:43:07.000Z",
+    "id": 1692991543,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 1,
+      "title": "Pilot",
+      "ids": {
+        "trakt": 924305,
+        "tvdb": 4568065,
+        "imdb": "tt2936284",
+        "tmdb": 915551,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Brooklyn Nine-Nine",
+      "year": 2013,
+      "ids": {
+        "trakt": 48587,
+        "slug": "brooklyn-nine-nine",
+        "tvdb": 269586,
+        "imdb": "tt2467372",
+        "tmdb": 48891,
+        "tvrage": null
+      },
+      "aired_episodes": 152
+    }
+  },
+  {
+    "progress": 2.02268,
+    "paused_at": "2026-02-16T09:25:06.000Z",
+    "id": 1692985520,
+    "type": "movie",
+    "movie": {
+      "title": "Iron Lung",
+      "year": 2026,
+      "ids": {
+        "trakt": 897961,
+        "slug": "iron-lung-2026",
+        "imdb": "tt27564844",
+        "tmdb": 1116201
+      }
+    }
+  },
+  {
+    "progress": 4.36048,
+    "paused_at": "2026-02-16T09:24:08.000Z",
+    "id": 1692985188,
+    "type": "movie",
+    "movie": {
+      "title": "Mamma Mia!",
+      "year": 2008,
+      "ids": {
+        "trakt": 6707,
+        "slug": "mamma-mia-2008",
+        "imdb": "tt0795421",
+        "tmdb": 11631
+      }
+    }
+  },
+  {
+    "progress": 78.2267,
+    "paused_at": "2026-02-15T11:25:02.000Z",
+    "id": 1692141122,
+    "type": "episode",
+    "episode": {
+      "season": 5,
+      "number": 3,
+      "title": "Mom is Trying to lose Weight! / The Action Mask Man Evil genius! / Mom had an Accident!",
+      "ids": {
+        "trakt": 1341975,
+        "tvdb": 6571045,
+        "imdb": null,
+        "tmdb": null,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Shin Chan",
+      "year": 1992,
+      "ids": {
+        "trakt": 61711,
+        "slug": "shin-chan",
+        "tvdb": 79654,
+        "imdb": "tt12853970",
+        "tmdb": 30623,
+        "tvrage": null
+      },
+      "aired_episodes": 1353
+    }
+  },
+  {
+    "progress": 30.5333,
+    "paused_at": "2026-02-15T11:24:33.000Z",
+    "id": 1692140882,
+    "type": "episode",
+    "episode": {
+      "season": 5,
+      "number": 2,
+      "title": "Mom's Coming-of-age Celebration! / I won't get out of the Kotatsu! / I go to the Department Store with Dad!",
+      "ids": {
+        "trakt": 1341973,
+        "tvdb": 6571044,
+        "imdb": null,
+        "tmdb": null,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Shin Chan",
+      "year": 1992,
+      "ids": {
+        "trakt": 61711,
+        "slug": "shin-chan",
+        "tvdb": 79654,
+        "imdb": "tt12853970",
+        "tmdb": 30623,
+        "tvrage": null
+      },
+      "aired_episodes": 1353
+    }
+  },
+  {
+    "progress": 21.86,
+    "paused_at": "2026-02-15T11:24:32.000Z",
+    "id": 1692140876,
+    "type": "episode",
+    "episode": {
+      "season": 5,
+      "number": 1,
+      "title": "I'm Tired of rice Cakes! / I have rice Gruel! / Dad's Missing Pocket Money!",
+      "ids": {
+        "trakt": 1341971,
+        "tvdb": 6571043,
+        "imdb": null,
+        "tmdb": null,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Shin Chan",
+      "year": 1992,
+      "ids": {
+        "trakt": 61711,
+        "slug": "shin-chan",
+        "tvdb": 79654,
+        "imdb": "tt12853970",
+        "tmdb": 30623,
+        "tvrage": null
+      },
+      "aired_episodes": 1353
+    }
+  },
+  {
+    "progress": 74.6136,
+    "paused_at": "2026-02-15T06:01:53.000Z",
+    "id": 1692000825,
+    "type": "movie",
+    "movie": {
+      "title": "Star Wars: Episode III - Revenge of the Sith",
+      "year": 2005,
+      "ids": {
+        "trakt": 1270,
+        "slug": "star-wars-episode-iii-revenge-of-the-sith-2005",
+        "imdb": "tt0121766",
+        "tmdb": 1895
+      }
+    }
+  },
+  {
+    "progress": 4.05216,
+    "paused_at": "2026-02-05T14:20:02.000Z",
+    "id": 1684374699,
+    "type": "episode",
+    "episode": {
+      "season": 4,
+      "number": 20,
+      "title": "The Rapture",
+      "ids": {
+        "trakt": 93950,
+        "tvdb": 469971,
+        "imdb": "tt1222607",
+        "tmdb": 162453,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Supernatural",
+      "year": 2005,
+      "ids": {
+        "trakt": 1611,
+        "slug": "supernatural",
+        "tvdb": 78901,
+        "imdb": "tt0460681",
+        "tmdb": 1622,
+        "tvrage": null
+      },
+      "aired_episodes": 327
+    }
+  },
+  {
+    "progress": 8.94663,
+    "paused_at": "2026-01-28T14:48:49.000Z",
+    "id": 1678032667,
+    "type": "movie",
+    "movie": {
+      "title": "The Running Man",
+      "year": 2025,
+      "ids": {
+        "trakt": 633799,
+        "slug": "the-running-man-2025",
+        "imdb": "tt14107334",
+        "tmdb": 798645
+      }
+    }
+  },
+  {
+    "progress": 8.72152,
+    "paused_at": "2026-01-14T07:54:00.000Z",
+    "id": 1665768596,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 2,
+      "title": "Chapter 2",
+      "ids": {
+        "trakt": 13154361,
+        "tvdb": 11385233,
+        "imdb": "tt35623344",
+        "tmdb": 6254205,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Man vs Baby",
+      "year": 2025,
+      "ids": {
+        "trakt": 270166,
+        "slug": "man-vs-baby",
+        "tvdb": 457885,
+        "imdb": "tt35047134",
+        "tmdb": 279601,
+        "tvrage": null
+      },
+      "aired_episodes": 4
+    }
+  },
+  {
+    "progress": 68.6358,
+    "paused_at": "2026-01-14T06:53:06.000Z",
+    "id": 1665745535,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 2,
+      "title": "Diversity Day",
+      "ids": {
+        "trakt": 182018,
+        "tvdb": 110414,
+        "imdb": "tt0664514",
+        "tmdb": 170132,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "The Office",
+      "year": 2005,
+      "ids": {
+        "trakt": 2302,
+        "slug": "the-office",
+        "tvdb": 73244,
+        "imdb": "tt0386676",
+        "tmdb": 2316,
+        "tvrage": null
+      },
+      "aired_episodes": 186
+    }
+  },
+  {
+    "progress": 3.36635,
+    "paused_at": "2026-01-11T14:22:14.000Z",
+    "id": 1663236869,
+    "type": "movie",
+    "movie": {
+      "title": "The Monster",
+      "year": 1994,
+      "ids": {
+        "trakt": 13870,
+        "slug": "the-monster-1994",
+        "imdb": "tt0110570",
+        "tmdb": 22826
+      }
+    }
+  },
+  {
+    "progress": 1.24578,
+    "paused_at": "2025-12-27T10:11:48.000Z",
+    "id": 1648326161,
+    "type": "movie",
+    "movie": {
+      "title": "The SpongeBob Movie: Search for SquarePants",
+      "year": 2025,
+      "ids": {
+        "trakt": 796977,
+        "slug": "the-spongebob-movie-search-for-squarepants-2025",
+        "imdb": "tt23572848",
+        "tmdb": 991494
+      }
+    }
+  },
+  {
+    "progress": 22.333,
+    "paused_at": "2025-12-09T06:37:12.000Z",
+    "id": 1634927360,
+    "type": "movie",
+    "movie": {
+      "title": "The Santa Clause",
+      "year": 1994,
+      "ids": {
+        "trakt": 6491,
+        "slug": "the-santa-clause-1994",
+        "imdb": "tt0111070",
+        "tmdb": 11395
+      }
+    }
+  },
+  {
+    "progress": 44.9105,
+    "paused_at": "2025-12-07T07:12:39.000Z",
+    "id": 1633679195,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 1,
+      "title": "Just Say Yes",
+      "ids": {
+        "trakt": 6372203,
+        "tvdb": 9226297,
+        "imdb": "tt19636410",
+        "tmdb": 3717349,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "ted",
+      "year": 2024,
+      "ids": {
+        "trakt": 195458,
+        "slug": "ted",
+        "tvdb": 404604,
+        "imdb": "tt14824792",
+        "tmdb": 201834,
+        "tvrage": null
+      },
+      "aired_episodes": 15
+    }
+  },
+  {
+    "progress": 52.6442,
+    "paused_at": "2025-11-29T15:02:47.000Z",
+    "id": 1628788391,
+    "type": "episode",
+    "episode": {
+      "season": 5,
+      "number": 1,
+      "title": "Chapter One: The Crawl",
+      "ids": {
+        "trakt": 12116371,
+        "tvdb": 9443528,
+        "imdb": "tt18268644",
+        "tmdb": 5477828,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Stranger Things",
+      "year": 2016,
+      "ids": {
+        "trakt": 104439,
+        "slug": "stranger-things",
+        "tvdb": 305288,
+        "imdb": "tt4574334",
+        "tmdb": 66732,
+        "tvrage": null
+      },
+      "aired_episodes": 42
+    }
+  },
+  {
+    "progress": 2.05334,
+    "paused_at": "2025-11-26T14:18:05.000Z",
+    "id": 1626884242,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 5,
+      "title": "Neibolt Street",
+      "ids": {
+        "trakt": 13060759,
+        "tvdb": 11326659,
+        "imdb": "tt36421972",
+        "tmdb": 6548354,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "IT: Welcome to Derry",
+      "year": 2025,
+      "ids": {
+        "trakt": 195268,
+        "slug": "it-welcome-to-derry",
+        "tvdb": 418424,
+        "imdb": "tt19244304",
+        "tmdb": 200875,
+        "tvrage": null
+      },
+      "aired_episodes": 8
+    }
+  },
+  {
+    "progress": 3.30541,
+    "paused_at": "2025-11-24T14:09:39.000Z",
+    "id": 1625736810,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 2,
+      "title": "Wendigo",
+      "ids": {
+        "trakt": 93872,
+        "tvdb": 298555,
+        "imdb": "tt0713624",
+        "tmdb": 162346,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Supernatural",
+      "year": 2005,
+      "ids": {
+        "trakt": 1611,
+        "slug": "supernatural",
+        "tvdb": 78901,
+        "imdb": "tt0460681",
+        "tmdb": 1622,
+        "tvrage": null
+      },
+      "aired_episodes": 327
+    }
+  },
+  {
+    "progress": 45.1842,
+    "paused_at": "2025-11-19T07:07:09.000Z",
+    "id": 1622345144,
+    "type": "episode",
+    "episode": {
+      "season": 4,
+      "number": 10,
+      "title": "Perestroika",
+      "ids": {
+        "trakt": 10884277,
+        "tvdb": 10087066,
+        "imdb": "tt28922925",
+        "tmdb": 4728173,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "For All Mankind",
+      "year": 2019,
+      "ids": {
+        "trakt": 140481,
+        "slug": "for-all-mankind",
+        "tvdb": 356202,
+        "imdb": "tt7772588",
+        "tmdb": 87917,
+        "tvrage": null
+      },
+      "aired_episodes": 47
+    }
+  },
+  {
+    "progress": 25.8881,
+    "paused_at": "2025-11-15T17:34:17.000Z",
+    "id": 1620089859,
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 3,
+      "title": "Now You See It",
+      "ids": {
+        "trakt": 12935493,
+        "tvdb": 11326657,
+        "imdb": "tt33753686",
+        "tmdb": 6548352,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "IT: Welcome to Derry",
+      "year": 2025,
+      "ids": {
+        "trakt": 195268,
+        "slug": "it-welcome-to-derry",
+        "tvdb": 418424,
+        "imdb": "tt19244304",
+        "tmdb": 200875,
+        "tvrage": null
+      },
+      "aired_episodes": 8
+    }
+  },
+  {
+    "progress": 14.8371,
+    "paused_at": "2025-11-15T11:43:27.000Z",
+    "id": 1619902544,
+    "type": "episode",
+    "episode": {
+      "season": 8,
+      "number": 5,
+      "title": "Cryo Mort a Rickver",
+      "ids": {
+        "trakt": 12993647,
+        "tvdb": 11077160,
+        "imdb": "tt36329663",
+        "tmdb": 6122204,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Rick and Morty",
+      "year": 2013,
+      "ids": {
+        "trakt": 69829,
+        "slug": "rick-and-morty",
+        "tvdb": 275274,
+        "imdb": "tt2861424",
+        "tmdb": 60625,
+        "tvrage": null
+      },
+      "aired_episodes": 81
+    }
+  },
+  {
+    "progress": 34.5064,
+    "paused_at": "2025-11-11T13:08:24.000Z",
+    "id": 1617530974,
+    "type": "episode",
+    "episode": {
+      "season": 6,
+      "number": 2,
+      "title": "Loch Henry",
+      "ids": {
+        "trakt": 7439990,
+        "tvdb": 9785517,
+        "imdb": "tt27731608",
+        "tmdb": 4287670,
+        "tvrage": null
+      }
+    },
+    "show": {
+      "title": "Black Mirror",
+      "year": 2011,
+      "ids": {
+        "trakt": 41793,
+        "slug": "black-mirror",
+        "tvdb": 253463,
+        "imdb": "tt2085059",
+        "tmdb": 42009,
+        "tvrage": null
+      },
+      "aired_episodes": 33
+    }
+  }
+]

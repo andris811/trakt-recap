@@ -1,0 +1,86 @@
+[
+  {
+    "rated_at": "2019-11-28T03:45:12.000Z",
+    "rating": 10,
+    "type": "season",
+    "season": {
+      "number": 3,
+      "ids": {
+        "trakt": 152369,
+        "tvdb": 750521,
+        "tmdb": 99857,
+        "tvrage": null
+      },
+      "aired_episodes": 13
+    },
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  },
+  {
+    "rated_at": "2019-08-13T03:07:53.000Z",
+    "rating": 8,
+    "type": "season",
+    "season": {
+      "number": 1,
+      "ids": {
+        "trakt": 83179,
+        "tvdb": 582849,
+        "tmdb": 69635,
+        "tvrage": null
+      },
+      "aired_episodes": 10
+    },
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  },
+  {
+    "rated_at": "2019-08-13T03:07:46.000Z",
+    "rating": 9,
+    "type": "season",
+    "season": {
+      "number": 2,
+      "ids": {
+        "trakt": 123109,
+        "tvdb": 669028,
+        "tmdb": 79720,
+        "tvrage": null
+      },
+      "aired_episodes": 13
+    },
+    "show": {
+      "title": "The Expanse",
+      "year": 2015,
+      "ids": {
+        "trakt": 77199,
+        "slug": "the-expanse",
+        "tvdb": 280619,
+        "imdb": "tt3230854",
+        "tmdb": 63639,
+        "tvrage": null
+      },
+      "aired_episodes": 62
+    }
+  }
+]

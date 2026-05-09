@@ -1,0 +1,58 @@
+[
+  {
+    "followed_at": "2018-07-28T11:30:13.000Z",
+    "user": {
+      "ids": {
+        "slug": "sonicwarrior",
+        "trakt": 1895924
+      },
+      "images": {
+        "avatar": {
+          "full": "https://secure.gravatar.com/avatar/6d4d9f01bc7fef38466b14c09a8a90c8?s=256&r=pg&d=https://i2.wp.com/media.trakt.tv/hotlink-ok/placeholders/medium/fry.png"
+        }
+      },
+      "username": "SonicWarrior",
+      "private": false,
+      "deleted": false,
+      "joined_at": "2016-04-28T18:06:33.000Z",
+      "location": "Wevelgem",
+      "about": "Potterhead, MCU and Star Wars enthousiast, metalhead and allround music nerd.",
+      "name": "Sonic",
+      "gender": "male",
+      "age": null,
+      "vip": true,
+      "vip_ep": false,
+      "vip_cover_image": null,
+      "director": false
+    },
+    "total_count": 2
+  },
+  {
+    "followed_at": "2020-03-08T02:52:36.000Z",
+    "user": {
+      "ids": {
+        "slug": "keniah",
+        "trakt": 1808366
+      },
+      "images": {
+        "avatar": {
+          "full": "https://media.trakt.tv/images/users/001/808/366/avatars/medium/a23834c109.JPG"
+        }
+      },
+      "username": "keniah",
+      "private": false,
+      "deleted": false,
+      "joined_at": "2016-03-29T03:40:32.000Z",
+      "location": "California",
+      "about": "",
+      "name": "kenia",
+      "gender": "female",
+      "age": null,
+      "vip": false,
+      "vip_ep": false,
+      "vip_cover_image": null,
+      "director": false
+    },
+    "total_count": 2
+  }
+]

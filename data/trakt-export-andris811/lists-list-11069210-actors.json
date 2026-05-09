@@ -1,0 +1,76 @@
+[
+  {
+    "type": "person",
+    "person": {
+      "ids": {
+        "imdb": "nm4033859",
+        "slug": "yui-ogura",
+        "tmdb": 1057990,
+        "trakt": 233373
+      },
+      "name": "Yui Ogura",
+      "death": null,
+      "gender": "female",
+      "height": 150,
+      "images": {
+        "fanart": [],
+        "headshot": [
+          "media.trakt.tv/images/people/000/233/373/headshots/medium/d8e81573c5.jpg.webp"
+        ]
+      },
+      "birthday": "1995-08-15",
+      "homepage": "https://www.ogurayui.jp",
+      "biography": "Yui Ogura is a Japanese voice actress and singer. She is a member of the duo YuiKaori and a former member of the groups StylipS and Happy! Style Rookies.\n\nNot to be confused with Yui Ogura (小倉 結衣), an eroge voice actress.",
+      "birthplace": "Gunma Prefecture, Japan",
+      "social_ids": {
+        "twitter": "OY_A_Official",
+        "facebook": null,
+        "instagram": null,
+        "wikipedia": "Yui_Ogura"
+      },
+      "updated_at": "2026-04-03T20:45:36.000Z",
+      "known_for_department": "acting"
+    },
+    "rank": 1,
+    "id": 487172648,
+    "listed_at": "2020-03-11T04:32:23.000Z",
+    "notes": null
+  },
+  {
+    "type": "person",
+    "person": {
+      "ids": {
+        "imdb": "nm2569233",
+        "slug": "yuki-kaji",
+        "tmdb": 149894,
+        "trakt": 235378
+      },
+      "name": "Yuki Kaji",
+      "death": null,
+      "gender": "male",
+      "height": 169,
+      "images": {
+        "fanart": [],
+        "headshot": [
+          "media.trakt.tv/images/people/000/235/378/headshots/medium/2393787a40.jpg.webp"
+        ]
+      },
+      "birthday": "1985-09-03",
+      "homepage": "https://vims.co.jp/talent_profile_detail.php?id=7",
+      "biography": "Yuki Kaji is a Japanese voice actor and singer affiliated with the agency VIMS. He has also been a radio host and acted on stage, and since 2015 has also occasionally been cast in on-screen roles in television dramas. He has voiced many notable roles such as Eren Yeager in Attack on Titan, Issei Hyodo in High School DxD, Shu Ouma in Guilty Crown, Alibaba in Magi: The Labyrinth of Magic, Kazuya Ichinose and Akio Fudou in Inazuma Eleven: Orion no Kokuin, Clemont in Pokémon XY, Meliodas and Zeldris in The Seven Deadly Sins, Yukine in Noragami, Speed-O'Sound Sonic in One-Punch Man, Kanato Sakamaki in Diabolik Lovers, Shoto Todoroki in My Hero Academia, Kenma Kozume in Haikyu!!, Koichi Hirose in JoJo's Bizarre Adventure.",
+      "birthplace": "Tokyo, Japan",
+      "social_ids": {
+        "twitter": "KAJI__OFFICIAL",
+        "facebook": null,
+        "instagram": "yuki_kaji_official",
+        "wikipedia": "Yuki_Kaji"
+      },
+      "updated_at": "2026-04-29T08:27:08.000Z",
+      "known_for_department": "acting"
+    },
+    "rank": 2,
+    "id": 487172871,
+    "listed_at": "2020-03-11T04:32:23.000Z",
+    "notes": null
+  }
+]

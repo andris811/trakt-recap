@@ -1,0 +1,842 @@
+[
+  {
+    "rated_at": "2024-08-17T00:00:00.000Z",
+    "rating": 8,
+    "type": "movie",
+    "movie": {
+      "title": "Alien: Romulus",
+      "year": 2024,
+      "ids": {
+        "trakt": 759944,
+        "slug": "alien-romulus-2024",
+        "imdb": "tt18412256",
+        "tmdb": 945961
+      }
+    }
+  },
+  {
+    "rated_at": "2024-01-20T00:00:00.000Z",
+    "rating": 8,
+    "type": "movie",
+    "movie": {
+      "title": "Bullet Train",
+      "year": 2022,
+      "ids": {
+        "trakt": 561702,
+        "slug": "bullet-train-2022",
+        "imdb": "tt12593682",
+        "tmdb": 718930
+      }
+    }
+  },
+  {
+    "rated_at": "2022-12-30T00:00:00.000Z",
+    "rating": 8,
+    "type": "movie",
+    "movie": {
+      "title": "Knives Out",
+      "year": 2019,
+      "ids": {
+        "trakt": 396788,
+        "slug": "knives-out-2019",
+        "imdb": "tt8946378",
+        "tmdb": 546554
+      }
+    }
+  },
+  {
+    "rated_at": "2022-12-27T00:00:00.000Z",
+    "rating": 7,
+    "type": "movie",
+    "movie": {
+      "title": "Violent Night",
+      "year": 2022,
+      "ids": {
+        "trakt": 721339,
+        "slug": "violent-night-2022",
+        "imdb": "tt12003946",
+        "tmdb": 899112
+      }
+    }
+  },
+  {
+    "rated_at": "2022-12-27T00:00:00.000Z",
+    "rating": 9,
+    "type": "movie",
+    "movie": {
+      "title": "Avatar: The Way of Water",
+      "year": 2022,
+      "ids": {
+        "trakt": 56580,
+        "slug": "avatar-the-way-of-water-2022",
+        "imdb": "tt1630029",
+        "tmdb": 76600
+      }
+    }
+  },
+  {
+    "rated_at": "2022-12-27T00:00:00.000Z",
+    "rating": 8,
+    "type": "movie",
+    "movie": {
+      "title": "Glass Onion: A Knives Out Mystery",
+      "year": 2022,
+      "ids": {
+        "trakt": 495668,
+        "slug": "glass-onion-a-knives-out-mystery-2022",
+        "imdb": "tt11564570",
+        "tmdb": 661374
+      }
+    }
+  },
+  {
+    "rated_at": "2022-12-27T00:00:00.000Z",
+    "rating": 7,
+    "type": "movie",
+    "movie": {
+      "title": "Black Adam",
+      "year": 2022,
+      "ids": {
+        "trakt": 288212,
+        "slug": "black-adam-2022",
+        "imdb": "tt6443346",
+        "tmdb": 436270
+      }
+    }
+  },
+  {
+    "rated_at": "2022-11-09T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "To Kill a Mockingbird",
+      "year": 1962,
+      "ids": {
+        "trakt": 473,
+        "slug": "to-kill-a-mockingbird-1962",
+        "imdb": "tt0056592",
+        "tmdb": 595
+      }
+    }
+  },
+  {
+    "rated_at": "2022-08-10T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "The Salt of the Earth",
+      "year": 2014,
+      "ids": {
+        "trakt": 163967,
+        "slug": "the-salt-of-the-earth-2014",
+        "imdb": "tt3674140",
+        "tmdb": 265297
+      }
+    }
+  },
+  {
+    "rated_at": "2022-07-18T00:00:00.000Z",
+    "rating": 4,
+    "type": "movie",
+    "movie": {
+      "title": "Jurassic World Dominion",
+      "year": 2022,
+      "ids": {
+        "trakt": 354191,
+        "slug": "jurassic-world-dominion-2022",
+        "imdb": "tt8041270",
+        "tmdb": 507086
+      }
+    }
+  },
+  {
+    "rated_at": "2021-10-26T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Dune",
+      "year": 2021,
+      "ids": {
+        "trakt": 287071,
+        "slug": "dune-2021",
+        "imdb": "tt1160419",
+        "tmdb": 438631
+      }
+    }
+  },
+  {
+    "rated_at": "2021-02-24T07:31:27.000Z",
+    "rating": 9,
+    "type": "movie",
+    "movie": {
+      "title": "A Writer's Odyssey",
+      "year": 2021,
+      "ids": {
+        "trakt": 455556,
+        "slug": "a-writer-s-odyssey-2021",
+        "imdb": "tt9685342",
+        "tmdb": 611698
+      }
+    }
+  },
+  {
+    "rated_at": "2019-12-21T00:00:00.000Z",
+    "rating": 8,
+    "type": "movie",
+    "movie": {
+      "title": "Star Wars: The Rise of Skywalker",
+      "year": 2019,
+      "ids": {
+        "trakt": 114335,
+        "slug": "star-wars-the-rise-of-skywalker-2019",
+        "imdb": "tt2527338",
+        "tmdb": 181812
+      }
+    }
+  },
+  {
+    "rated_at": "2019-02-06T00:00:00.000Z",
+    "rating": 6,
+    "type": "movie",
+    "movie": {
+      "title": "The Wandering Earth",
+      "year": 2019,
+      "ids": {
+        "trakt": 386938,
+        "slug": "the-wandering-earth-2019",
+        "imdb": "tt7605074",
+        "tmdb": 535167
+      }
+    }
+  },
+  {
+    "rated_at": "2018-03-20T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Tomb Raider",
+      "year": 2018,
+      "ids": {
+        "trakt": 219436,
+        "slug": "tomb-raider-2018",
+        "imdb": "tt1365519",
+        "tmdb": 338970
+      }
+    }
+  },
+  {
+    "rated_at": "2017-12-15T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Star Wars: The Last Jedi",
+      "year": 2017,
+      "ids": {
+        "trakt": 114333,
+        "slug": "star-wars-the-last-jedi-2017",
+        "imdb": "tt2527336",
+        "tmdb": 181808
+      }
+    }
+  },
+  {
+    "rated_at": "2017-10-03T00:00:00.000Z",
+    "rating": 8,
+    "type": "movie",
+    "movie": {
+      "title": "The Hunt",
+      "year": 2012,
+      "ids": {
+        "trakt": 73983,
+        "slug": "the-hunt-2012",
+        "imdb": "tt2106476",
+        "tmdb": 103663
+      }
+    }
+  },
+  {
+    "rated_at": "2017-10-03T00:00:00.000Z",
+    "rating": 8,
+    "type": "movie",
+    "movie": {
+      "title": "Room",
+      "year": 2015,
+      "ids": {
+        "trakt": 163360,
+        "slug": "room-2015",
+        "imdb": "tt3170832",
+        "tmdb": 264644
+      }
+    }
+  },
+  {
+    "rated_at": "2017-10-01T00:00:00.000Z",
+    "rating": 7,
+    "type": "movie",
+    "movie": {
+      "title": "Once Upon a Time",
+      "year": 2017,
+      "ids": {
+        "trakt": 310348,
+        "slug": "once-upon-a-time-2017",
+        "imdb": "tt6138688",
+        "tmdb": 463197
+      }
+    }
+  },
+  {
+    "rated_at": "2017-10-01T00:00:00.000Z",
+    "rating": 7,
+    "type": "movie",
+    "movie": {
+      "title": "Wolf Warrior 2",
+      "year": 2017,
+      "ids": {
+        "trakt": 311548,
+        "slug": "wolf-warrior-2-2017",
+        "imdb": "tt7131870",
+        "tmdb": 452557
+      }
+    }
+  },
+  {
+    "rated_at": "2017-10-01T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Secret",
+      "year": 2007,
+      "ids": {
+        "trakt": 12488,
+        "slug": "secret-2007",
+        "imdb": "tt1037850",
+        "tmdb": 20342
+      }
+    }
+  },
+  {
+    "rated_at": "2017-10-01T00:00:00.000Z",
+    "rating": 5,
+    "type": "movie",
+    "movie": {
+      "title": "Rigor Mortis",
+      "year": 2013,
+      "ids": {
+        "trakt": 130550,
+        "slug": "rigor-mortis-2013",
+        "imdb": "tt2771800",
+        "tmdb": 210911
+      }
+    }
+  },
+  {
+    "rated_at": "2017-10-01T00:00:00.000Z",
+    "rating": 9,
+    "type": "movie",
+    "movie": {
+      "title": "Kung Fu Hustle",
+      "year": 2004,
+      "ids": {
+        "trakt": 4756,
+        "slug": "kung-fu-hustle-2004",
+        "imdb": "tt0373074",
+        "tmdb": 9470
+      }
+    }
+  },
+  {
+    "rated_at": "2017-06-18T00:00:00.000Z",
+    "rating": 9,
+    "type": "movie",
+    "movie": {
+      "title": "12 Angry Men",
+      "year": 1957,
+      "ids": {
+        "trakt": 309,
+        "slug": "12-angry-men-1957",
+        "imdb": "tt0050083",
+        "tmdb": 389
+      }
+    }
+  },
+  {
+    "rated_at": "2017-05-19T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "It's a Wonderful Life",
+      "year": 1946,
+      "ids": {
+        "trakt": 1040,
+        "slug": "it-s-a-wonderful-life-1946",
+        "imdb": "tt0038650",
+        "tmdb": 1585
+      }
+    }
+  },
+  {
+    "rated_at": "2016-05-25T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Warcraft",
+      "year": 2016,
+      "ids": {
+        "trakt": 50145,
+        "slug": "warcraft-2016",
+        "imdb": "tt0803096",
+        "tmdb": 68735
+      }
+    }
+  },
+  {
+    "rated_at": "2015-12-30T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Star Wars: The Force Awakens",
+      "year": 2015,
+      "ids": {
+        "trakt": 94024,
+        "slug": "star-wars-the-force-awakens-2015",
+        "imdb": "tt2488496",
+        "tmdb": 140607
+      }
+    }
+  },
+  {
+    "rated_at": "2014-11-09T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Interstellar",
+      "year": 2014,
+      "ids": {
+        "trakt": 102156,
+        "slug": "interstellar-2014",
+        "imdb": "tt0816692",
+        "tmdb": 157336
+      }
+    }
+  },
+  {
+    "rated_at": "2014-09-28T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Edge of Tomorrow",
+      "year": 2014,
+      "ids": {
+        "trakt": 92230,
+        "slug": "edge-of-tomorrow-2014",
+        "imdb": "tt1631867",
+        "tmdb": 137113
+      }
+    }
+  },
+  {
+    "rated_at": "2014-05-17T00:00:00.000Z",
+    "rating": 7,
+    "type": "movie",
+    "movie": {
+      "title": "Pandorum",
+      "year": 2009,
+      "ids": {
+        "trakt": 12216,
+        "slug": "pandorum-2009",
+        "imdb": "tt1188729",
+        "tmdb": 19898
+      }
+    }
+  },
+  {
+    "rated_at": "2014-05-17T00:00:00.000Z",
+    "rating": 7,
+    "type": "movie",
+    "movie": {
+      "title": "Riddick",
+      "year": 2013,
+      "ids": {
+        "trakt": 65712,
+        "slug": "riddick-2013",
+        "imdb": "tt1411250",
+        "tmdb": 87421
+      }
+    }
+  },
+  {
+    "rated_at": "2014-05-17T00:00:00.000Z",
+    "rating": 9,
+    "type": "movie",
+    "movie": {
+      "title": "The Amazing Spider-Man 2",
+      "year": 2014,
+      "ids": {
+        "trakt": 73293,
+        "slug": "the-amazing-spider-man-2-2014",
+        "imdb": "tt1872181",
+        "tmdb": 102382
+      }
+    }
+  },
+  {
+    "rated_at": "2014-05-17T00:00:00.000Z",
+    "rating": 8,
+    "type": "movie",
+    "movie": {
+      "title": "Godzilla",
+      "year": 2014,
+      "ids": {
+        "trakt": 85943,
+        "slug": "godzilla-2014",
+        "imdb": "tt0831387",
+        "tmdb": 124905
+      }
+    }
+  },
+  {
+    "rated_at": "2012-08-30T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Toy Story 3",
+      "year": 2010,
+      "ids": {
+        "trakt": 5407,
+        "slug": "toy-story-3-2010",
+        "imdb": "tt0435761",
+        "tmdb": 10193
+      }
+    }
+  },
+  {
+    "rated_at": "2012-03-14T00:00:00.000Z",
+    "rating": 9,
+    "type": "movie",
+    "movie": {
+      "title": "The Hangover",
+      "year": 2009,
+      "ids": {
+        "trakt": 11534,
+        "slug": "the-hangover-2009",
+        "imdb": "tt1119646",
+        "tmdb": 18785
+      }
+    }
+  },
+  {
+    "rated_at": "2011-10-16T00:00:00.000Z",
+    "rating": 9,
+    "type": "movie",
+    "movie": {
+      "title": "Source Code",
+      "year": 2011,
+      "ids": {
+        "trakt": 31151,
+        "slug": "source-code-2011",
+        "imdb": "tt0945513",
+        "tmdb": 45612
+      }
+    }
+  },
+  {
+    "rated_at": "2011-10-16T00:00:00.000Z",
+    "rating": 9,
+    "type": "movie",
+    "movie": {
+      "title": "Harry Potter and the Deathly Hallows: Part 2",
+      "year": 2011,
+      "ids": {
+        "trakt": 7229,
+        "slug": "harry-potter-and-the-deathly-hallows-part-2-2011",
+        "imdb": "tt1201607",
+        "tmdb": 12445
+      }
+    }
+  },
+  {
+    "rated_at": "2011-05-12T00:00:00.000Z",
+    "rating": 8,
+    "type": "movie",
+    "movie": {
+      "title": "Due Date",
+      "year": 2010,
+      "ids": {
+        "trakt": 27656,
+        "slug": "due-date-2010",
+        "imdb": "tt1231583",
+        "tmdb": 41733
+      }
+    }
+  },
+  {
+    "rated_at": "2011-05-12T00:00:00.000Z",
+    "rating": 8,
+    "type": "movie",
+    "movie": {
+      "title": "Enemy at the Gates",
+      "year": 2001,
+      "ids": {
+        "trakt": 696,
+        "slug": "enemy-at-the-gates-2001",
+        "imdb": "tt0215750",
+        "tmdb": 853
+      }
+    }
+  },
+  {
+    "rated_at": "2011-05-12T00:00:00.000Z",
+    "rating": 9,
+    "type": "movie",
+    "movie": {
+      "title": "Iron Man",
+      "year": 2008,
+      "ids": {
+        "trakt": 1157,
+        "slug": "iron-man-2008",
+        "imdb": "tt0371746",
+        "tmdb": 1726
+      }
+    }
+  },
+  {
+    "rated_at": "2011-05-12T00:00:00.000Z",
+    "rating": 9,
+    "type": "movie",
+    "movie": {
+      "title": "Tropic Thunder",
+      "year": 2008,
+      "ids": {
+        "trakt": 3907,
+        "slug": "tropic-thunder-2008",
+        "imdb": "tt0942385",
+        "tmdb": 7446
+      }
+    }
+  },
+  {
+    "rated_at": "2011-05-12T00:00:00.000Z",
+    "rating": 9,
+    "type": "movie",
+    "movie": {
+      "title": "Sherlock Holmes",
+      "year": 2009,
+      "ids": {
+        "trakt": 5706,
+        "slug": "sherlock-holmes-2009",
+        "imdb": "tt0988045",
+        "tmdb": 10528
+      }
+    }
+  },
+  {
+    "rated_at": "2011-05-12T00:00:00.000Z",
+    "rating": 9,
+    "type": "movie",
+    "movie": {
+      "title": "Harry Potter and the Deathly Hallows: Part 1",
+      "year": 2010,
+      "ids": {
+        "trakt": 7228,
+        "slug": "harry-potter-and-the-deathly-hallows-part-1-2010",
+        "imdb": "tt0926084",
+        "tmdb": 12444
+      }
+    }
+  },
+  {
+    "rated_at": "2011-05-04T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Resident Evil",
+      "year": 2002,
+      "ids": {
+        "trakt": 1032,
+        "slug": "resident-evil-2002",
+        "imdb": "tt0120804",
+        "tmdb": 1576
+      }
+    }
+  },
+  {
+    "rated_at": "2010-08-15T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Inception",
+      "year": 2010,
+      "ids": {
+        "trakt": 16662,
+        "slug": "inception-2010",
+        "imdb": "tt1375666",
+        "tmdb": 27205
+      }
+    }
+  },
+  {
+    "rated_at": "2010-08-15T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "year": 2001,
+      "ids": {
+        "trakt": 88,
+        "slug": "the-lord-of-the-rings-the-fellowship-of-the-ring-2001",
+        "imdb": "tt0120737",
+        "tmdb": 120
+      }
+    }
+  },
+  {
+    "rated_at": "2010-08-15T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": 2003,
+      "ids": {
+        "trakt": 90,
+        "slug": "the-lord-of-the-rings-the-return-of-the-king-2003",
+        "imdb": "tt0167260",
+        "tmdb": 122
+      }
+    }
+  },
+  {
+    "rated_at": "2010-08-15T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "The Lord of the Rings: The Two Towers",
+      "year": 2002,
+      "ids": {
+        "trakt": 89,
+        "slug": "the-lord-of-the-rings-the-two-towers-2002",
+        "imdb": "tt0167261",
+        "tmdb": 121
+      }
+    }
+  },
+  {
+    "rated_at": "2010-08-13T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Shrek Forever After",
+      "year": 2010,
+      "ids": {
+        "trakt": 5406,
+        "slug": "shrek-forever-after-2010",
+        "imdb": "tt0892791",
+        "tmdb": 10192
+      }
+    }
+  },
+  {
+    "rated_at": "2010-08-13T00:00:00.000Z",
+    "rating": 1,
+    "type": "movie",
+    "movie": {
+      "title": "Dr. Dolittle: Tail to the Chief",
+      "year": 2008,
+      "ids": {
+        "trakt": 17350,
+        "slug": "dr-dolittle-tail-to-the-chief-2008",
+        "imdb": "tt1024724",
+        "tmdb": 27996
+      }
+    }
+  },
+  {
+    "rated_at": "2010-08-13T00:00:00.000Z",
+    "rating": 8,
+    "type": "movie",
+    "movie": {
+      "title": "Shrek the Third",
+      "year": 2007,
+      "ids": {
+        "trakt": 653,
+        "slug": "shrek-the-third-2007",
+        "imdb": "tt0413267",
+        "tmdb": 810
+      }
+    }
+  },
+  {
+    "rated_at": "2010-08-13T00:00:00.000Z",
+    "rating": 9,
+    "type": "movie",
+    "movie": {
+      "title": "Shrek 2",
+      "year": 2004,
+      "ids": {
+        "trakt": 652,
+        "slug": "shrek-2-2004",
+        "imdb": "tt0298148",
+        "tmdb": 809
+      }
+    }
+  },
+  {
+    "rated_at": "2010-08-13T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Shrek",
+      "year": 2001,
+      "ids": {
+        "trakt": 651,
+        "slug": "shrek-2001",
+        "imdb": "tt0126029",
+        "tmdb": 808
+      }
+    }
+  },
+  {
+    "rated_at": "2010-07-21T00:00:00.000Z",
+    "rating": 9,
+    "type": "movie",
+    "movie": {
+      "title": "Harry Potter and the Half-Blood Prince",
+      "year": 2009,
+      "ids": {
+        "trakt": 610,
+        "slug": "harry-potter-and-the-half-blood-prince-2009",
+        "imdb": "tt0417741",
+        "tmdb": 767
+      }
+    }
+  },
+  {
+    "rated_at": "2010-07-21T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Harry Potter and the Goblet of Fire",
+      "year": 2005,
+      "ids": {
+        "trakt": 548,
+        "slug": "harry-potter-and-the-goblet-of-fire-2005",
+        "imdb": "tt0330373",
+        "tmdb": 674
+      }
+    }
+  },
+  {
+    "rated_at": "2010-01-16T00:00:00.000Z",
+    "rating": 10,
+    "type": "movie",
+    "movie": {
+      "title": "Avatar",
+      "year": 2009,
+      "ids": {
+        "trakt": 12269,
+        "slug": "avatar-2009",
+        "imdb": "tt0499549",
+        "tmdb": 19995
+      }
+    }
+  }
+]

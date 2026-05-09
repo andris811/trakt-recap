@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Favorite series",
+    "description": null,
+    "privacy": "private",
+    "share_link": "https://app.trakt.tv/users/andris811/lists/favorite-series",
+    "type": "personal",
+    "display_numbers": false,
+    "allow_comments": true,
+    "sort_by": "rank",
+    "sort_how": "asc",
+    "created_at": "2019-11-07T00:36:10.000Z",
+    "updated_at": "2019-11-07T00:40:40.000Z",
+    "item_count": 7,
+    "comment_count": 0,
+    "likes": 0,
+    "ids": {
+      "slug": "favorite-series",
+      "trakt": 10250622
+    },
+    "images": {
+      "posters": []
+    },
+    "user": {
+      "ids": {
+        "slug": "andris811",
+        "trakt": 265809
+      },
+      "images": {
+        "avatar": {
+          "full": "https://secure.gravatar.com/avatar/ccd3088861408f1f261f42b9f6a4df86?s=256&r=pg&d=https://i2.wp.com/media.trakt.tv/hotlink-ok/placeholders/medium/fry.png"
+        }
+      },
+      "username": "andris811",
+      "private": false,
+      "deleted": false,
+      "joined_at": "2013-07-21T20:35:24.000Z",
+      "location": "",
+      "about": "",
+      "name": "András Varga",
+      "gender": "male",
+      "age": null,
+      "vip": false,
+      "vip_ep": false,
+      "vip_cover_image": null,
+      "director": false
+    },
+    "total_count": 3
+  },
+  {
+    "name": "Actors",
+    "description": "",
+    "privacy": "private",
+    "share_link": "https://app.trakt.tv/users/andris811/lists/actors",
+    "type": "personal",
+    "display_numbers": false,
+    "allow_comments": false,
+    "sort_by": "rank",
+    "sort_how": "asc",
+    "created_at": "2020-03-11T04:33:15.000Z",
+    "updated_at": "2021-02-24T07:38:20.000Z",
+    "item_count": 2,
+    "comment_count": 0,
+    "likes": 0,
+    "ids": {
+      "slug": "actors",
+      "trakt": 11069210
+    },
+    "images": {
+      "posters": []
+    },
+    "user": {
+      "ids": {
+        "slug": "andris811",
+        "trakt": 265809
+      },
+      "images": {
+        "avatar": {
+          "full": "https://secure.gravatar.com/avatar/ccd3088861408f1f261f42b9f6a4df86?s=256&r=pg&d=https://i2.wp.com/media.trakt.tv/hotlink-ok/placeholders/medium/fry.png"
+        }
+      },
+      "username": "andris811",
+      "private": false,
+      "deleted": false,
+      "joined_at": "2013-07-21T20:35:24.000Z",
+      "location": "",
+      "about": "",
+      "name": "András Varga",
+      "gender": "male",
+      "age": null,
+      "vip": false,
+      "vip_ep": false,
+      "vip_cover_image": null,
+      "director": false
+    },
+    "total_count": 3
+  },
+  {
+    "name": "Chinese movies",
+    "description": null,
+    "privacy": "private",
+    "share_link": "https://app.trakt.tv/users/andris811/lists/chinese-movies",
+    "type": "personal",
+    "display_numbers": false,
+    "allow_comments": true,
+    "sort_by": "rank",
+    "sort_how": "asc",
+    "created_at": "2021-02-24T07:34:18.000Z",
+    "updated_at": "2021-02-24T07:41:37.000Z",
+    "item_count": 6,
+    "comment_count": 0,
+    "likes": 0,
+    "ids": {
+      "slug": "chinese-movies",
+      "trakt": 20960150
+    },
+    "images": {
+      "posters": []
+    },
+    "user": {
+      "ids": {
+        "slug": "andris811",
+        "trakt": 265809
+      },
+      "images": {
+        "avatar": {
+          "full": "https://secure.gravatar.com/avatar/ccd3088861408f1f261f42b9f6a4df86?s=256&r=pg&d=https://i2.wp.com/media.trakt.tv/hotlink-ok/placeholders/medium/fry.png"
+        }
+      },
+      "username": "andris811",
+      "private": false,
+      "deleted": false,
+      "joined_at": "2013-07-21T20:35:24.000Z",
+      "location": "",
+      "about": "",
+      "name": "András Varga",
+      "gender": "male",
+      "age": null,
+      "vip": false,
+      "vip_ep": false,
+      "vip_cover_image": null,
+      "director": false
+    },
+    "total_count": 3
+  }
+]
