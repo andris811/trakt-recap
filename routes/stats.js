@@ -110,10 +110,16 @@ router.get('/', async (req, res) => {
     // Load ratings cache and apply to events
     await ratingsService.loadCache();
     console.log(`Ratings cache loaded, ${Object.keys(ratingsService.ratingsMap).length} entries`);
+    console.log('Sample ratingsMap keys:', Object.keys(ratingsService.ratingsMap).slice(0, 10));
     
     const stats = calculateStats(events, traktStats, ratingsService.ratingsMap);
     console.log('Stats calculated:', JSON.stringify(stats.coreStats));
     console.log('Ratings distribution:', JSON.stringify(stats.personalBehavior.ratingsDistribution));
+    
+    // Count total rated items
+    const totalRated = Object.values(stats.personalBehavior.ratingsDistribution).reduce((a, b) => a + b, 0);
+    console.log(`Total rated items: ${totalRated}`);
+    
     res.json(stats);
   } catch (error) {
     console.error('Stats error:', error.message);
