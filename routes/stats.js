@@ -107,6 +107,7 @@ async function loadHistory() {
         if (item.type === 'episode' && item.traktId === traktId) {
           if (!item.poster && data.poster) item.poster = data.poster;
           if (!item.genres || item.genres.length === 0) item.genres = data.genres || [];
+          if (!item.runtime && data.runtime) item.runtime = data.runtime;
         }
       }
     }
