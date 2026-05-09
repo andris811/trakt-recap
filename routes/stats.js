@@ -11,9 +11,18 @@ const traktService = new TraktService(
 );
 
 async function fetchWatchHistory(limit = 50) {
-  const history = await traktService.fetchHistory();
-  const normalized = history.map(normalizeHistory);
-  return normalized.slice(0, limit);
+  try {
+    const history = await traktService.fetchHistory();
+    if (!Array.isArray(history)) {
+      console.error('fetchHistory returned non-array:', typeof history);
+      return [];
+    }
+    const normalized = history.map(normalizeHistory);
+    return normalized.slice(0, limit);
+  } catch (err) {
+    console.error('Failed to fetch watch history:', err.message);
+    return [];
+  }
 }
 
 async function calculateStats() {
