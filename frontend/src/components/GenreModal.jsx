@@ -101,11 +101,13 @@ function GenreModal({ genre, events, onClose, onItemClick, onOpenSeries, year })
                 key={item.id}
                 onClick={() => {
                   onClose();
-                  if (item.type === 'movie') {
-                    onItemClick(item);
-                  } else {
-                    onOpenSeries({ type: 'episode', traktId: item.traktId, title: item.title, poster: item.poster, genres: item.genres });
-                  }
+                  onOpenSeries({ 
+                    type: item.type, 
+                    traktId: item.traktId, 
+                    title: item.title, 
+                    poster: item.poster, 
+                    genres: item.genres 
+                  });
                 }}
                 className="flex items-center gap-3 p-3 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 transition-all cursor-pointer group"
               >

@@ -518,10 +518,26 @@ router.get('/', async (req, res) => {
 
 router.get('/content/:type/:traktId', async (req, res) => {
   try {
-    const { type, traktId } = req.params;
+    const { type } = req.params;
+    const traktId = parseInt(req.params.traktId);
+    
+    // First try local cache
+    const fs = require('fs');
+    const path = require('path');
+    const cachePath = path.join(__dirname, '..', 'data', 'content-cache.json');
+    try {
+      const cache = JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
+      const key = `${type}_${traktId}`;
+      if (cache[key]) {
+        console.log(`Serving content ${key} from cache`);
+        return res.json(cache[key]);
+      }
+    } catch (e) {}
+    
+    // Fallback to API
     const [details, comments] = await Promise.all([
-      enrichmentService.getContentDetails(type, parseInt(traktId)),
-      enrichmentService.getComments(type, parseInt(traktId))
+      enrichmentService.getContentDetails(type, traktId),
+      enrichmentService.getComments(type, traktId)
     ]);
     res.json({ ...details, comments });
   } catch (error) {
