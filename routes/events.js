@@ -155,19 +155,27 @@ async function loadTraktStats() {
 
 router.get('/sync', async (req, res) => {
   try {
-    // Prevent caching
     res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Connection', 'keep-alive');
+    res.setHeader('Keep-Alive', 'timeout=120');
     
     if (!process.env.TRAKT_ACCESS_TOKEN) {
       return res.status(400).json({ error: 'TRAKT_ACCESS_TOKEN not set. Complete OAuth flow via /callback first.' });
     }
+    
+    console.log('Starting sync - fetching history from Trakt...');
     
     const [rawHistory, traktStats] = await Promise.all([
       traktService.fetchHistory(),
       traktService.fetchStats()
     ]);
     
-    console.log(`Fetched ${rawHistory.length} history items from Trakt`);
+    console.log(`Fetched ${rawHistory.length} history items from Trakt (should be ~6296)`);
+    
+    if (rawHistory.length < 1000) {
+      console.warn(`WARNING: Only fetched ${rawHistory.length} items. Trakt may be rate-limiting.`);
+      console.warn('Expected ~6296 items. Try again in a few minutes.');
+    }
     const normalized = normalizeHistory(rawHistory);
     
     if (supabase) {
