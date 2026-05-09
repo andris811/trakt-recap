@@ -158,7 +158,13 @@ export default function SeriesModal({ item, events, showRatings, onClose, onOpen
   const seriesStats = useMemo(() => {
     const relatedEvents = events.filter((e) => e.traktId === item.traktId);
     const totalWatches = relatedEvents.length;
-    const totalRuntime = relatedEvents.reduce((sum, e) => sum + (e.runtime || 0), 0);
+    
+    // Calculate total runtime: use episode runtime, or default 30 min per episode
+    let totalRuntime = relatedEvents.reduce((sum, e) => sum + (e.runtime || 0), 0);
+    if (totalRuntime === 0) {
+      totalRuntime = relatedEvents.length * 30; // Default 30 min per episode
+    }
+    
     const totalHours = totalRuntime / 60;
     const sorted = [...relatedEvents].sort((a, b) => new Date(a.watchedAt) - new Date(b.watchedAt));
     const firstWatch = sorted[0];

@@ -108,6 +108,10 @@ async function loadHistory() {
           if (!item.poster && data.poster) item.poster = data.poster;
           if (!item.genres || item.genres.length === 0) item.genres = data.genres || [];
           if (!item.runtime && data.runtime) item.runtime = data.runtime;
+          // Also set runtime on show-level for series modal
+          if (item.type === 'episode') {
+            item.showRuntime = data.runtime; // Store show's runtime separately
+          }
         }
       }
     }
