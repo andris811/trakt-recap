@@ -171,13 +171,47 @@ router.get('/sync', async (req, res) => {
     const normalized = normalizeHistory(rawHistory);
     
     if (supabase) {
-      // Save to Supabase
-      await saveHistory(normalized);
-      if (traktStats) {
-        await supabase.from('trakt_stats').delete().neq('id', '');
-        await supabase.from('trakt_stats').insert({ stats: traktStats });
-      }
-    } else {
+      // Clear existing data and insert fresh
+      console.log('Clearing existing watch_history...');
+      await supabase.from('watch_history').delete().neq('id', '');
+      
+      // Deduplicate by id
+      const seen = new Set();
+      const deduped = normalized.filter(item => {
+        if (seen.has(item.id)) return false;
+        seen.add(item.id);
+        return true;
+      });
+      
+      console.log(`Data: ${normalized.length} items, after dedup: ${deduped.length} items`);
+      
+      try {
+        const { error } = await supabase
+          .from('watch_history')
+          .insert(
+            deduped.map(item => ({
+              id: item.id,
+              trakt_id: item.traktId,
+              type: item.type,
+              title: item.title,
+              show_title: item.showTitle,
+              season: item.season,
+              episode: item.episode,
+              runtime: item.runtime,
+              genres: item.genres,
+              poster: item.poster,
+              watched_at: item.watchedAt,
+              rating: item.rating
+            }))
+          );
+        
+        if (error) {
+          console.error('Insert error:', error);
+          throw error;
+        }
+        
+        console.log('Inserted fresh watch history to Supabase');
+      } catch (err) {
       // Fallback to file
       const DATA_DIR = path.join(__dirname, '..', 'data');
       await fs.mkdir(DATA_DIR, { recursive: true });

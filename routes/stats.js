@@ -77,9 +77,21 @@ async function loadTraktStats() {
       .select('stats')
       .single();
     if (error && error.code !== 'PGRST116') throw error;
-    return (data && data.stats) || null;
+    if (data && data.stats) {
+      console.log('Loaded traktStats from Supabase');
+      return data.stats;
+    }
   }
-  return null;
+  // Fetch fresh from Trakt API if not in Supabase
+  console.log('Fetching traktStats from Trakt API...');
+  try {
+    const traktStats = await traktService.fetchStats();
+    console.log('Fresh traktStats:', JSON.stringify(traktStats.movies), JSON.stringify(traktStats.episodes));
+    return traktStats;
+  } catch (err) {
+    console.error('Failed to fetch traktStats:', err.message);
+    return null;
+  }
 }
 
 router.get('/', async (req, res) => {
