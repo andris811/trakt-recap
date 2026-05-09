@@ -61,7 +61,7 @@ function calculateStats(events, traktStats, ratingsMap) {
     }
     console.log(`Applied ${applied} ratings from ratingsMap (${movieCount} movies, ${episodeCount} episodes)`);
   }
-
+  
   const sortedByTime = [...events].sort((a, b) => new Date(a.watchedAt) - new Date(b.watchedAt));
 
   let maxBingeLength = 0;

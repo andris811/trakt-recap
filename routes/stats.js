@@ -107,6 +107,24 @@ router.get('/', async (req, res) => {
       console.log('Trakt stats episodes:', JSON.stringify(traktStats.episodes));
     }
     
+    // Check events for genres before ratings
+    const eventsWithGenres = events.filter(e => e.genres && e.genres.length > 0).length;
+    const eventsWithPoster = events.filter(e => e.poster).length;
+    console.log(`Events with genres: ${eventsWithGenres}/${events.length}`);
+    console.log(`Events with poster: ${eventsWithPoster}/${events.length}`);
+    
+    // Sample a few events to check structure
+    if (events.length > 0) {
+      const sample = events[0];
+      console.log('Sample event:', JSON.stringify({
+        title: sample.title,
+        type: sample.type,
+        traktId: sample.traktId,
+        genres: sample.genres,
+        poster: sample.poster ? 'yes' : 'no'
+      }));
+    }
+    
     // Load ratings cache and apply to events
     await ratingsService.loadCache();
     console.log(`Ratings cache loaded, ${Object.keys(ratingsService.ratingsMap).length} entries`);
@@ -124,7 +142,9 @@ router.get('/', async (req, res) => {
         }
       }
       console.log(`Loaded ${movies.length} movie ratings from export`);
-    } catch (e) {}
+    } catch (e) {
+      console.error('Failed to load movie ratings from export:', e.message);
+    }
     
     try {
       const shows = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'trakt-export-andris811', 'ratings-shows.json'), 'utf-8'));
@@ -134,7 +154,9 @@ router.get('/', async (req, res) => {
         }
       }
       console.log(`Loaded ${shows.length} show ratings from export`);
-    } catch (e) {}
+    } catch (e) {
+      console.error('Failed to load show ratings from export:', e.message);
+    }
     
     try {
       const episodes = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'trakt-export-andris811', 'ratings-episodes.json'), 'utf-8'));
@@ -144,9 +166,11 @@ router.get('/', async (req, res) => {
         }
       }
       console.log(`Loaded ${episodes.length} episode ratings from export`);
-    } catch (e) {}
+    } catch (e) {
+      console.error('Failed to load episode ratings from export:', e.message);
+    }
     
-    // Merge with ratings service (export takes priority if it has more)
+    console.log(`Export ratings loaded: ${Object.keys(exportRatings).length}`);
     const mergedRatings = { ...ratingsService.ratingsMap, ...exportRatings };
     console.log(`Total ratings: ${Object.keys(mergedRatings).length} (${Object.keys(ratingsService.ratingsMap).length} from cache + ${Object.keys(exportRatings).length} from export)`);
     
