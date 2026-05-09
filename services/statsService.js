@@ -26,6 +26,11 @@ function calculateStats(events, traktStats, ratingsMap) {
   const dateSet = new Set();
   const ratedContent = new Set();
 
+  // Clear all existing ratings first
+  for (const event of events) {
+    delete event.rating;
+  }
+
   // Apply ratings from ratingsMap if provided
   if (ratingsMap) {
     console.log('Applying ratings from ratingsMap...');
