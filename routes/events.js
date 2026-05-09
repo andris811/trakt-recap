@@ -79,17 +79,38 @@ async function saveHistory(data) {
 async function loadHistory() {
   let history = [];
   
-  // First: Load local JSON file (full history - 6296 items)
-  try {
-    const localData = await fs.readFile(DATA_FILE, 'utf-8');
-    const localHistory = JSON.parse(localData);
-    console.log(`Loaded ${localHistory.length} items from local JSON file`);
-    history = localHistory;
-  } catch (err) {
-    console.log('No local JSON file found, will use Supabase only');
+  // First: Load from Trakt export files (full history)
+  const EXPORT_DIR = path.join(DATA_DIR, 'trakt-export-andris811');
+  for (let i = 1; i <= 7; i++) {
+    const exportFile = path.join(EXPORT_DIR, `watched-history-${i}.json`);
+    try {
+      const content = await fs.readFile(exportFile, 'utf-8');
+      const exportData = JSON.parse(content);
+      const normalized = normalizeHistory(exportData);
+      history = history.concat(normalized);
+      console.log(`Loaded ${normalized.length} items from export ${i}`);
+    } catch {
+      // File doesn't exist or can't be read, skip
+    }
   }
   
-  // Second: Load from Supabase (recent data)
+  if (history.length > 0) {
+    console.log(`Total from exports: ${history.length} items`);
+  }
+  
+  // Second: Load from local JSON file (backup)
+  if (history.length === 0) {
+    try {
+      const localData = await fs.readFile(DATA_FILE, 'utf-8');
+      const localHistory = JSON.parse(localData);
+      console.log(`Loaded ${localHistory.length} items from local JSON file`);
+      history = localHistory;
+    } catch (err) {
+      console.log('No local JSON file found');
+    }
+  }
+  
+  // Third: Load from Supabase (recent data)
   if (supabase) {
     console.log('Loading recent history from Supabase...');
     let allData = [];
@@ -133,14 +154,14 @@ async function loadHistory() {
         rating: item.rating
       }));
       
-      // Merge: Add Supabase items to local history (Supabase items are newer)
+      // Merge: Add Supabase items that aren't in history yet
       const existingIds = new Set(history.map(h => h.id));
       for (const item of supabaseHistory) {
         if (!existingIds.has(item.id)) {
           history.push(item);
         }
       }
-      console.log(`Merged: ${history.length} total items (local + Supabase)`);
+      console.log(`Merged: ${history.length} total items`);
     }
   }
   
@@ -148,7 +169,100 @@ async function loadHistory() {
   history.sort((a, b) => new Date(b.watchedAt) - new Date(a.watchedAt));
   console.log(`Final history: ${history.length} items`);
   
+  // Apply enrichment from export (posters, genres)
+  const enrichment = loadEnrichmentFromExport();
+  if (enrichment.size > 0) {
+    let enriched = 0;
+    for (const item of history) {
+      const key = item.type === 'movie' ? `movie_${item.traktId}` : `show_${item.traktId}`;
+      const data = enrichment.get(key);
+      if (data) {
+        if (!item.poster && data.poster) {
+          item.poster = data.poster;
+          enriched++;
+        }
+        if (!item.genres || item.genres.length === 0) {
+          item.genres = data.genres || [];
+          if (data.genres && data.genres.length > 0) enriched++;
+        }
+      }
+    }
+    console.log(`Enriched ${enriched} items with posters/genres from export`);
+  }
+  
   return history;
+}
+
+// Load ratings from Trakt export files
+function loadRatingsFromExport() {
+  const ratingsMap = {};
+  
+  try {
+    const movies = require('../data/trakt-export-andris811/ratings-movies.json');
+    for (const item of movies) {
+      if (item.movie && item.movie.ids && item.movie.ids.trakt) {
+        ratingsMap[`movie_${item.movie.ids.trakt}`] = item.rating;
+      }
+    }
+    console.log(`Loaded ${movies.length} movie ratings from export`);
+  } catch (e) {}
+  
+  try {
+    const shows = require('../data/trakt-export-andris811/ratings-shows.json');
+    for (const item of shows) {
+      if (item.show && item.show.ids && item.show.ids.trakt) {
+        ratingsMap[`show_${item.show.ids.trakt}`] = item.rating;
+      }
+    }
+    console.log(`Loaded ${shows.length} show ratings from export`);
+  } catch (e) {}
+  
+  try {
+    const episodes = require('../data/trakt-export-andris811/ratings-episodes.json');
+    for (const item of episodes) {
+      if (item.episode && item.show && item.show.ids && item.episode.season !== undefined && item.episode.number !== undefined) {
+        ratingsMap[`episode_${item.show.ids.trakt}_${item.episode.season}_${item.episode.number}`] = item.rating;
+      }
+    }
+    console.log(`Loaded ${episodes.length} episode ratings from export`);
+  } catch (e) {}
+  
+  console.log(`Total ratings loaded from export: ${Object.keys(ratingsMap).length}`);
+  return ratingsMap;
+}
+
+// Load posters and genres from collection
+function loadEnrichmentFromExport() {
+  const enrichmentMap = new Map();
+  
+  try {
+    const movies = require('../data/trakt-export-andris811/collection-movies.json');
+    for (const item of movies) {
+      if (item.movie && item.movie.ids && item.movie.ids.trakt) {
+        enrichmentMap.set(`movie_${item.movie.ids.trakt}`, {
+          poster: item.movie.images && item.movie.images.poster ? item.movie.images.poster.thumb || item.movie.images.poster.full : null,
+          genres: item.movie.genres || [],
+          runtime: item.movie.runtime || 0
+        });
+      }
+    }
+    console.log(`Loaded ${movies.length} movie enrichment data from export`);
+  } catch (e) {}
+  
+  try {
+    const shows = require('../data/trakt-export-andris811/collection-shows.json');
+    for (const item of shows) {
+      if (item.show && item.show.ids && item.show.ids.trakt) {
+        enrichmentMap.set(`show_${item.show.ids.trakt}`, {
+          poster: item.show.images && item.show.images.poster ? item.show.images.poster.thumb || item.show.images.poster.full : null,
+          genres: item.show.genres || []
+        });
+      }
+    }
+    console.log(`Loaded ${shows.length} show enrichment data from export`);
+  } catch (e) {}
+  
+  return enrichmentMap;
 }
 
 async function saveTraktStats(data) {

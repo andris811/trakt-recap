@@ -110,13 +110,50 @@ router.get('/', async (req, res) => {
     // Load ratings cache and apply to events
     await ratingsService.loadCache();
     console.log(`Ratings cache loaded, ${Object.keys(ratingsService.ratingsMap).length} entries`);
-    console.log('Sample ratingsMap keys:', Object.keys(ratingsService.ratingsMap).slice(0, 10));
     
-    const stats = calculateStats(events, traktStats, ratingsService.ratingsMap);
+    // Also load ratings from export files for additional coverage
+    const fs = require('fs');
+    const path = require('path');
+    const exportRatings = {};
+    
+    try {
+      const movies = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'trakt-export-andris811', 'ratings-movies.json'), 'utf-8'));
+      for (const item of movies) {
+        if (item.movie && item.movie.ids && item.movie.ids.trakt) {
+          exportRatings[`movie_${item.movie.ids.trakt}`] = item.rating;
+        }
+      }
+      console.log(`Loaded ${movies.length} movie ratings from export`);
+    } catch (e) {}
+    
+    try {
+      const shows = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'trakt-export-andris811', 'ratings-shows.json'), 'utf-8'));
+      for (const item of shows) {
+        if (item.show && item.show.ids && item.show.ids.trakt) {
+          exportRatings[`show_${item.show.ids.trakt}`] = item.rating;
+        }
+      }
+      console.log(`Loaded ${shows.length} show ratings from export`);
+    } catch (e) {}
+    
+    try {
+      const episodes = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'trakt-export-andris811', 'ratings-episodes.json'), 'utf-8'));
+      for (const item of episodes) {
+        if (item.episode && item.show && item.show.ids && item.episode.season !== undefined && item.episode.number !== undefined) {
+          exportRatings[`episode_${item.show.ids.trakt}_${item.episode.season}_${item.episode.number}`] = item.rating;
+        }
+      }
+      console.log(`Loaded ${episodes.length} episode ratings from export`);
+    } catch (e) {}
+    
+    // Merge with ratings service (export takes priority if it has more)
+    const mergedRatings = { ...ratingsService.ratingsMap, ...exportRatings };
+    console.log(`Total ratings: ${Object.keys(mergedRatings).length} (${Object.keys(ratingsService.ratingsMap).length} from cache + ${Object.keys(exportRatings).length} from export)`);
+    
+    const stats = calculateStats(events, traktStats, mergedRatings);
     console.log('Stats calculated:', JSON.stringify(stats.coreStats));
     console.log('Ratings distribution:', JSON.stringify(stats.personalBehavior.ratingsDistribution));
     
-    // Count total rated items
     const totalRated = Object.values(stats.personalBehavior.ratingsDistribution).reduce((a, b) => a + b, 0);
     console.log(`Total rated items: ${totalRated}`);
     
