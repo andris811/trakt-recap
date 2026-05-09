@@ -36,15 +36,17 @@ function RatingsModal({ rating, events, onClose, onItemClick, onOpenSeries }) {
     const grouped = new Map();
 
     for (const event of events) {
-      if (event.rating !== rating) continue;
+      // Use loose equality to match string/number ratings
+      if (event.rating != rating) continue;
 
+      // Group episodes by show, movies individually
       const key = event.type === 'movie'
         ? `movie_${event.traktId}`
-        : `episode_${event.traktId}_${event.season}_${event.episode}`;
+        : `show_${event.traktId}`;
 
       if (!grouped.has(key)) {
         const displayName = event.type === 'episode' && event.showTitle
-          ? `${event.showTitle} - ${event.title}`
+          ? event.showTitle
           : (event.showTitle || event.title);
 
         grouped.set(key, {
@@ -55,8 +57,6 @@ function RatingsModal({ rating, events, onClose, onItemClick, onOpenSeries }) {
           poster: event.poster,
           genres: event.genres,
           rating: event.rating,
-          season: event.season,
-          episode: event.episode,
           showTitle: event.showTitle,
           watchCount: 0
         });
@@ -99,17 +99,13 @@ function RatingsModal({ rating, events, onClose, onItemClick, onOpenSeries }) {
                 key={item.id}
                 onClick={() => {
                   onClose();
-                  if (item.type === 'movie') {
-                    onOpenSeries && onOpenSeries({
-                      type: 'movie',
-                      traktId: item.traktId,
-                      title: item.title,
-                      poster: item.poster,
-                      genres: item.genres || []
-                    });
-                  } else {
-                    onItemClick(item);
-                  }
+                  onOpenSeries({
+                    type: item.type,
+                    traktId: item.traktId,
+                    title: item.title,
+                    poster: item.poster,
+                    genres: item.genres || []
+                  });
                 }}
                 className="flex items-center gap-3 p-3 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 transition-all cursor-pointer group"
               >
