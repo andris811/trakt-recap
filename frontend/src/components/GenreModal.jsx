@@ -56,7 +56,9 @@ function GenreModal({ genre, events, onClose, onItemClick, onOpenSeries }) {
 
       const item = grouped.get(key);
       item.watchCount++;
-      item.totalRuntime += event.runtime || 0;
+      // Use event runtime, or default 30 min for episodes
+      const runtime = event.type === 'movie' ? (event.runtime || 0) : (event.runtime || 30);
+      item.totalRuntime += runtime;
     }
 
     return [...grouped.values()].sort((a, b) => b.watchCount - a.watchCount);

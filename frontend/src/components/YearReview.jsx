@@ -26,7 +26,17 @@ export default function YearReview({ events, onOpenSeries, onOpenEpisode, onGenr
     const yearEvents = events.filter(e => new Date(e.watchedAt).getFullYear() === selectedYear);
     const movies = yearEvents.filter(e => e.type === 'movie');
     const episodes = yearEvents.filter(e => e.type === 'episode');
-    const totalMinutes = yearEvents.reduce((sum, e) => sum + (e.runtime || 0),0);
+    
+    // Calculate runtime: use event runtime, or default 30 min for episodes
+    let totalMinutes = 0;
+    for (const e of yearEvents) {
+      if (e.type === 'movie') {
+        totalMinutes += e.runtime || 0;
+      } else {
+        totalMinutes += e.runtime || 30; // Default 30 min for episodes
+      }
+    }
+    
     const totalHours = totalMinutes / 60;
 
     const showCounts = {};
