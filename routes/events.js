@@ -287,8 +287,11 @@ router.get('/', async (req, res) => {
     console.log('Loading history directly from Trakt API...');
     const rawHistory = await traktService.fetchHistory();
     
+    console.log('rawHistory type:', typeof rawHistory, 'isArray:', Array.isArray(rawHistory));
+    
     if (!Array.isArray(rawHistory)) {
-      console.error('fetchHistory returned non-array:', typeof rawHistory);
+      console.error('rawHistory is not an array:', typeof rawHistory);
+      console.error('rawHistory value:', JSON.stringify(rawHistory).substring(0, 200));
       return res.status(500).json({ error: 'Failed to fetch history', details: 'Invalid response from Trakt API' });
     }
     

@@ -13,8 +13,10 @@ const traktService = new TraktService(
 async function fetchWatchHistory(limit = 50) {
   try {
     const history = await traktService.fetchHistory();
+    console.log('fetchHistory result type:', typeof history, 'isArray:', Array.isArray(history));
     if (!Array.isArray(history)) {
       console.error('fetchHistory returned non-array:', typeof history);
+      console.error('History value:', JSON.stringify(history).substring(0, 200));
       return [];
     }
     const normalized = history.map(normalizeHistory);
