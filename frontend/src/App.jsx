@@ -306,15 +306,15 @@ function App() {
          />
       )}
 
-      {selectedRating && (
-         <RatingsModal
-           rating={selectedRating}
-           events={filteredEvents}
-           onClose={() => setSelectedRating(null)}
-           onItemClick={openEpisode}
-           onOpenSeries={openSeries}
-         />
-      )}
+{selectedRating && (
+          <RatingsModal
+            rating={selectedRating}
+            stats={stats}
+            onClose={() => setSelectedRating(null)}
+            onItemClick={openEpisode}
+            onOpenSeries={openSeries}
+          />
+        )}
 
       {selectedSeries && (
          <SeriesModal

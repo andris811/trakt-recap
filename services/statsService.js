@@ -241,6 +241,36 @@ function calculateStats(events, traktStats, ratingsMap) {
     .sort((a, b) => new Date(b.watchedAt) - new Date(a.watchedAt))
     .slice(0, 50);
 
+  const ratedItemsByRating = {};
+  for (let i = 1; i <= 10; i++) {
+    ratedItemsByRating[i] = [];
+  }
+  
+  const contentRatingMap = new Map();
+  for (const event of events) {
+    if (event.rating != null) {
+      const key = event.type === 'movie' 
+        ? `movie_${event.traktId}` 
+        : `show_${event.traktId}`;
+      
+      if (!contentRatingMap.has(key)) {
+        contentRatingMap.set(key, {
+          traktId: event.traktId,
+          type: event.type,
+          title: event.showTitle || event.title,
+          poster: event.poster,
+          genres: event.genres,
+          rating: event.rating,
+          showTitle: event.showTitle
+        });
+      }
+    }
+  }
+  
+  for (const [key, item] of contentRatingMap) {
+    ratedItemsByRating[item.rating].push(item);
+  }
+
   return {
     coreStats,
     activity: {
@@ -260,6 +290,7 @@ function calculateStats(events, traktStats, ratingsMap) {
     },
     personalBehavior: {
       ratingsDistribution: finalRatingsDistribution,
+      ratedItemsByRating,
       rewatchStats: {
         totalRewatched: rewatchList.length,
         topRewatched: rewatchList,

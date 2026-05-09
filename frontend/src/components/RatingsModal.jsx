@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { proxyPoster } from '../utils';
 
 function PosterFallback({ title }) {
@@ -31,42 +31,15 @@ function PosterImage({ src, title }) {
   );
 }
 
-function RatingsModal({ rating, events, onClose, onItemClick, onOpenSeries }) {
+function RatingsModal({ rating, stats, onClose, onItemClick, onOpenSeries }) {
   const ratedItems = useMemo(() => {
-    const grouped = new Map();
-
-    for (const event of events) {
-      // Use loose equality to match string/number ratings
-      if (event.rating != rating) continue;
-
-      // Group episodes by show, movies individually
-      const key = event.type === 'movie'
-        ? `movie_${event.traktId}`
-        : `show_${event.traktId}`;
-
-      if (!grouped.has(key)) {
-        const displayName = event.type === 'episode' && event.showTitle
-          ? event.showTitle
-          : (event.showTitle || event.title);
-
-        grouped.set(key, {
-          id: key,
-          traktId: event.traktId,
-          type: event.type,
-          title: displayName,
-          poster: event.poster,
-          genres: event.genres,
-          rating: event.rating,
-          showTitle: event.showTitle,
-          watchCount: 0
-        });
-      }
-
-      grouped.get(key).watchCount++;
-    }
-
-    return [...grouped.values()].sort((a, b) => b.watchCount - a.watchCount);
-  }, [rating, events]);
+    const items = stats?.personalBehavior?.ratedItemsByRating?.[rating] || [];
+    return [...items].sort((a, b) => {
+      const titleA = (a.title || '').toLowerCase();
+      const titleB = (b.title || '').toLowerCase();
+      return titleA.localeCompare(titleB);
+    });
+  }, [rating, stats]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -94,9 +67,9 @@ function RatingsModal({ rating, events, onClose, onItemClick, onOpenSeries }) {
 
         <div className="overflow-y-auto flex-1 p-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-             {ratedItems.map((item) => (
+             {ratedItems.map((item, idx) => (
               <div
-                key={item.id}
+                key={`${item.type}_${item.traktId}_${idx}`}
                 onClick={() => {
                   onClose();
                   onOpenSeries({
@@ -117,7 +90,7 @@ function RatingsModal({ rating, events, onClose, onItemClick, onOpenSeries }) {
                     {item.title}
                   </div>
                   <div className="text-zinc-500 text-sm">
-                    &#9733; {item.rating} &middot; {item.watchCount} {item.watchCount === 1 ? 'watch' : 'watches'}
+                    &#9733; {item.rating}
                   </div>
                 </div>
                 <span className={`px-2 py-0.5 rounded text-xs shrink-0 ${
@@ -125,7 +98,7 @@ function RatingsModal({ rating, events, onClose, onItemClick, onOpenSeries }) {
                     ? 'bg-emerald-900/50 text-emerald-400'
                     : 'bg-violet-900/50 text-violet-400'
                 }`}>
-                  {item.type === 'movie' ? 'Movie' : 'Episode'}
+                  {item.type === 'movie' ? 'Movie' : 'Show'}
                 </span>
               </div>
             ))}
