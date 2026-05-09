@@ -20,6 +20,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedGenre, setSelectedGenre] = useState(null);
+  const [selectedGenreYear, setSelectedGenreYear] = useState(null);
   const [selectedSeries, setSelectedSeries] = useState(null);
   const [selectedEpisode, setSelectedEpisode] = useState(null);
   const [selectedRating, setSelectedRating] = useState(null);
@@ -289,7 +290,7 @@ function App() {
 
           <ProgressCard events={events} onOpenSeries={openSeries} />
 
-          <YearReview events={filteredEvents} onOpenSeries={openSeries} onOpenEpisode={openEpisode} onGenreClick={setSelectedGenre} />
+          <YearReview events={filteredEvents} onOpenSeries={openSeries} onOpenEpisode={openEpisode} onGenreClick={(genre, year) => { setSelectedGenre(genre); setSelectedGenreYear(year || null); }} />
           </>
         )}
       </div>
@@ -298,9 +299,10 @@ function App() {
          <GenreModal
            genre={selectedGenre}
            events={filteredEvents}
-           onClose={() => setSelectedGenre(null)}
+           onClose={() => { setSelectedGenre(null); setSelectedGenreYear(null); }}
            onItemClick={openEpisode}
            onOpenSeries={openSeries}
+           year={selectedGenreYear}
          />
       )}
 

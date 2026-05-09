@@ -143,7 +143,11 @@ export default function YearReview({ events, onOpenSeries, onOpenEpisode, onGenr
       {Object.keys(yearData.genreCounts).length > 0 && (
         <div>
           <h4 className="text-sm font-semibold text-zinc-300 uppercase tracking-wide mb-3">Top Genres</h4>
-          <GenreChart genreDistribution={yearData.genreCounts} onGenreClick={onGenreClick} />
+          <GenreChart 
+            genreDistribution={yearData.genreCounts} 
+            onGenreClick={(genre) => onGenreClick(genre, selectedYear)}
+            year={selectedYear}
+          />
         </div>
       )}
 

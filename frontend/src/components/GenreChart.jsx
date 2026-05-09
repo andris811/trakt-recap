@@ -6,7 +6,7 @@ const COLORS = [
   '#06b6d4', '#a855f7', '#e11d48', '#0ea5e9', '#d946ef'
 ];
 
-function GenreChart({ genreDistribution, onGenreClick }) {
+function GenreChart({ genreDistribution, onGenreClick, year }) {
   const data = Object.entries(genreDistribution)
     .map(([name, value]) => ({ name, value }))
     .sort((a, b) => b.value - a.value)
@@ -15,7 +15,7 @@ function GenreChart({ genreDistribution, onGenreClick }) {
   if (data.length === 0) {
     return (
       <div className="bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-800">
-        <h3 className="text-lg font-semibold text-white mb-4">Genre Distribution</h3>
+        <h3 className="text-lg font-semibold text-white mb-4">Genre Distribution {year ? `(${year})` : ''}</h3>
         <p className="text-zinc-500">No genre data available</p>
       </div>
     );
@@ -23,7 +23,7 @@ function GenreChart({ genreDistribution, onGenreClick }) {
 
   return (
     <div className="bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-800 hover:border-zinc-700 transition-all">
-      <h3 className="text-lg font-semibold text-white mb-4">Genre Distribution</h3>
+      <h3 className="text-lg font-semibold text-white mb-4">Genre Distribution {year ? `(${year})` : ''}</h3>
       <p className="text-zinc-500 text-xs mb-2">Click a genre to explore</p>
       <ResponsiveContainer width="100%" height={300}>
         <PieChart>

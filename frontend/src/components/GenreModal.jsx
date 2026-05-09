@@ -31,9 +31,12 @@ function PosterImage({ src, title }) {
   );
 }
 
-function GenreModal({ genre, events, onClose, onItemClick, onOpenSeries }) {
+function GenreModal({ genre, events, onClose, onItemClick, onOpenSeries, year }) {
   const genreEvents = useMemo(() => {
-    const filtered = events.filter((e) => e.genres && e.genres.includes(genre));
+    // Filter by year if provided, otherwise show all
+    const filtered = year
+      ? events.filter((e) => e.genres && e.genres.includes(genre) && new Date(e.watchedAt).getFullYear() === year)
+      : events.filter((e) => e.genres && e.genres.includes(genre));
     const grouped = new Map();
 
     for (const event of filtered) {
