@@ -1,5 +1,5 @@
 const express = require('express');
-const fs = require('fs').promises;
+const fs = require('fs');
 const path = require('path');
 const TraktService = require('../services/traktService');
 const EnrichmentService = require('../services/enrichmentService');
@@ -170,9 +170,9 @@ async function loadHistory() {
   console.log(`Final history: ${history.length} items`);
   
   // Apply enrichment from content cache (posters, genres, runtime)
-  const cachePath = path.join(DATA_DIR, 'content-cache.json');
   try {
-    const cache = JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
+    const cachePath = path.join(DATA_DIR, 'content-cache.json');
+    const cache = JSON.parse(require('fs').readFileSync(cachePath, 'utf-8'));
     let enriched = 0;
     
     for (const item of history) {
@@ -495,18 +495,15 @@ router.get('/content/:type/:traktId', async (req, res) => {
     const traktId = parseInt(req.params.traktId);
     
     // First try local cache
-    const fs = require('fs');
-    const path = require('path');
-    const cachePath = path.join(__dirname, '..', 'data', 'content-cache.json');
     try {
+      const cachePath = path.join(__dirname, '..', 'data', 'content-cache.json');
       const cache = JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
       const key = `${type}_${traktId}`;
       if (cache[key]) {
         console.log(`Serving content ${key} from cache`);
-        // Include fields needed by modal
         const data = cache[key];
         return res.json({
-          title: data.title || data.title,
+          title: data.title || '',
           overview: data.overview || '',
           runtime: data.runtime || 0,
           genres: data.genres || [],
