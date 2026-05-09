@@ -275,6 +275,13 @@ router.post('/enrich', async (req, res) => {
   }
 });
 
+router.get('/enrich', (req, res) => {
+  res.json({
+    message: 'Enrichment endpoint - use POST to trigger enrichment',
+    instructions: 'Send a POST request to this endpoint to run enrichment on existing watch history'
+  });
+});
+
 router.get('/', async (req, res) => {
   try {
     const history = await loadHistory();
