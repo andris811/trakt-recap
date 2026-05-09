@@ -284,22 +284,9 @@ router.get('/enrich', (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    console.log('Loading history directly from Trakt API...');
-    const rawHistory = await traktService.fetchHistory();
-    
-    console.log('rawHistory type:', typeof rawHistory, 'isArray:', Array.isArray(rawHistory));
-    
-    if (!Array.isArray(rawHistory)) {
-      console.error('rawHistory is not an array:', typeof rawHistory);
-      console.error('rawHistory value:', JSON.stringify(rawHistory).substring(0, 200));
-      return res.status(500).json({ error: 'Failed to fetch history', details: 'Invalid response from Trakt API' });
-    }
-    
-    const normalized = rawHistory.map(normalizeHistory);
-    console.log(`Fetched ${normalized.length} items from Trakt`);
-    res.json(normalized);
+    const history = await loadHistory();
+    res.json(history);
   } catch (error) {
-    console.error('Failed to load history:', error.message);
     res.status(500).json({ error: 'Failed to load history', details: error.message });
   }
 });
