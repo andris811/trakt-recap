@@ -282,6 +282,21 @@ router.get('/enrich', (req, res) => {
   });
 });
 
+router.get('/ratings/refresh', async (req, res) => {
+  try {
+    console.log('Fetching fresh ratings from Trakt...');
+    await ratingsService.fetchRatings();
+    console.log(`Ratings refreshed: ${Object.keys(ratingsService.ratingsMap).length} entries`);
+    res.json({
+      message: 'Ratings refreshed',
+      count: Object.keys(ratingsService.ratingsMap).length
+    });
+  } catch (error) {
+    console.error('Failed to refresh ratings:', error.message);
+    res.status(500).json({ error: 'Failed to refresh ratings', details: error.message });
+  }
+});
+
 router.get('/', async (req, res) => {
   try {
     const history = await loadHistory();
