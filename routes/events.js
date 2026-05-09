@@ -268,6 +268,11 @@ router.post('/enrich', async (req, res) => {
       total: result.total,
       enriched: result.enriched,
       wasCached: result.wasCached
+    });
+  } catch (error) {
+    console.error('Enrichment error:', error.message);
+    res.status(500).json({ error: 'Failed to enrich data', details: error.message });
+  }
 });
 
 router.get('/', async (req, res) => {
