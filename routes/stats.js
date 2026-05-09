@@ -12,7 +12,8 @@ const traktService = new TraktService(
 
 async function fetchWatchHistory(limit = 50) {
   const history = await traktService.fetchHistory();
-  return history.slice(0, limit).map(normalizeHistory);
+  const normalized = history.map(normalizeHistory);
+  return normalized.slice(0, limit);
 }
 
 async function calculateStats() {
