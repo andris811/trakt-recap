@@ -169,13 +169,15 @@ async function loadHistory() {
   history.sort((a, b) => new Date(b.watchedAt) - new Date(a.watchedAt));
   console.log(`Final history: ${history.length} items`);
   
-  // Apply enrichment from export (posters, genres)
-  const enrichment = loadEnrichmentFromExport();
-  if (enrichment.size > 0) {
+  // Apply enrichment from content cache (posters, genres, runtime)
+  const cachePath = path.join(DATA_DIR, 'content-cache.json');
+  try {
+    const cache = JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
     let enriched = 0;
+    
     for (const item of history) {
       const key = item.type === 'movie' ? `movie_${item.traktId}` : `show_${item.traktId}`;
-      const data = enrichment.get(key);
+      const data = cache[key];
       if (data) {
         if (!item.poster && data.poster) {
           item.poster = data.poster;
@@ -185,9 +187,15 @@ async function loadHistory() {
           item.genres = data.genres || [];
           if (data.genres && data.genres.length > 0) enriched++;
         }
+        if (!item.runtime && data.runtime) {
+          item.runtime = data.runtime;
+          enriched++;
+        }
       }
     }
-    console.log(`Enriched ${enriched} items with posters/genres from export`);
+    console.log(`Enriched ${enriched} items from content cache`);
+  } catch (e) {
+    console.log('Content cache not available:', e.message);
   }
   
   return history;
@@ -229,41 +237,6 @@ function loadRatingsFromExport() {
   
   console.log(`Total ratings loaded from export: ${Object.keys(ratingsMap).length}`);
   return ratingsMap;
-}
-
-// Load posters and genres from collection
-function loadEnrichmentFromExport() {
-  const enrichmentMap = new Map();
-  
-  try {
-    const cache = require('../data/content-cache.json');
-    const movieKeys = Object.keys(cache).filter(k => k.startsWith('movie_'));
-    for (const key of movieKeys) {
-      const data = cache[key];
-      const traktId = parseInt(key.replace('movie_', ''));
-      enrichmentMap.set(`movie_${traktId}`, {
-        poster: data.poster,
-        genres: data.genres || [],
-        runtime: data.runtime || 0
-      });
-    }
-    console.log(`Loaded ${movieKeys.length} movies from content cache`);
-    
-    const showKeys = Object.keys(cache).filter(k => k.startsWith('show_'));
-    for (const key of showKeys) {
-      const data = cache[key];
-      const traktId = parseInt(key.replace('show_', ''));
-      enrichmentMap.set(`show_${traktId}`, {
-        poster: data.poster,
-        genres: data.genres || []
-      });
-    }
-    console.log(`Loaded ${showKeys.length} shows from content cache`);
-  } catch (e) {
-    console.log('Content cache not available:', e.message);
-  }
-  
-  return enrichmentMap;
 }
 
 async function saveTraktStats(data) {
@@ -530,7 +503,21 @@ router.get('/content/:type/:traktId', async (req, res) => {
       const key = `${type}_${traktId}`;
       if (cache[key]) {
         console.log(`Serving content ${key} from cache`);
-        return res.json(cache[key]);
+        // Include fields needed by modal
+        const data = cache[key];
+        return res.json({
+          title: data.title || data.title,
+          overview: data.overview || '',
+          runtime: data.runtime || 0,
+          genres: data.genres || [],
+          poster: data.poster || '',
+          country: data.country || '',
+          released: data.released || '',
+          year: data.year || 0,
+          traktRating: data.traktRating || 0,
+          traktVotes: data.traktVotes || 0,
+          available_translations: data.available_translations || []
+        });
       }
     } catch (e) {}
     
