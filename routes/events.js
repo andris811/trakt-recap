@@ -212,6 +212,14 @@ router.get('/sync', async (req, res) => {
         
         console.log('Inserted fresh watch history to Supabase');
       } catch (err) {
+        console.error('Insert failed:', err.message);
+      }
+      
+      if (traktStats) {
+        await supabase.from('trakt_stats').delete().neq('id', '');
+        await supabase.from('trakt_stats').insert({ stats: traktStats });
+      }
+    } else {
       // Fallback to file
       const DATA_DIR = path.join(__dirname, '..', 'data');
       await fs.mkdir(DATA_DIR, { recursive: true });
