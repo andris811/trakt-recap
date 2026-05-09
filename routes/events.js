@@ -236,31 +236,32 @@ function loadEnrichmentFromExport() {
   const enrichmentMap = new Map();
   
   try {
-    const movies = require('../data/trakt-export-andris811/collection-movies.json');
-    for (const item of movies) {
-      if (item.movie && item.movie.ids && item.movie.ids.trakt) {
-        enrichmentMap.set(`movie_${item.movie.ids.trakt}`, {
-          poster: item.movie.images && item.movie.images.poster ? item.movie.images.poster.thumb || item.movie.images.poster.full : null,
-          genres: item.movie.genres || [],
-          runtime: item.movie.runtime || 0
-        });
-      }
+    const cache = require('../data/content-cache.json');
+    const movieKeys = Object.keys(cache).filter(k => k.startsWith('movie_'));
+    for (const key of movieKeys) {
+      const data = cache[key];
+      const traktId = parseInt(key.replace('movie_', ''));
+      enrichmentMap.set(`movie_${traktId}`, {
+        poster: data.poster,
+        genres: data.genres || [],
+        runtime: data.runtime || 0
+      });
     }
-    console.log(`Loaded ${movies.length} movie enrichment data from export`);
-  } catch (e) {}
-  
-  try {
-    const shows = require('../data/trakt-export-andris811/collection-shows.json');
-    for (const item of shows) {
-      if (item.show && item.show.ids && item.show.ids.trakt) {
-        enrichmentMap.set(`show_${item.show.ids.trakt}`, {
-          poster: item.show.images && item.show.images.poster ? item.show.images.poster.thumb || item.show.images.poster.full : null,
-          genres: item.show.genres || []
-        });
-      }
+    console.log(`Loaded ${movieKeys.length} movies from content cache`);
+    
+    const showKeys = Object.keys(cache).filter(k => k.startsWith('show_'));
+    for (const key of showKeys) {
+      const data = cache[key];
+      const traktId = parseInt(key.replace('show_', ''));
+      enrichmentMap.set(`show_${traktId}`, {
+        poster: data.poster,
+        genres: data.genres || []
+      });
     }
-    console.log(`Loaded ${shows.length} show enrichment data from export`);
-  } catch (e) {}
+    console.log(`Loaded ${showKeys.length} shows from content cache`);
+  } catch (e) {
+    console.log('Content cache not available:', e.message);
+  }
   
   return enrichmentMap;
 }
