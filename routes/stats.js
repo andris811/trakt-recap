@@ -144,7 +144,10 @@ async function calculateStats() {
       totalDays,
       ratingsGiven: traktStats.movies.ratings + traktStats.episodes.ratings
     },
-    recentActivity: recentHistory.slice(0, 20),
+    activity: {
+      recentActivity: recentHistory.slice(0, 20),
+      timeline: recentHistory.slice(0, 20)
+    },
     topRatedMovies,
     topRatedShows: topRatedShowsFinal,
     personalBehavior: {
