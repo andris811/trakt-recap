@@ -26702,5 +26702,23 @@
     "imdbId": "tt0767486",
     "commentCount": 8,
     "screenshot": "https://media.trakt.tv/images/episodes/000/093/890/screenshots/medium/ee2b259b68.jpg.webp"
+  },
+  "movie_746852": {
+    "runtime": 116,
+    "genres": [
+      "action",
+      "fantasy",
+      "adventure"
+    ],
+    "poster": "https://media.trakt.tv/images/movies/000/746/852/posters/medium/f716a67ba6.jpg.webp",
+    "title": "Mortal Kombat II",
+    "overview": "The fan favorite champions—now joined by Johnny Cage himself—are pitted against one another in the ultimate, no-holds barred, gory battle to defeat the dark rule of Shao Kahn that threatens the very existence of the Earthrealm and its defenders.",
+    "country": "us",
+    "released": "2026-05-08",
+    "year": 2026,
+    "traktRating": 6.9950737953186035,
+    "traktVotes": 203,
+    "imdbId": "tt17490712",
+    "commentCount": 7
   }
 }

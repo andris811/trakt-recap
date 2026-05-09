@@ -1,5 +1,19 @@
 [
   {
+    "id": "m-746852-2026-05-09T07:33:00.000Z",
+    "watchedAt": "2026-05-09T07:33:00.000Z",
+    "type": "movie",
+    "title": "Mortal Kombat II",
+    "traktId": 746852,
+    "runtime": 116,
+    "genres": [
+      "action",
+      "fantasy",
+      "adventure"
+    ],
+    "poster": "https://media.trakt.tv/images/movies/000/746/852/posters/medium/f716a67ba6.jpg.webp"
+  },
+  {
     "id": "e-282764-2026-05-05T15:52:00.000Z",
     "watchedAt": "2026-05-05T15:52:00.000Z",
     "type": "episode",

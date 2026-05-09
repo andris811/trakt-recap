@@ -249,18 +249,25 @@ router.get('/sync', async (req, res) => {
 router.post('/enrich', async (req, res) => {
   try {
     const events = await loadHistory();
-    const result = await enrichmentService.enrichEvents(events);
+    
+    // Count items needing enrichment
+    const needsEnrichment = events.filter(e => !e.poster || !e.genres || e.genres.length === 0);
+    console.log(`Items needing enrichment: ${needsEnrichment.length} out of ${events.length}`);
+    
+    // Process all items (no limit) but save progress periodically
+    const result = await enrichmentService.enrichEvents(events, async (enrichedEvents) => {
+      await saveHistory(enrichedEvents);
+    }, 50); // Process 50 at a time, save periodically
+    
     await ratingsService.syncAndApply(events);
     await saveHistory(events);
+    
+    console.log(`Enrichment complete: ${result.enriched} items enriched, ${result.wasCached} were cached`);
     res.json({
       message: 'Enrichment complete',
       total: result.total,
       enriched: result.enriched,
-      wasCached: result.cached
-    });
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to enrich data', details: error.message });
-  }
+      wasCached: result.wasCached
 });
 
 router.get('/', async (req, res) => {
