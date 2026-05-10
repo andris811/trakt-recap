@@ -5,7 +5,7 @@ export default function SeasonModal({ showId, showTitle, season, episodes, watch
   const [epDetails, setEpDetails] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const watchedSet = useMemo(() => new Set(watchedEpisodes.map(e => e.episode)), [watchedEpisodes]);
+  const watchedSet = useMemo(() => new Set(watchedEpisodes.map(e => `${e.season}x${e.episode}`)), [watchedEpisodes]);
 
   useEffect(() => {
     const fetchAll = async () => {
@@ -45,7 +45,7 @@ export default function SeasonModal({ showId, showTitle, season, episodes, watch
           ) : (
             <div className="space-y-2">
               {episodes.map((ep) => {
-                const isWatched = watchedSet.has(ep.number);
+                const isWatched = watchedSet.has(`${season.number}x${ep.number}`);
                 const detail = epDetails[ep.number];
                 return (
                   <button

@@ -31,7 +31,8 @@ function extractDetails(data, type) {
     traktRating: data.rating || null,
     traktVotes: data.votes || 0,
     imdbId: (data.ids && data.ids.imdb) || null,
-    commentCount: data.comment_count || 0
+    commentCount: data.comment_count || 0,
+    airedEpisodes: data.aired_episodes || 0
   };
 }
 

@@ -92,8 +92,7 @@ export default function ProgressCard({ events, onOpenSeries }) {
       for (const show of recentShows) {
         try {
           const res = await axios.get(`/api/events/seasons/${show.traktId}`);
-          const seasons = res.data.seasons || [];
-          const totalEpisodes = seasons.reduce((sum, s) => sum + s.episodeCount, 0);
+          const totalEpisodes = res.data.airedEpisodes ?? res.data.seasons?.reduce((sum, s) => sum + s.episodeCount, 0) ?? 0;
           const watchedSet = new Set();
           for (const e of events) {
             if (e.traktId === show.traktId && e.type === 'episode' && e.season > 0) {
