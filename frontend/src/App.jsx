@@ -285,7 +285,7 @@ function App() {
           <Timeline
             timeline={stats.activity.timeline}
             events={filteredEvents}
-            onItemClick={openEpisode}
+            onItemClick={(item) => item.type === 'movie' ? openSeries(item) : openEpisode(item)}
           />
 
           <ProgressCard events={events} onOpenSeries={openSeries} />

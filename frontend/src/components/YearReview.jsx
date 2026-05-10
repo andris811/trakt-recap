@@ -81,7 +81,13 @@ export default function YearReview({ events, onOpenSeries, onOpenEpisode, onGenr
         <select
           value={selectedYear}
           onChange={e => setSelectedYear(parseInt(e.target.value))}
-          className="bg-zinc-800 text-white border border-zinc-700 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:border-zinc-500"
+          className="appearance-none bg-zinc-800 text-white border border-zinc-700 rounded-lg px-8 py-1.5 text-sm focus:outline-none focus:border-emerald-500 cursor-pointer hover:bg-zinc-700 transition-colors"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
+            backgroundPosition: 'right 0.5rem center',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '1.25rem'
+          }}
         >
           {years.map(y => (
             <option key={y} value={y}>{y}</option>

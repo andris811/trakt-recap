@@ -514,8 +514,7 @@ router.get('/content/:type/:traktId', async (req, res) => {
           traktRating: data.traktRating || 0,
           traktVotes: data.traktVotes || 0,
           available_translations: data.available_translations || [],
-          imdbId: data.imdbId || null,
-          commentCount: data.commentCount || 0
+          imdbId: data.imdbId || null
         });
       }
     } catch (e) {}
