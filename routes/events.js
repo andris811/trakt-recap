@@ -494,36 +494,24 @@ router.get('/content/:type/:traktId', async (req, res) => {
     const { type } = req.params;
     const traktId = parseInt(req.params.traktId);
     
-    // First try local cache
+    // Load content details from cache or API
+    let details;
+    const cachePath = path.join(__dirname, '..', 'data', 'content-cache.json');
     try {
-      const cachePath = path.join(__dirname, '..', 'data', 'content-cache.json');
       const cache = JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
       const key = `${type}_${traktId}`;
       if (cache[key]) {
-        console.log(`Serving content ${key} from cache`);
-        const data = cache[key];
-        return res.json({
-          title: data.title || '',
-          overview: data.overview || '',
-          runtime: data.runtime || 0,
-          genres: data.genres || [],
-          poster: data.poster || '',
-          country: data.country || '',
-          released: data.released || '',
-          year: data.year || 0,
-          traktRating: data.traktRating || 0,
-          traktVotes: data.traktVotes || 0,
-          available_translations: data.available_translations || [],
-          imdbId: data.imdbId || null
-        });
+        details = cache[key];
       }
     } catch (e) {}
     
-    // Fallback to API
-    const [details, comments] = await Promise.all([
-      enrichmentService.getContentDetails(type, traktId),
-      enrichmentService.getComments(type, traktId)
-    ]);
+    if (!details) {
+      details = await enrichmentService.getContentDetails(type, traktId);
+    }
+    
+    // Always fetch comments live
+    const comments = await enrichmentService.getComments(type, traktId);
+    
     res.json({ ...details, comments });
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch content details', details: error.message });
