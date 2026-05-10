@@ -7,6 +7,15 @@ const statsRouter = require('./routes/stats');
 const app = express();
 
 app.use(express.json());
+
+// Password gate middleware
+app.use(/^\/api\//, (req, res, next) => {
+  if (!process.env.APP_PASSWORD) return next();
+  const password = req.headers['x-app-password'];
+  if (password === process.env.APP_PASSWORD) return next();
+  res.status(401).json({ error: 'Unauthorized' });
+});
+
 app.use('/api/events', eventsRouter);
 app.use('/api/stats', statsRouter);
 

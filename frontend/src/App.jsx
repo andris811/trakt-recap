@@ -13,6 +13,7 @@ import RatingsModal from './components/RatingsModal';
 import ActorModal from './components/ActorModal';
 import YearReview from './components/YearReview';
 import ProgressCard from './components/ProgressCard';
+import Login from './components/Login';
 
 function App() {
   const [stats, setStats] = useState(null);
@@ -29,6 +30,53 @@ function App() {
   const [debouncedSearch, setDebouncedSearch] = useState('');
   const searchTimeout = useRef(null);
   const [syncing, setSyncing] = useState(false);
+  const passwordRef = useRef('');
+  const [loginError, setLoginError] = useState(false);
+  const [authenticated, setAuthenticated] = useState(null);
+
+  // Set up axios interceptor to send password header
+  useEffect(() => {
+    const interceptor = axios.interceptors.request.use(config => {
+      if (passwordRef.current) {
+        config.headers['x-app-password'] = passwordRef.current;
+      }
+      return config;
+    });
+    return () => axios.interceptors.request.eject(interceptor);
+  }, []);
+
+  const loadData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const [statsRes, eventsRes] = await Promise.all([
+        axios.get('/api/stats'),
+        axios.get('/api/events')
+      ]);
+      setStats(statsRes.data);
+      setEvents(eventsRes.data);
+      setAuthenticated(true);
+      return true;
+    } catch (err) {
+      if (err.response?.status === 401) {
+        setAuthenticated(false);
+      } else {
+        setError(err.message);
+      }
+      return false;
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { loadData(); }, [loadData]);
+
+  const handleLogin = async (password) => {
+    passwordRef.current = password;
+    setLoginError(false);
+    const success = await loadData();
+    if (!success && passwordRef.current) setLoginError(true);
+  };
 
   const handleSearchChange = useCallback((e) => {
     const value = e.target.value;
@@ -41,12 +89,7 @@ function App() {
     setSyncing(true);
     try {
       await axios.get('/api/events/sync');
-      const [statsRes, eventsRes] = await Promise.all([
-        axios.get('/api/stats'),
-        axios.get('/api/events')
-      ]);
-      setStats(statsRes.data);
-      setEvents(eventsRes.data);
+      await loadData();
     } catch (err) {
       setError(err.message);
     } finally {
@@ -56,22 +99,6 @@ function App() {
 
   useEffect(() => {
     return () => { if (searchTimeout.current) clearTimeout(searchTimeout.current); };
-  }, []);
-
-  useEffect(() => {
-    Promise.all([
-      axios.get('/api/stats'),
-      axios.get('/api/events')
-    ])
-      .then(([statsRes, eventsRes]) => {
-        setStats(statsRes.data);
-        setEvents(eventsRes.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
   }, []);
 
   const openSeries = (item) => {
@@ -156,6 +183,10 @@ function App() {
         <div className="text-red-400 text-lg">Error: {error}</div>
       </div>
     );
+  }
+
+  if (authenticated === false) {
+    return <Login onLogin={handleLogin} error={loginError} />;
   }
 
   const showSearch = debouncedSearch.trim().length > 0;
