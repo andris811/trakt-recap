@@ -342,6 +342,23 @@ class EnrichmentService {
     }
   }
 
+  async getShowAiredEpisodes(showId) {
+    try {
+      const response = await this.client.get(`/shows/${showId}`, {
+        params: { extended: 'full' }
+      });
+      const aired = response.data.aired_episodes || 0;
+      const cacheKey = `show_${showId}`;
+      if (this.cache[cacheKey]) {
+        this.cache[cacheKey].airedEpisodes = aired;
+        await this.saveCache();
+      }
+      return aired;
+    } catch (err) {
+      return null;
+    }
+  }
+
   async getContentPeople(type, traktId) {
     const cacheKey = `people_${type}_${traktId}`;
     if (this.cache[cacheKey]) {

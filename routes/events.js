@@ -547,11 +547,11 @@ router.get('/season/:showId/:season', async (req, res) => {
 router.get('/seasons/:showId', async (req, res) => {
   try {
     const { showId } = req.params;
-    const [seasons, details] = await Promise.all([
+    const [seasons, airedEpisodes] = await Promise.all([
       enrichmentService.getShowSeasons(parseInt(showId)),
-      enrichmentService.getContentDetails('show', parseInt(showId))
+      enrichmentService.getShowAiredEpisodes(parseInt(showId))
     ]);
-    res.json({ seasons, airedEpisodes: details?.airedEpisodes || null });
+    res.json({ seasons, airedEpisodes });
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch show seasons', details: error.message });
   }
