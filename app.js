@@ -28,6 +28,7 @@ app.get('/debug', (req, res) => {
     hasTraktSecret: !!process.env.TRAKT_CLIENT_SECRET,
     hasTraktToken: !!process.env.TRAKT_ACCESS_TOKEN,
     hasRedirectUri: !!process.env.TRAKT_REDIRECT_URI,
+    hasAppPassword: !!process.env.APP_PASSWORD,
     nodeEnv: process.env.NODE_ENV
   });
 });
