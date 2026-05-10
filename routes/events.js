@@ -84,7 +84,7 @@ async function loadHistory() {
   for (let i = 1; i <= 7; i++) {
     const exportFile = path.join(EXPORT_DIR, `watched-history-${i}.json`);
     try {
-      const content = await fs.readFile(exportFile, 'utf-8');
+      const content = fs.readFileSync(exportFile, 'utf-8');
       const exportData = JSON.parse(content);
       const normalized = normalizeHistory(exportData);
       history = history.concat(normalized);
@@ -101,7 +101,7 @@ async function loadHistory() {
   // Second: Load from local JSON file (backup)
   if (history.length === 0) {
     try {
-      const localData = await fs.readFile(DATA_FILE, 'utf-8');
+      const localData = fs.readFileSync(DATA_FILE, 'utf-8');
       const localHistory = JSON.parse(localData);
       console.log(`Loaded ${localHistory.length} items from local JSON file`);
       history = localHistory;
