@@ -417,16 +417,10 @@ class EnrichmentService {
         if (!details) {
           try {
             const res = await this.client.get(`/movies/${traktId}`, { params: { extended: 'full' } });
-             details = {
-               title: res.data.title,
-               year: res.data.year,
-               poster: (res.data.images && res.data.images.poster) ? `https://${res.data.images.poster[0]}` : null,
-               released: res.data.released || null,
-               rating: res.data.rating || null
-             };
-             this.cache[`movie_${traktId}`] = details;
+            details = extractDetails(res.data, 'movie');
+            this.cache[`movie_${traktId}`] = details;
           } catch {
-            details = { title: m.movie.title, year: m.movie.year, poster: null, released: null, rating: null };
+            details = { title: m.movie.title, year: m.movie.year, poster: null, released: null, rating: null, runtime: 0, genres: [], overview: null, country: null, traktRating: null, traktVotes: 0, imdbId: null, commentCount: 0 };
           }
         }
 
@@ -437,7 +431,7 @@ class EnrichmentService {
           poster: details.poster,
           character: m.character || null,
           released: details.released,
-          rating: details.rating
+          rating: details.traktRating || details.rating
         });
       }
 
@@ -471,16 +465,10 @@ class EnrichmentService {
         if (!details) {
           try {
             const res = await this.client.get(`/shows/${traktId}`, { params: { extended: 'full' } });
-             details = {
-               title: res.data.title,
-               year: res.data.year,
-               poster: (res.data.images && res.data.images.poster) ? `https://${res.data.images.poster[0]}` : null,
-               firstAired: res.data.first_aired || null,
-               rating: res.data.rating || null
-             };
-             this.cache[`show_${traktId}`] = details;
+            details = extractDetails(res.data, 'show');
+            this.cache[`show_${traktId}`] = details;
           } catch {
-            details = { title: s.show.title, year: s.show.year, poster: null, firstAired: null, rating: null };
+            details = { title: s.show.title, year: s.show.year, poster: null, firstAired: null, rating: null, runtime: 0, genres: [], overview: null, country: null, traktRating: null, traktVotes: 0, imdbId: null, commentCount: 0 };
           }
         }
 
@@ -490,8 +478,8 @@ class EnrichmentService {
           traktId,
           poster: details.poster,
           character: s.character || null,
-          firstAired: details.firstAired,
-          rating: details.rating
+          firstAired: details.firstAired || details.released,
+          rating: details.traktRating || details.rating
         });
       }
 
