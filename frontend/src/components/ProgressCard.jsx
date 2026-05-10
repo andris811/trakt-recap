@@ -96,7 +96,7 @@ export default function ProgressCard({ events, onOpenSeries }) {
           const totalEpisodes = seasons.reduce((sum, s) => sum + s.episodeCount, 0);
           const watchedSet = new Set();
           for (const e of events) {
-            if (e.traktId === show.traktId && e.type === 'episode') {
+            if (e.traktId === show.traktId && e.type === 'episode' && e.season > 0) {
               watchedSet.add(`${e.season}x${e.episode}`);
             }
           }
