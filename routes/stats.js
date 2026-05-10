@@ -4,7 +4,7 @@ const { calculateStats } = require('../services/statsService');
 const TraktService = require('../services/traktService');
 const RatingsService = require('../services/ratingsService');
 const supabase = require('../services/supabaseClient');
-const { normalizeHistory } = require('../services/transformService');
+const { normalizeHistory, deduplicateEvents } = require('../services/transformService');
 const fs = require('fs');
 const path = require('path');
 
@@ -120,6 +120,8 @@ async function loadHistory() {
   
   // Sort by watchedAt descending
   history.sort((a, b) => new Date(b.watchedAt) - new Date(a.watchedAt));
+  
+  history = deduplicateEvents(history, 72);
   
   return history;
 }

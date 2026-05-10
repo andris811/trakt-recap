@@ -4,7 +4,7 @@ const path = require('path');
 const TraktService = require('../services/traktService');
 const EnrichmentService = require('../services/enrichmentService');
 const RatingsService = require('../services/ratingsService');
-const { normalizeHistory } = require('../services/transformService');
+const { normalizeHistory, deduplicateEvents } = require('../services/transformService');
 const supabase = require('../services/supabaseClient');
 
 const router = express.Router();
@@ -197,6 +197,9 @@ async function loadHistory() {
   } catch (e) {
     console.log('Content cache not available:', e.message);
   }
+  
+  history = deduplicateEvents(history, 72);
+  console.log(`After dedup: ${history.length} items`);
   
   return history;
 }

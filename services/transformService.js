@@ -29,4 +29,34 @@ function normalizeHistory(rawHistory) {
   });
 }
 
-module.exports = { normalizeHistory };
+function contentKey(event) {
+  if (event.type === 'movie') return `movie_${event.traktId}`;
+  return `episode_${event.traktId}_${event.season}_${event.episode}`;
+}
+
+function deduplicateEvents(events, windowHours = 72) {
+  const windowMs = windowHours * 60 * 60 * 1000;
+  const groups = {};
+
+  for (const e of events) {
+    const key = contentKey(e);
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(e);
+  }
+
+  const kept = [];
+  for (const key of Object.keys(groups)) {
+    const sorted = groups[key].sort((a, b) => new Date(a.watchedAt) - new Date(b.watchedAt));
+    let lastKept = null;
+    for (const e of sorted) {
+      if (!lastKept || new Date(e.watchedAt) - new Date(lastKept.watchedAt) > windowMs) {
+        kept.push(e);
+        lastKept = e;
+      }
+    }
+  }
+
+  return kept.sort((a, b) => new Date(b.watchedAt) - new Date(a.watchedAt));
+}
+
+module.exports = { normalizeHistory, deduplicateEvents };
