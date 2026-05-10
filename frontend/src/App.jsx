@@ -319,7 +319,7 @@ function App() {
       {selectedSeries && (
          <SeriesModal
            item={selectedSeries}
-           events={filteredEvents}
+           events={events}
            showRatings={stats.showRatings || {}}
            onClose={() => setSelectedSeries(null)}
            onOpenEpisode={openEpisode}
@@ -330,7 +330,7 @@ function App() {
       {selectedEpisode && (
          <EpisodeModal
            item={selectedEpisode}
-           events={filteredEvents}
+           events={events}
            onClose={() => setSelectedEpisode(null)}
            onOpenSeries={openSeries}
            onNavigateEpisode={(ep) => setSelectedEpisode(ep)}
