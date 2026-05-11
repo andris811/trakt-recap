@@ -41,15 +41,33 @@ body {
 .light .border-zinc-700 { border-color: #d4d4d8; }
 .light .border-zinc-600 { border-color: #c0c0c5; }
 
+.light .from-zinc-800\/80 { --tw-gradient-from: #f4f4f5; }
+.light .to-zinc-900\/80 { --tw-gradient-to: #ffffff; }
+.light .hover\:from-zinc-700\/80:hover { --tw-gradient-from: #e4e4e7; }
+.light .hover\:to-zinc-800\/80:hover { --tw-gradient-to: #f4f4f5; }
 .light .from-zinc-900 { --tw-gradient-from: #ffffff; }
 .light .via-zinc-900\/50 { --tw-gradient-via: rgba(255, 255, 255, 0.5); }
 .light .to-transparent { --tw-gradient-to: transparent; }
 
 .light .bg-black\/70 { background-color: rgba(245, 245, 245, 0.8); }
+.light .bg-black\/60 { background-color: rgba(245, 245, 245, 0.7); }
 .light .placeholder-zinc-500::placeholder { color: #a1a1aa; }
+
+/* Violet/emerald badge overrides for light theme */
+.light .bg-violet-900\/50 { background-color: rgba(139, 92, 246, 0.15); }
+.light .bg-emerald-900\/50 { background-color: rgba(16, 185, 129, 0.15); }
+.light .text-violet-300 { color: #7c3aed; }
+.light .text-violet-400 { color: #6d28d9; }
+.light .text-emerald-400 { color: #059669; }
+.light .hover\:bg-violet-900\/70:hover { background-color: rgba(139, 92, 246, 0.25); }
+
+/* Border opacity overrides */
+.light .border-zinc-700\/50 { border-color: rgba(212, 212, 216, 0.5); }
+.light .hover\:border-violet-500\/30:hover { border-color: rgba(139, 92, 246, 0.3); }
 
 /* Scrollbar for light theme */
 .light ::-webkit-scrollbar-track { background: #e4e4e7; }
+.light .custom-scrollbar::-webkit-scrollbar-track { background: #e4e4e7; }
 
 /* Custom scrollbar styling */
 ::-webkit-scrollbar {

@@ -7,6 +7,13 @@ const COLORS = [
 ];
 
 function GenreChart({ genreDistribution, onGenreClick, year }) {
+  const isLight = typeof document !== 'undefined' && document.documentElement.classList.contains('light');
+  const tooltipStyle = {
+    backgroundColor: isLight ? '#ffffff' : '#18181b',
+    border: isLight ? '1px solid #d4d4d8' : '1px solid #27272a',
+    borderRadius: '8px',
+    color: isLight ? '#18181b' : '#e5e5e5'
+  };
   const data = Object.entries(genreDistribution)
     .map(([name, value]) => ({ name, value }))
     .sort((a, b) => b.value - a.value)
@@ -42,13 +49,7 @@ function GenreChart({ genreDistribution, onGenreClick, year }) {
               <Cell key={index} fill={COLORS[index % COLORS.length]} />
             ))}
           </Pie>
-          <Tooltip
-            contentStyle={{
-              backgroundColor: '#18181b',
-              border: '1px solid #27272a',
-              borderRadius: '8px',
-              color: '#e5e5e5'
-            }}
+          <Tooltip contentStyle={tooltipStyle}
             formatter={(value, name, props) => [`${value} watches`, props.payload.name.charAt(0).toUpperCase() + props.payload.name.slice(1)]}
           />
           <Legend
