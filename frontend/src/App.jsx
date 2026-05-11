@@ -292,7 +292,7 @@ function App() {
                   return (
                     <div
                       key={event.id}
-                      onClick={() => openSeries(event)}
+                      onClick={() => isEpisode ? openEpisode(event) : openSeries(event)}
                       className="flex items-center gap-3 p-3 rounded-lg bg-zinc-800/50 hover:bg-zinc-800 transition-all cursor-pointer group"
                     >
                       <div className="w-10 h-14 flex-shrink-0 rounded overflow-hidden bg-zinc-700">
