@@ -1,18 +1,15 @@
 import { useMemo, useState, useRef, useEffect } from 'react';
 
-const LEVEL_COLORS = [
-  'bg-zinc-800',
-  'bg-emerald-900',
-  'bg-emerald-700',
-  'bg-emerald-500',
-  'bg-emerald-400'
-];
+const DARK_COLORS = ['bg-zinc-800', 'bg-emerald-900', 'bg-emerald-700', 'bg-emerald-500', 'bg-emerald-400'];
+const LIGHT_COLORS = ['bg-zinc-200', 'bg-emerald-300', 'bg-emerald-400', 'bg-emerald-500', 'bg-emerald-600'];
 
 function Heatmap({ heatmap }) {
   const [tooltip, setTooltip] = useState(null);
   const containerRef = useRef(null);
   const [cellSize, setCellSize] = useState(14);
   const [cellGap, setCellGap] = useState(3);
+  const isLight = typeof document !== 'undefined' && document.documentElement.classList.contains('light');
+  const LEVEL_COLORS = isLight ? LIGHT_COLORS : DARK_COLORS;
 
   const { weeks } = useMemo(() => {
     const today = new Date();
@@ -116,7 +113,7 @@ function Heatmap({ heatmap }) {
 
       {tooltip && (
         <div
-          className="fixed z-50 pointer-events-none bg-zinc-800 text-white text-xs px-3 py-2 rounded-lg shadow-xl border border-zinc-700 whitespace-nowrap"
+          className={`fixed z-50 pointer-events-none ${isLight ? 'bg-white text-zinc-900 border-zinc-300' : 'bg-zinc-800 text-white border-zinc-700'} text-xs px-3 py-2 rounded-lg shadow-xl border whitespace-nowrap`}
           style={{
             left: tooltip.x,
             top: tooltip.y,
@@ -124,7 +121,7 @@ function Heatmap({ heatmap }) {
           }}
         >
           <div className="font-medium">{tooltip.date}</div>
-          <div className="text-zinc-400">{tooltip.count} {tooltip.count === 1 ? 'watch' : 'watches'}</div>
+          <div className={isLight ? 'text-zinc-500' : 'text-zinc-400'}>{tooltip.count} {tooltip.count === 1 ? 'watch' : 'watches'}</div>
         </div>
       )}
     </div>

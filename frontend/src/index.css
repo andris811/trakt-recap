@@ -66,8 +66,15 @@ body {
 .light .hover\:border-violet-500\/30:hover { border-color: rgba(139, 92, 246, 0.3); }
 
 /* Scrollbar for light theme */
+html.light::-webkit-scrollbar-track { background: #e4e4e7; }
+html.light::-webkit-scrollbar-thumb { background: #6d28d9; }
+html.light::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
+html.light { scrollbar-color: #6d28d9 #e4e4e7; }
 .light ::-webkit-scrollbar-track { background: #e4e4e7; }
+.light ::-webkit-scrollbar-thumb { background: #6d28d9; }
+.light ::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
 .light .custom-scrollbar::-webkit-scrollbar-track { background: #e4e4e7; }
+.light .custom-scrollbar::-webkit-scrollbar-thumb { background: #6d28d9; }
 
 /* Custom scrollbar styling */
 ::-webkit-scrollbar {
