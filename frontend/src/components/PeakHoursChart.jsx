@@ -1,6 +1,7 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
-function PeakHoursChart({ peakHours }) {
+function PeakHoursChart({ peakHours, theme }) {
+  const isLight = theme === 'light';
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const timezoneShort = timezone.split('/').pop().replace(/_/g, ' ');
 
@@ -23,26 +24,26 @@ function PeakHoursChart({ peakHours }) {
       </div>
       <ResponsiveContainer width="100%" height={250}>
         <BarChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#27272a" />
+          <CartesianGrid strokeDasharray="3 3" stroke={isLight ? '#e4e4e7' : '#27272a'} />
           <XAxis
             dataKey="hour"
-            stroke="#71717a"
+            stroke={isLight ? '#a1a1aa' : '#71717a'}
             tick={{ fontSize: 11 }}
             interval={2}
           />
-          <YAxis stroke="#71717a" tick={{ fontSize: 11 }} allowDecimals={false} />
+          <YAxis stroke={isLight ? '#a1a1aa' : '#71717a'} tick={{ fontSize: 11 }} allowDecimals={false} />
           <Tooltip
             contentStyle={{
-              backgroundColor: '#18181b',
-              border: '1px solid #27272a',
+              backgroundColor: isLight ? '#ffffff' : '#18181b',
+              border: isLight ? '1px solid #d4d4d8' : '1px solid #27272a',
               borderRadius: '8px',
-              color: '#e5e5e5'
+              color: isLight ? '#18181b' : '#e5e5e5'
             }}
             formatter={(value) => [`${value} watches`, 'Count']}
           />
           <Bar
             dataKey="count"
-            fill="#10b981"
+            fill={isLight ? '#6ee7b7' : '#10b981'}
             radius={[4, 4, 0, 0]}
           />
         </BarChart>

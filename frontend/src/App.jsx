@@ -334,7 +334,7 @@ function App() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <Heatmap heatmap={stats.activity.heatmap} theme={theme} />
-            <PeakHoursChart peakHours={stats.activity.peakHours} />
+            <PeakHoursChart peakHours={stats.activity.peakHours} theme={theme} />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -346,6 +346,7 @@ function App() {
             <RatingsChart
               ratingsDistribution={stats.personalBehavior.ratingsDistribution}
               onRatingClick={setSelectedRating}
+              theme={theme}
             />
           </div>
 
