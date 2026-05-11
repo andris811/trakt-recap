@@ -2,10 +2,11 @@ import { useState } from 'react';
 
 export default function Login({ onLogin, error }) {
   const [password, setPassword] = useState('');
+  const [remember, setRemember] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin(password);
+    onLogin(password, remember);
   };
 
   return (
@@ -25,6 +26,15 @@ export default function Login({ onLogin, error }) {
             autoFocus
             className="w-full bg-zinc-800 text-white border border-zinc-700 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-emerald-500 placeholder-zinc-500"
           />
+          <label className="flex items-center gap-2 text-zinc-400 text-sm cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={remember}
+              onChange={(e) => setRemember(e.target.checked)}
+              className="accent-emerald-500 w-4 h-4"
+            />
+            Remember me
+          </label>
           {error && (
             <p className="text-red-400 text-sm text-center">Incorrect password</p>
           )}

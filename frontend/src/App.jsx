@@ -69,10 +69,22 @@ function App() {
     }
   }, []);
 
-  useEffect(() => { loadData(); }, [loadData]);
+  useEffect(() => {
+    const saved = localStorage.getItem('trakt_password') || sessionStorage.getItem('trakt_password');
+    if (saved) {
+      passwordRef.current = saved;
+    }
+    loadData();
+  }, [loadData]);
 
-  const handleLogin = async (password) => {
+  const handleLogin = async (password, remember) => {
     passwordRef.current = password;
+    sessionStorage.setItem('trakt_password', password);
+    if (remember) {
+      localStorage.setItem('trakt_password', password);
+    } else {
+      localStorage.removeItem('trakt_password');
+    }
     setLoginError(false);
     const success = await loadData();
     if (!success && passwordRef.current) setLoginError(true);
