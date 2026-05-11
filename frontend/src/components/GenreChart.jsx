@@ -7,9 +7,9 @@ const DARK_COLORS = [
 ];
 
 const LIGHT_COLORS = [
-  '#6ee7b7', '#c4b5fd', '#fcd34d', '#fca5a5', '#93c5fd',
-  '#f9a8d4', '#5eead4', '#fdba74', '#a5b4fc', '#bef264',
-  '#67e8f9', '#d8b4fe', '#fda4af', '#7dd3fc', '#f0abfc'
+  '#34d399', '#a78bfa', '#fbbf24', '#f87171', '#60a5fa',
+  '#f472b6', '#2dd4bf', '#fb923c', '#818cf8', '#a3e635',
+  '#22d3ee', '#c084fc', '#fb7185', '#38bdf8', '#e879f9'
 ];
 
 function GenreChart({ genreDistribution, onGenreClick, year, theme }) {

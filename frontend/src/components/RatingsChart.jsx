@@ -33,7 +33,7 @@ function RatingsChart({ ratingsDistribution, onRatingClick, theme }) {
           />
           <Bar
             dataKey="count"
-            fill={isLight ? '#c4b5fd' : '#8b5cf6'}
+            fill={isLight ? '#a78bfa' : '#8b5cf6'}
             radius={[4, 4, 0, 0]}
             onClick={(entry) => onRatingClick && onRatingClick(entry.rawRating)}
             style={{ cursor: 'pointer' }}

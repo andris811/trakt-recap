@@ -43,7 +43,7 @@ function PeakHoursChart({ peakHours, theme }) {
           />
           <Bar
             dataKey="count"
-            fill={isLight ? '#6ee7b7' : '#10b981'}
+            fill={isLight ? '#34d399' : '#10b981'}
             radius={[4, 4, 0, 0]}
           />
         </BarChart>

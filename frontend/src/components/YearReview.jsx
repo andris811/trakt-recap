@@ -10,7 +10,7 @@ function formatDaysHours(totalHours) {
   return `${days}d ${hours}h`;
 }
 
-export default function YearReview({ events, onOpenSeries, onOpenEpisode, onGenreClick }) {
+export default function YearReview({ events, onOpenSeries, onOpenEpisode, onGenreClick, theme }) {
   const years = useMemo(() => {
     const yearSet = new Set();
     for (const e of events) {
@@ -153,6 +153,7 @@ export default function YearReview({ events, onOpenSeries, onOpenEpisode, onGenr
             genreDistribution={yearData.genreCounts} 
             onGenreClick={(genre) => onGenreClick(genre, selectedYear)}
             year={selectedYear}
+            theme={theme}
           />
         </div>
       )}

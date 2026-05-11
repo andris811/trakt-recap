@@ -358,7 +358,7 @@ function App() {
 
           <ProgressCard events={events} onOpenSeries={openSeries} />
 
-          <YearReview events={filteredEvents} onOpenSeries={openSeries} onOpenEpisode={openEpisode} onGenreClick={(genre, year) => { setSelectedGenre(genre); setSelectedGenreYear(year || null); }} />
+          <YearReview events={filteredEvents} onOpenSeries={openSeries} onOpenEpisode={openEpisode} onGenreClick={(genre, year) => { setSelectedGenre(genre); setSelectedGenreYear(year || null); }} theme={theme} />
           </>
         )}
       </div>
