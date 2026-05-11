@@ -77,8 +77,8 @@ body {
 
 .light {
   --scrollbar-track: #e4e4e7;
-  --scrollbar-thumb: #6d28d9;
-  --scrollbar-thumb-hover: #7c3aed;
+  --scrollbar-thumb: #a78bfa;
+  --scrollbar-thumb-hover: #c4b5fd;
 }
 
 ::-webkit-scrollbar {

@@ -1,13 +1,20 @@
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
-const COLORS = [
+const DARK_COLORS = [
   '#10b981', '#8b5cf6', '#f59e0b', '#ef4444', '#3b82f6',
   '#ec4899', '#14b8a6', '#f97316', '#6366f1', '#84cc16',
   '#06b6d4', '#a855f7', '#e11d48', '#0ea5e9', '#d946ef'
 ];
 
+const LIGHT_COLORS = [
+  '#6ee7b7', '#c4b5fd', '#fcd34d', '#fca5a5', '#93c5fd',
+  '#f9a8d4', '#5eead4', '#fdba74', '#a5b4fc', '#bef264',
+  '#67e8f9', '#d8b4fe', '#fda4af', '#7dd3fc', '#f0abfc'
+];
+
 function GenreChart({ genreDistribution, onGenreClick, year, theme }) {
   const isLight = theme === 'light';
+  const COLORS = isLight ? LIGHT_COLORS : DARK_COLORS;
   const tooltipStyle = {
     backgroundColor: isLight ? '#ffffff' : '#18181b',
     border: isLight ? '1px solid #d4d4d8' : '1px solid #27272a',
