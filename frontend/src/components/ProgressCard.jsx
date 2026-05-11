@@ -7,15 +7,15 @@ const scrollbarStyles = `
     height: 6px;
   }
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: #27272a;
+    background: var(--scrollbar-track, #27272a);
     border-radius: 3px;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #4c1f7a;
+    background: var(--scrollbar-thumb, #4c1f7a);
     border-radius: 3px;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #6d28d9;
+    background: var(--scrollbar-thumb-hover, #6d28d9);
   }
 `;
 

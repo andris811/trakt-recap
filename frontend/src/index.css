@@ -65,39 +65,43 @@ body {
 .light .border-zinc-700\/50 { border-color: rgba(212, 212, 216, 0.5); }
 .light .hover\:border-violet-500\/30:hover { border-color: rgba(139, 92, 246, 0.3); }
 
-/* Scrollbar for light theme */
-html.light::-webkit-scrollbar-track { background: #e4e4e7; }
-html.light::-webkit-scrollbar-thumb { background: #6d28d9; }
-html.light::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
-html.light { scrollbar-color: #6d28d9 #e4e4e7; }
-.light ::-webkit-scrollbar-track { background: #e4e4e7; }
-.light ::-webkit-scrollbar-thumb { background: #6d28d9; }
-.light ::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
-.light .custom-scrollbar::-webkit-scrollbar-track { background: #e4e4e7; }
-.light .custom-scrollbar::-webkit-scrollbar-thumb { background: #6d28d9; }
+/* Heatmap legend labels - light theme */
+.light .bg-zinc-200 { background-color: #e4e4e7; }
 
-/* Custom scrollbar styling */
+/* Custom scrollbar styling - uses CSS variables for theme support */
+:root {
+  --scrollbar-track: #27272a;
+  --scrollbar-thumb: #4c1f7a;
+  --scrollbar-thumb-hover: #6d28d9;
+}
+
+.light {
+  --scrollbar-track: #e4e4e7;
+  --scrollbar-thumb: #6d28d9;
+  --scrollbar-thumb-hover: #7c3aed;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #27272a;
+  background: var(--scrollbar-track);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4c1f7a;
+  background: var(--scrollbar-thumb);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6d28d9;
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* For Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #4c1f7a #27272a;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }

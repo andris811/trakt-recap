@@ -3,12 +3,12 @@ import { useMemo, useState, useRef, useEffect } from 'react';
 const DARK_COLORS = ['bg-zinc-800', 'bg-emerald-900', 'bg-emerald-700', 'bg-emerald-500', 'bg-emerald-400'];
 const LIGHT_COLORS = ['bg-zinc-200', 'bg-emerald-300', 'bg-emerald-400', 'bg-emerald-500', 'bg-emerald-600'];
 
-function Heatmap({ heatmap }) {
+function Heatmap({ heatmap, theme }) {
   const [tooltip, setTooltip] = useState(null);
   const containerRef = useRef(null);
   const [cellSize, setCellSize] = useState(14);
   const [cellGap, setCellGap] = useState(3);
-  const isLight = typeof document !== 'undefined' && document.documentElement.classList.contains('light');
+  const isLight = theme === 'light';
   const LEVEL_COLORS = isLight ? LIGHT_COLORS : DARK_COLORS;
 
   const { weeks } = useMemo(() => {

@@ -6,8 +6,8 @@ const COLORS = [
   '#06b6d4', '#a855f7', '#e11d48', '#0ea5e9', '#d946ef'
 ];
 
-function GenreChart({ genreDistribution, onGenreClick, year }) {
-  const isLight = typeof document !== 'undefined' && document.documentElement.classList.contains('light');
+function GenreChart({ genreDistribution, onGenreClick, year, theme }) {
+  const isLight = theme === 'light';
   const tooltipStyle = {
     backgroundColor: isLight ? '#ffffff' : '#18181b',
     border: isLight ? '1px solid #d4d4d8' : '1px solid #27272a',
