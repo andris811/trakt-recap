@@ -121,7 +121,7 @@ export default function ProgressCard({ events, onOpenSeries }) {
     <div className="bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-800">
       <style>{scrollbarStyles}</style>
       <h3 className="text-lg font-semibold text-white mb-4">Recent Shows Progress</h3>
-      <div className="flex gap-4 overflow-x-auto pb-4 custom-scrollbar" style={{ scrollbarWidth: 'thin', scrollbarColor: '#4c1f7a #27272a' }}>
+      <div className="flex gap-4 overflow-x-auto pb-4 custom-scrollbar">
         {recentShows.map(show => (
           <ShowCard
             key={show.traktId}
