@@ -33,6 +33,12 @@ function App() {
   const passwordRef = useRef('');
   const [loginError, setLoginError] = useState(false);
   const [authenticated, setAuthenticated] = useState(null);
+  const [theme, setTheme] = useState(() => localStorage.getItem('trakt_theme') || 'dark');
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('light', theme === 'light');
+    localStorage.setItem('trakt_theme', theme);
+  }, [theme]);
 
   // Set up axios interceptor to send password header
   useEffect(() => {
@@ -212,13 +218,30 @@ function App() {
               <img src="/icon.png" alt="Trakt Recap icon" className="w-8 h-8" />
               <h1 className="text-3xl font-bold text-white">Trakt Recap</h1>
             </div>
-            <button
-              onClick={handleSync}
-              disabled={syncing}
-              className="px-4 py-2 bg-violet-900/50 text-violet-300 rounded-lg hover:bg-violet-900/70 transition-colors disabled:opacity-50 cursor-pointer"
-            >
-              {syncing ? 'Syncing...' : 'Sync'}
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')}
+                className="p-2 bg-zinc-800/50 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800 rounded-lg transition-colors cursor-pointer"
+                title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+              >
+                {theme === 'dark' ? (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                  </svg>
+                )}
+              </button>
+              <button
+                onClick={handleSync}
+                disabled={syncing}
+                className="px-4 py-2 bg-violet-900/50 text-violet-300 rounded-lg hover:bg-violet-900/70 transition-colors disabled:opacity-50 cursor-pointer"
+              >
+                {syncing ? 'Syncing...' : 'Sync'}
+              </button>
+            </div>
           </div>
           <p className="text-zinc-400 mt-1">Your personal watch analytics</p>
           <div className="mt-4 relative">

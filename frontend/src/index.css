@@ -5,6 +5,52 @@ body {
   color: #e5e5e5;
 }
 
+/* Light theme overrides */
+.light body {
+  background-color: #f4f4f5;
+  color: #18181b;
+}
+
+.light .bg-zinc-950 { background-color: #f4f4f5; }
+.light .bg-zinc-950\/90 { background-color: rgba(244, 244, 245, 0.9); }
+.light .bg-zinc-900 { background-color: #ffffff; }
+.light .bg-zinc-900\/50 { background-color: rgba(255, 255, 255, 0.5); }
+.light .bg-zinc-800 { background-color: #e4e4e7; }
+.light .bg-zinc-800\/50 { background-color: rgba(228, 228, 231, 0.5); }
+.light .bg-zinc-700 { background-color: #d4d4d8; }
+.light .bg-zinc-700\/50 { background-color: rgba(212, 212, 216, 0.5); }
+.light .bg-zinc-600 { background-color: #c0c0c5; }
+
+.light .text-white { color: #18181b; }
+.light .text-zinc-200 { color: #27272a; }
+.light .text-zinc-300 { color: #3f3f46; }
+.light .text-zinc-400 { color: #71717a; }
+.light .text-zinc-500 { color: #a1a1aa; }
+.light .text-zinc-600 { color: #d4d4d8; }
+
+.light .hover\:text-white:hover { color: #18181b; }
+.light .hover\:text-zinc-200:hover { color: #27272a; }
+.light .hover\:text-zinc-400:hover { color: #a1a1aa; }
+.light .hover\:bg-zinc-800:hover { background-color: #d4d4d8; }
+.light .hover\:bg-zinc-700:hover { background-color: #c0c0c5; }
+.light .hover\:bg-zinc-600:hover { background-color: #b0b0b5; }
+.light .group-hover\:text-white:is(:where(.group):hover *) { color: #18181b; }
+.light .group-hover\:text-zinc-400:is(:where(.group):hover *) { color: #a1a1aa; }
+
+.light .border-zinc-800 { border-color: #e4e4e7; }
+.light .border-zinc-700 { border-color: #d4d4d8; }
+.light .border-zinc-600 { border-color: #c0c0c5; }
+
+.light .from-zinc-900 { --tw-gradient-from: #ffffff; }
+.light .via-zinc-900\/50 { --tw-gradient-via: rgba(255, 255, 255, 0.5); }
+.light .to-transparent { --tw-gradient-to: transparent; }
+
+.light .bg-black\/70 { background-color: rgba(245, 245, 245, 0.8); }
+.light .placeholder-zinc-500::placeholder { color: #a1a1aa; }
+
+/* Scrollbar for light theme */
+.light ::-webkit-scrollbar-track { background: #e4e4e7; }
+
 /* Custom scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;
