@@ -88,7 +88,7 @@ class EnrichmentService {
 
   async fetchMovieDetails(traktId) {
     const cacheKey = `movie_${traktId}`;
-    if (this.cache[cacheKey]) {
+    if (this.cache[cacheKey]?.genres && this.cache[cacheKey]?.traktVotes !== undefined) {
       return this.cache[cacheKey];
     }
 
@@ -107,7 +107,7 @@ class EnrichmentService {
 
   async fetchShowDetails(traktId) {
     const cacheKey = `show_${traktId}`;
-    if (this.cache[cacheKey]) {
+    if (this.cache[cacheKey]?.genres && this.cache[cacheKey]?.traktVotes !== undefined) {
       return this.cache[cacheKey];
     }
 

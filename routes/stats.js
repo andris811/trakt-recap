@@ -37,48 +37,54 @@ async function loadHistory() {
     } catch {}
   }
   
-  if (history.length === 0) {
-    // Fallback: load from Supabase only
-    if (supabase) {
-      console.log('Loading history from Supabase (stats)...');
-      let allData = [];
-      let page = 0;
-      const pageSize = 1000;
+  // Always merge recent data from Supabase
+  if (supabase) {
+    console.log('Loading recent history from Supabase (stats)...');
+    let allData = [];
+    let page = 0;
+    const pageSize = 1000;
+    
+    while (true) {
+      const { data, error } = await supabase
+        .from('watch_history')
+        .select('*')
+        .order('watched_at', { ascending: false })
+        .range(page * pageSize, (page + 1) * pageSize - 1);
       
-      while (true) {
-        const { data, error } = await supabase
-          .from('watch_history')
-          .select('*')
-          .order('watched_at', { ascending: false })
-          .range(page * pageSize, (page + 1) * pageSize - 1);
-        
-        if (error) {
-          console.error('Supabase select error:', error);
-          break;
-        }
-        
-        if (!data || data.length === 0) break;
-        
-        allData = allData.concat(data);
-        
-        if (data.length < pageSize) break;
-        page++;
+      if (error) {
+        console.error('Supabase select error:', error);
+        break;
       }
       
-      history = allData.map(item => ({
-        id: item.id,
-        traktId: item.trakt_id,
-        type: item.type,
-        title: item.title,
-        showTitle: item.show_title,
-        season: item.season,
-        episode: item.episode,
-        runtime: item.runtime,
-        genres: item.genres,
-        poster: item.poster,
-        watchedAt: item.watched_at,
-        rating: item.rating
-      }));
+      if (!data || data.length === 0) break;
+      
+      allData = allData.concat(data);
+      
+      if (data.length < pageSize) break;
+      page++;
+    }
+    
+    const supabaseHistory = allData.map(item => ({
+      id: item.id,
+      traktId: item.trakt_id,
+      type: item.type,
+      title: item.title,
+      showTitle: item.show_title,
+      season: item.season,
+      episode: item.episode,
+      runtime: item.runtime,
+      genres: item.genres,
+      poster: item.poster,
+      watchedAt: item.watched_at,
+      rating: item.rating
+    }));
+    
+    // Merge: add Supabase items not already in export history
+    const existingIds = new Set(history.map(h => h.id));
+    for (const item of supabaseHistory) {
+      if (!existingIds.has(item.id)) {
+        history.push(item);
+      }
     }
   }
   
