@@ -171,6 +171,7 @@ function App() {
             traktId: event.traktId,
             poster: seriesPosters[event.traktId] || event.poster,
             type: 'show',
+            genres: event.genres || [],
             watchedAt: event.watchedAt
           });
           seriesAdded.add(event.traktId);
@@ -287,7 +288,7 @@ function App() {
                   const displayName = event.showTitle
                     ? `${event.showTitle} - ${event.title}`
                     : event.title;
-                  const isEpisode = event.type === 'episode' || event.season;
+                  const isEpisode = event.type === 'episode' || event.season !== undefined;
 
                   return (
                     <div
@@ -307,7 +308,7 @@ function App() {
                       <div className="flex-1 min-w-0">
                         <div className="text-white font-medium truncate">{displayName}</div>
                         <div className="flex items-center gap-2 text-sm text-zinc-400">
-                          <span>{isEpisode ? 'Episode' : 'Movie'}</span>
+                          <span>{event.type === 'movie' ? 'Movie' : event.type === 'show' ? 'Show' : 'Episode'}</span>
                           <span>•</span>
                           <span>{dateStr}</span>
                         </div>

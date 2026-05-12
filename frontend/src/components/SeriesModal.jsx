@@ -172,8 +172,9 @@ export default function SeriesModal({ item, events, showRatings, onClose, onOpen
     const seasons = new Set();
     for (const e of relatedEvents) { if (e.season !== undefined) seasons.add(e.season); }
     const showRating = showRatings[String(item.traktId)];
-    return { totalWatches, totalHours, showRating: showRating || null, firstWatch: firstWatch ? new Date(firstWatch.watchedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : null, lastWatch: lastWatch ? new Date(lastWatch.watchedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : null, seasons: [...seasons].sort((a, b) => a - b), genres: item.genres || [], poster: item.poster };
-  }, [item, events, showRatings]);
+    const genres = item.genres?.length ? item.genres : (contentDetails?.genres || []);
+    return { totalWatches, totalHours, showRating: showRating || null, firstWatch: firstWatch ? new Date(firstWatch.watchedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : null, lastWatch: lastWatch ? new Date(lastWatch.watchedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : null, seasons: [...seasons].sort((a, b) => a - b), genres, poster: item.poster };
+  }, [item, events, showRatings, contentDetails]);
 
   const openSeason = async (season) => {
     if (!seasonEpisodes[season.number]) {
