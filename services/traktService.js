@@ -46,6 +46,7 @@ class TraktService {
 
             this._isRefreshing = false;
             this._pendingRequests.forEach(({ resolve, config }) => {
+              config.headers['Authorization'] = `Bearer ${newToken}`;
               resolve(this.client(config));
             });
             this._pendingRequests = [];

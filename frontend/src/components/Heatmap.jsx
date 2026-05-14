@@ -78,8 +78,8 @@ function Heatmap({ heatmap, theme }) {
         <h3 className="text-lg font-semibold text-white">Activity Heatmap</h3>
         <span className="text-xs text-zinc-500 bg-zinc-800 px-2 py-1 rounded">Last 6 months</span>
       </div>
-      <div ref={containerRef} className="w-full">
-        <div className="flex gap-1 justify-center">
+      <div ref={containerRef} className="w-full overflow-x-auto pb-2">
+        <div className="flex gap-1 justify-center min-w-fit">
           {weeks.map((week, wi) => (
             <div key={wi} className="flex flex-col gap-1 shrink-0">
               {week.map((day) => (

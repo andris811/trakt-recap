@@ -76,25 +76,25 @@ function GenreModal({ genre, events, onClose, onItemClick, onOpenSeries, year })
         className="absolute inset-0 bg-black/70 backdrop-blur-sm"
         onClick={onClose}
       />
-      <div className="relative bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-800 w-full max-w-2xl max-h-[80vh] flex flex-col">
-        <div className="p-6 border-b border-zinc-800">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-xl font-bold text-white capitalize">{genre}</h2>
-              <p className="text-zinc-400 text-sm mt-1">
+      <div className="relative bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-800 w-full max-w-2xl max-h-[80vh] flex flex-col mx-2 sm:mx-0">
+        <div className="p-4 sm:p-6 border-b border-zinc-800">
+          <div className="flex items-center justify-between gap-2">
+            <div className="min-w-0">
+              <h2 className="text-lg sm:text-xl font-bold text-white capitalize truncate">{genre}</h2>
+              <p className="text-zinc-400 text-xs sm:text-sm mt-1 truncate">
                 {genreEvents.length} titles &middot; {totalWatches} watches &middot; {formatDurationFromMinutes(totalMinutes)}
               </p>
             </div>
               <button
                 onClick={onClose}
-                className="text-zinc-400 hover:text-white hover:scale-110 text-2xl leading-none transition-all cursor-pointer"
+                className="text-zinc-400 hover:text-white hover:scale-110 text-2xl leading-none transition-all cursor-pointer shrink-0"
               >
                 &times;
               </button>
           </div>
         </div>
 
-        <div className="overflow-y-auto flex-1 p-4">
+        <div className="overflow-y-auto flex-1 p-3 sm:p-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {genreEvents.map((item) => (
               <div

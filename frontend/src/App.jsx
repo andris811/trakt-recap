@@ -211,15 +211,15 @@ function App() {
   const showSearch = debouncedSearch.trim().length > 0;
 
   return (
-    <div className="min-h-screen bg-zinc-950 p-6 md:p-8">
-      <div className="max-w-7xl mx-auto space-y-6">
-        <header className="mb-8">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <img src="/icon.png" alt="Trakt Recap icon" className="w-8 h-8" />
-              <h1 className="text-3xl font-bold text-white">Trakt Recap</h1>
+      <div className="min-h-screen bg-zinc-950 p-4 sm:p-6 md:p-8 overflow-x-hidden">
+      <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6">
+        <header className="mb-6 sm:mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div className="flex items-center gap-2 min-w-0">
+              <img src="/icon.png" alt="Trakt Recap icon" className="w-7 h-7 sm:w-8 sm:h-8 shrink-0" />
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white truncate">Trakt Recap</h1>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 shrink-0">
               <button
                 onClick={() => setTheme(t => t === 'dark' ? 'light' : 'dark')}
                 className="p-2 bg-zinc-800/50 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800 rounded-lg transition-colors cursor-pointer"
@@ -238,16 +238,16 @@ function App() {
               <button
                 onClick={handleSync}
                 disabled={syncing}
-                className="px-4 py-2 bg-violet-900/50 text-violet-300 rounded-lg hover:bg-violet-900/70 transition-colors disabled:opacity-50 cursor-pointer"
+                className="px-3 sm:px-4 py-2 text-sm sm:text-base bg-violet-900/50 text-violet-300 rounded-lg hover:bg-violet-900/70 transition-colors disabled:opacity-50 cursor-pointer whitespace-nowrap"
               >
                 {syncing ? 'Syncing...' : 'Sync'}
               </button>
             </div>
           </div>
-          <p className="text-zinc-400 mt-1">Your personal watch analytics</p>
-          <div className="mt-4 relative">
+          <p className="text-zinc-400 text-sm sm:text-base mt-1">Your personal watch analytics</p>
+          <div className="mt-3 sm:mt-4 relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <svg className="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
@@ -256,14 +256,14 @@ function App() {
               value={searchTerm}
               onChange={handleSearchChange}
               placeholder="Search movies, shows, episodes..."
-              className="w-full pl-10 pr-10 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-700"
+              className="w-full pl-10 pr-10 py-2 text-sm sm:text-base bg-zinc-900 border border-zinc-800 rounded-lg text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-700"
             />
             {searchTerm && (
               <button
                 onClick={() => { setSearchTerm(''); setDebouncedSearch(''); }}
                 className="absolute inset-y-0 right-0 pr-3 flex items-center text-zinc-400 hover:text-white"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
@@ -272,12 +272,12 @@ function App() {
         </header>
 
         {showSearch && (
-          <div className="bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-800">
-            <h3 className="text-lg font-semibold text-white mb-4">Search Results ({filteredEvents.length})</h3>
+          <div className="bg-zinc-900 rounded-xl p-4 sm:p-6 shadow-lg border border-zinc-800">
+            <h3 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4">Search Results ({filteredEvents.length})</h3>
             {filteredEvents.length === 0 ? (
               <p className="text-zinc-500">No results found for "{debouncedSearch}"</p>
             ) : (
-              <div className="space-y-2 max-h-[600px] overflow-y-auto pr-2">
+              <div className="space-y-2 max-h-[50vh] sm:max-h-[600px] overflow-y-auto pr-1 sm:pr-2">
                 {filteredEvents.map((event) => {
                   const date = new Date(event.watchedAt);
                   const dateStr = date.toLocaleDateString('en-US', {

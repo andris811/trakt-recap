@@ -285,6 +285,15 @@ router.get('/sync', async (req, res) => {
     
     console.log(`Fetched ${rawHistory.length} history items from Trakt (should be ~6296)`);
     
+    // Safety threshold: abort if Trakt returned too few items to prevent data loss
+    if (rawHistory.length < 100) {
+      console.error(`ABORT: Only ${rawHistory.length} items fetched. Expected ~6296.`);
+      return res.status(400).json({
+        error: 'Sync aborted',
+        details: `Only fetched ${rawHistory.length} items from Trakt. Expected ~6296. Try again later.`
+      });
+    }
+    
     if (rawHistory.length < 1000) {
       console.warn(`WARNING: Only fetched ${rawHistory.length} items. Trakt may be rate-limiting.`);
       console.warn('Expected ~6296 items. Try again in a few minutes.');
@@ -292,11 +301,7 @@ router.get('/sync', async (req, res) => {
     const normalized = normalizeHistory(rawHistory);
     
     if (supabase) {
-      // Clear existing data and insert fresh
-      console.log('Clearing existing watch_history...');
-      await supabase.from('watch_history').delete().neq('id', '');
-      
-      // Deduplicate by id
+      // Collect new IDs, deduplicate
       const seen = new Set();
       const deduped = normalized.filter(item => {
         if (seen.has(item.id)) return false;
@@ -306,34 +311,45 @@ router.get('/sync', async (req, res) => {
       
       console.log(`Data: ${normalized.length} items, after dedup: ${deduped.length} items`);
       
-      try {
-        const { error } = await supabase
-          .from('watch_history')
-          .insert(
-            deduped.map(item => ({
-              id: item.id,
-              trakt_id: item.traktId,
-              type: item.type,
-              title: item.title,
-              show_title: item.showTitle,
-              season: item.season,
-              episode: item.episode,
-              runtime: item.runtime,
-              genres: item.genres,
-              poster: item.poster,
-              watched_at: item.watchedAt,
-              rating: item.rating
-            }))
-          );
-        
-        if (error) {
-          console.error('Insert error:', error);
-          throw error;
+      const newItems = deduped.map(item => ({
+        id: item.id,
+        trakt_id: item.traktId,
+        type: item.type,
+        title: item.title,
+        show_title: item.showTitle,
+        season: item.season,
+        episode: item.episode,
+        runtime: item.runtime,
+        genres: item.genres,
+        poster: item.poster,
+        watched_at: item.watchedAt,
+        rating: item.rating
+      }));
+      
+      // Upsert new data first, then delete old IDs not in the new batch
+      // This prevents data loss if the insert fails
+      const { error: upsertError } = await supabase
+        .from('watch_history')
+        .upsert(newItems, { onConflict: 'id', ignoreDuplicates: false });
+      
+      if (upsertError) {
+        console.error('Upsert error:', upsertError);
+        throw upsertError;
+      }
+      
+      console.log(`Upserted ${deduped.length} items to Supabase`);
+      
+      // Delete items that no longer exist in the new data
+      const newIds = new Set(deduped.map(item => item.id));
+      const { data: existing } = await supabase.from('watch_history').select('id');
+      const toDelete = (existing || []).map(r => r.id).filter(id => !newIds.has(id));
+      
+      if (toDelete.length > 0) {
+        const batchSize = 100;
+        for (let i = 0; i < toDelete.length; i += batchSize) {
+          await supabase.from('watch_history').delete().in('id', toDelete.slice(i, i + batchSize));
         }
-        
-        console.log('Inserted fresh watch history to Supabase');
-      } catch (err) {
-        console.error('Insert failed:', err.message);
+        console.log(`Removed ${toDelete.length} stale items from Supabase`);
       }
       
       if (traktStats) {

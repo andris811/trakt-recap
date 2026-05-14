@@ -194,15 +194,15 @@ export default function SeriesModal({ item, events, showRatings, onClose, onOpen
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
       <div className="relative bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-800 w-full max-w-lg overflow-hidden max-h-[90vh] flex flex-col">
-          <div className="relative h-48 bg-zinc-800 shrink-0">
+          <div className="relative h-40 sm:h-48 bg-zinc-800 shrink-0">
             <PosterImage src={contentDetails?.poster || seriesStats.poster} title={item.title} />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/50 to-transparent" />
-          <button onClick={onClose} className="absolute top-4 right-4 text-zinc-400 hover:text-white hover:scale-110 text-2xl leading-none transition-all cursor-pointer">&times;</button>
-          <div className="absolute bottom-4 left-6 right-6">
-            <h2 className="text-2xl font-bold text-white">{item.title}</h2>
+          <button onClick={onClose} className="absolute top-3 right-3 sm:top-4 sm:right-4 text-zinc-400 hover:text-white hover:scale-110 text-2xl leading-none transition-all cursor-pointer">&times;</button>
+          <div className="absolute bottom-3 sm:bottom-4 left-4 sm:left-6 right-4 sm:right-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-white">{item.title}</h2>
           </div>
         </div>
-        <div className="p-6 space-y-6 overflow-y-auto flex-1">
+        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 overflow-y-auto flex-1">
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-zinc-800/50 rounded-lg p-4">
               <div className="text-2xl font-bold text-white">{seriesStats.totalWatches}</div>

@@ -65,24 +65,24 @@ export default function EpisodeModal({ item, events, onClose, onOpenSeries, onNa
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm" onClick={onClose}>
-      <div className="max-w-lg max-h-[90vh] flex flex-col bg-zinc-900 rounded-2xl border border-zinc-800 w-full" onClick={e => e.stopPropagation()}>
-        <div className="relative h-48 bg-zinc-800">
+      <div className="max-w-lg max-h-[90vh] flex flex-col bg-zinc-900 rounded-2xl border border-zinc-800 w-full mx-2 sm:mx-0" onClick={e => e.stopPropagation()}>
+        <div className="relative h-40 sm:h-48 bg-zinc-800">
           {epDetails?.screenshot ? (
             <img src={epDetails.screenshot} alt="" className="w-full h-full object-cover" />
           ) : null}
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/60 to-transparent" />
           <button onClick={onClose} className="absolute top-3 right-3 text-zinc-400 hover:text-white hover:scale-110 transition-all cursor-pointer">&times;</button>
-          <div className="absolute bottom-4 left-6 right-6">
-            <p className="text-zinc-400 text-sm">{item.showTitle}</p>
-            <h2 className="text-zinc-100 text-xl font-semibold">S{item.season}E{item.episode} - {item.title}</h2>
+          <div className="absolute bottom-3 sm:bottom-4 left-4 sm:left-6 right-4 sm:right-6">
+            <p className="text-zinc-400 text-xs sm:text-sm">{item.showTitle}</p>
+            <h2 className="text-zinc-100 text-base sm:text-xl font-semibold">S{item.season}E{item.episode} - {item.title}</h2>
           </div>
         </div>
 
-        <div className="flex items-center justify-between px-4 py-2 border-b border-zinc-800">
+        <div className="flex items-center justify-between px-3 sm:px-4 py-2 border-b border-zinc-800">
           <button
             onClick={() => navigate('prev')}
             disabled={!prevEp}
-            className="flex items-center gap-1 text-sm text-zinc-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer hover:scale-105"
+            className="flex items-center gap-1 text-xs sm:text-sm text-zinc-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer hover:scale-105"
           >
             &larr; Prev
           </button>
@@ -92,13 +92,13 @@ export default function EpisodeModal({ item, events, onClose, onOpenSeries, onNa
           <button
             onClick={() => navigate('next')}
             disabled={!nextEp}
-            className="flex items-center gap-1 text-sm text-zinc-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer hover:scale-105"
+            className="flex items-center gap-1 text-xs sm:text-sm text-zinc-400 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer hover:scale-105"
           >
             Next &rarr;
           </button>
         </div>
 
-        <div className="p-6 space-y-6 overflow-y-auto flex-1">
+        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 overflow-y-auto flex-1">
           <button onClick={() => onOpenSeries({ type: 'episode', traktId: item.traktId, title: item.showTitle, poster: item.poster, genres: item.genres || [] })} className="text-emerald-400 hover:text-emerald-300 hover:underline text-sm transition-all cursor-pointer">
             View {item.showTitle} details &rarr;
           </button>

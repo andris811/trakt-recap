@@ -51,8 +51,8 @@ function SummaryCards({ stats, onShowClick }) {
           <span className="text-2xl">🎬</span>
           <span className="text-sm font-medium text-zinc-300">Total Watched</span>
         </div>
-        <div className="text-3xl font-bold text-white">{totalMovies + totalEpisodes}</div>
-        <div className="text-zinc-400 text-sm mt-1">{totalMovies} movies · {totalEpisodes} episodes</div>
+        <div className="text-2xl sm:text-3xl font-bold text-white">{totalMovies + totalEpisodes}</div>
+        <div className="text-zinc-400 text-xs sm:text-sm mt-1">{totalMovies} movies · {totalEpisodes} episodes</div>
         <div className="mt-3 flex items-center gap-3">
           <div className="flex-1">
             <div className="text-sm font-bold text-emerald-400">{movieVsTvRatio.movies}% movies</div>

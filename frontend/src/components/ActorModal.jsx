@@ -75,8 +75,8 @@ export default function ActorModal({ personId, onClose, onOpenItem }) {
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-800 w-full max-w-lg overflow-hidden max-h-[90vh] flex flex-col">
-        <div className="p-6 space-y-6 overflow-y-auto flex-1">
+      <div className="relative bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-800 w-full max-w-lg overflow-hidden max-h-[90vh] flex flex-col mx-2 sm:mx-0">
+        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 overflow-y-auto flex-1">
           {loading ? (
             <div className="text-zinc-400 text-center py-8">Loading...</div>
           ) : details ? (
