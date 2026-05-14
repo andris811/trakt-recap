@@ -72,14 +72,20 @@ app.get('/callback', async (req, res) => {
     });
 
     const accessToken = response.data.access_token;
+    const refreshToken = response.data.refresh_token;
     
     res.send(`
       <html>
         <body style="font-family: monospace; padding: 40px;">
           <h2>Authorization Successful!</h2>
-          <p>Add this to your Vercel environment variables:</p>
-          <p style="font-size: 18px; background: #f0f0f0; padding: 10px; word-break: break-all;">TRAKT_ACCESS_TOKEN=${accessToken}</p>
-          <p>Go to Vercel Dashboard → Settings → Environment Variables and add this token.</p>
+          <p>Add these to your Vercel environment variables:</p>
+          <p style="font-size: 14px; margin-top: 20px; color: #666;">TRAKT_ACCESS_TOKEN</p>
+          <p style="font-size: 18px; background: #f0f0f0; padding: 10px; word-break: break-all;">${accessToken}</p>
+          ${refreshToken ? `
+          <p style="font-size: 14px; margin-top: 20px; color: #666;">TRAKT_REFRESH_TOKEN</p>
+          <p style="font-size: 18px; background: #f0f0f0; padding: 10px; word-break: break-all;">${refreshToken}</p>
+          ` : ''}
+          <p style="margin-top: 30px;">Go to Vercel Dashboard → Settings → Environment Variables and add these tokens.</p>
         </body>
       </html>
     `);

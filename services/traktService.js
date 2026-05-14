@@ -53,12 +53,20 @@ class TraktService {
 
             return this.client(originalRequest);
           } catch (refreshError) {
+            console.error('Token refresh failed:', refreshError.response?.data || refreshError.message);
             this._isRefreshing = false;
+            const authError = new Error(
+              'Trakt authorization failed. Your access token has expired and the refresh token is invalid. '
+              + 'Visit /callback after re-authorizing the app on Trakt to get a new token.'
+            );
+            authError.statusCode = 401;
+            authError.originalError = error;
+            authError.refreshError = refreshError;
             this._pendingRequests.forEach(({ reject }) => {
-              reject(error);
+              reject(authError);
             });
             this._pendingRequests = [];
-            return Promise.reject(error);
+            return Promise.reject(authError);
           }
         }
 
@@ -154,6 +162,14 @@ class TraktService {
             await new Promise(resolve => setTimeout(resolve, 5000));
             continue;
           }
+        }
+        if (error.statusCode === 401) {
+          console.error('Auth error:', error.message);
+          if (allHistory.length === 0) {
+            throw error;
+          }
+          console.warn(`Auth after ${allHistory.length} items, returning partial data`);
+          break;
         }
         console.error(`Error fetching page ${page}:`, error.response?.data || error.message);
         break;

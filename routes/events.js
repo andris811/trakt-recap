@@ -379,6 +379,9 @@ router.get('/sync', async (req, res) => {
       .catch(err => console.error('Background task failed:', err.message));
   } catch (error) {
     console.error('Sync error:', error.response?.data || error.message);
+    if (error.statusCode === 401) {
+      return res.status(401).json({ error: error.message });
+    }
     res.status(500).json({ error: 'Failed to sync history', details: error.message, traktError: error.response?.data });
   }
 });
