@@ -3,9 +3,11 @@ const axios = require('axios');
 const TRAKT_API_URL = 'https://api.trakt.tv';
 
 class TraktService {
-  constructor(clientId, accessToken) {
+  constructor(clientId, accessToken, clientSecret, refreshToken) {
     this.clientId = clientId;
     this.accessToken = accessToken;
+    this.clientSecret = clientSecret;
+    this.refreshToken = refreshToken;
     this.client = axios.create({
       baseURL: TRAKT_API_URL,
       headers: {
@@ -15,6 +17,76 @@ class TraktService {
         'Content-Type': 'application/json'
       }
     });
+    this._isRefreshing = false;
+    this._pendingRequests = [];
+    this._setupInterceptor();
+  }
+
+  _setupInterceptor() {
+    this.client.interceptors.response.use(
+      response => response,
+      async error => {
+        const originalRequest = error.config;
+
+        if (error.response?.status === 401 && !originalRequest._retry) {
+          if (this._isRefreshing) {
+            return new Promise((resolve, reject) => {
+              this._pendingRequests.push({ resolve, reject, config: originalRequest });
+            });
+          }
+
+          originalRequest._retry = true;
+          this._isRefreshing = true;
+
+          try {
+            const newToken = await this._refreshAccessToken();
+            this.accessToken = newToken;
+            this.client.defaults.headers['Authorization'] = `Bearer ${newToken}`;
+            originalRequest.headers['Authorization'] = `Bearer ${newToken}`;
+
+            this._isRefreshing = false;
+            this._pendingRequests.forEach(({ resolve, config }) => {
+              resolve(this.client(config));
+            });
+            this._pendingRequests = [];
+
+            return this.client(originalRequest);
+          } catch (refreshError) {
+            this._isRefreshing = false;
+            this._pendingRequests.forEach(({ reject }) => {
+              reject(error);
+            });
+            this._pendingRequests = [];
+            return Promise.reject(error);
+          }
+        }
+
+        return Promise.reject(error);
+      }
+    );
+  }
+
+  async _refreshAccessToken() {
+    if (!this.clientSecret || !this.refreshToken) {
+      throw new Error('No client secret or refresh token available');
+    }
+
+    console.log('Refreshing expired Trakt access token...');
+    const response = await axios.post('https://api.trakt.tv/oauth/token', {
+      refresh_token: this.refreshToken,
+      client_id: this.clientId,
+      client_secret: this.clientSecret,
+      redirect_uri: process.env.TRAKT_REDIRECT_URI || 'https://trakt-recap.vercel.app/callback',
+      grant_type: 'refresh_token'
+    });
+
+    const newToken = response.data.access_token;
+    if (response.data.refresh_token) {
+      this.refreshToken = response.data.refresh_token;
+    }
+
+    console.log('Trakt access token refreshed successfully');
+    return newToken;
   }
 
   async fetchHistory() {
@@ -92,8 +164,13 @@ class TraktService {
   }
 
   async fetchStats() {
-    const response = await this.client.get('/users/me/stats');
-    return response.data;
+    try {
+      const response = await this.client.get('/users/me/stats');
+      return response.data;
+    } catch (error) {
+      console.error('Failed to fetch stats from Trakt:', error.response?.data || error.message);
+      return null;
+    }
   }
 }
 

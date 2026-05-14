@@ -14,7 +14,9 @@ const DATA_FILE = path.join(DATA_DIR, 'watch-history.json');
 
 const traktService = new TraktService(
   process.env.TRAKT_CLIENT_ID,
-  process.env.TRAKT_ACCESS_TOKEN
+  process.env.TRAKT_ACCESS_TOKEN,
+  process.env.TRAKT_CLIENT_SECRET,
+  process.env.TRAKT_REFRESH_TOKEN
 );
 
 const enrichmentService = new EnrichmentService(

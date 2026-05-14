@@ -12,7 +12,9 @@ console.log('Stats route loaded, supabase:', !!supabase);
 
 const traktService = new TraktService(
   process.env.TRAKT_CLIENT_ID,
-  process.env.TRAKT_ACCESS_TOKEN
+  process.env.TRAKT_ACCESS_TOKEN,
+  process.env.TRAKT_CLIENT_SECRET,
+  process.env.TRAKT_REFRESH_TOKEN
 );
 
 const ratingsService = new RatingsService(
