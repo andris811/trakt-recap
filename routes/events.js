@@ -173,8 +173,25 @@ async function loadHistory() {
   
   // Apply enrichment from content cache (posters, genres, runtime)
   try {
-    const cachePath = path.join(DATA_DIR, 'content-cache.json');
-    const cache = JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
+    let cache = {};
+    
+    if (supabase) {
+      const { data, error } = await supabase
+        .from('content_cache')
+        .select('key, value');
+      if (!error && data) {
+        for (const item of data) {
+          cache[item.key] = item.value;
+        }
+      }
+    }
+    
+    // Fallback to file cache if Supabase not available or empty
+    if (Object.keys(cache).length === 0) {
+      const cachePath = path.join(DATA_DIR, 'content-cache.json');
+      cache = JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
+    }
+    
     let enriched = 0;
     
     for (const item of history) {
@@ -366,17 +383,15 @@ router.get('/sync', async (req, res) => {
       }
     }
     
-    // Don't wait for enrichment - just save the data and return immediately
-    res.json({ count: normalized.length, message: 'Sync complete. Enrichment will run in background.' });
-
-    // Run enrichment in background (don't wait for it)
-    enrichmentService.enrichEvents(normalized, async (events) => {
+    // Enrich before responding so the frontend gets complete data
+    await enrichmentService.enrichEvents(normalized, async (events) => {
       console.log('Saving enriched data to Supabase...');
       await saveHistory(events);
-    })
-      .then(() => ratingsService.syncAndApply(normalized))
-      .then(() => saveHistory(normalized))
-      .catch(err => console.error('Background task failed:', err.message));
+    });
+    await ratingsService.syncAndApply(normalized);
+    await saveHistory(normalized);
+
+    res.json({ count: normalized.length, message: 'Sync complete.' });
   } catch (error) {
     console.error('Sync error:', error.response?.data || error.message);
     if (error.statusCode === 401) {

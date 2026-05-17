@@ -91,9 +91,26 @@ async function loadHistory() {
   }
   
   // Apply enrichment from content cache
-  const cachePath = path.join(DATA_DIR, 'content-cache.json');
   try {
-    const cache = JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
+    let cache = {};
+    
+    if (supabase) {
+      const { data, error } = await supabase
+        .from('content_cache')
+        .select('key, value');
+      if (!error && data) {
+        for (const item of data) {
+          cache[item.key] = item.value;
+        }
+      }
+    }
+    
+    // Fallback to file cache if Supabase not available or empty
+    if (Object.keys(cache).length === 0) {
+      const cachePath = path.join(DATA_DIR, 'content-cache.json');
+      cache = JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
+    }
+    
     const movieKeys = Object.keys(cache).filter(k => k.startsWith('movie_'));
     const showKeys = Object.keys(cache).filter(k => k.startsWith('show_'));
     
