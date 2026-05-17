@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import axios from 'axios';
 import SummaryCards from './components/SummaryCards';
+import { proxyPoster } from './utils';
 import Heatmap from './components/Heatmap';
 import PeakHoursChart from './components/PeakHoursChart';
 import GenreChart from './components/GenreChart';
@@ -298,7 +299,7 @@ function App() {
                     >
                       <div className="w-10 h-14 flex-shrink-0 rounded overflow-hidden bg-zinc-700">
                         {event.poster ? (
-                          <img src={event.poster} alt={displayName} className="w-full h-full object-cover" />
+                          <img src={proxyPoster(event.poster)} alt={displayName} className="w-full h-full object-cover" />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center text-zinc-400 font-bold text-xs">
                             {displayName.charAt(0).toUpperCase()}

@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { formatDuration } from '../utils';
+import { formatDuration, proxyPoster } from '../utils';
 import YearListModal from './YearListModal';
 import GenreChart from './GenreChart';
 
@@ -130,7 +130,7 @@ export default function YearReview({ events, onOpenSeries, onOpenEpisode, onGenr
                   <span className="text-zinc-500 text-sm w-5">{i + 1}</span>
                   <div className="w-8 h-12 rounded overflow-hidden bg-zinc-700 shrink-0">
                     {show.poster ? (
-                      <img src={show.poster} alt="" className="w-full h-full object-cover" />
+                      <img src={proxyPoster(show.poster)} alt="" className="w-full h-full object-cover" />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-zinc-400 text-xs font-bold">
                         {show.title.charAt(0).toUpperCase()}
