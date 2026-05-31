@@ -1,20 +1,11 @@
-const axios = require('axios');
 const supabase = require('./supabaseClient');
+const { getClient } = require('./traktClient');
 
-const TRAKT_API_URL = 'https://api.trakt.tv';
 const CACHE_KEY = 'ratings_map';
 
 class RatingsService {
-  constructor(clientId, accessToken) {
-    this.client = axios.create({
-      baseURL: TRAKT_API_URL,
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-        'trakt-api-key': clientId,
-        'trakt-api-version': '2',
-        'Content-Type': 'application/json'
-      }
-    });
+  constructor() {
+    this.client = getClient();
     this.ratingsMap = {};
   }
 

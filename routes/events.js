@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const { createClient } = require('../services/traktClient');
 const TraktService = require('../services/traktService');
 const EnrichmentService = require('../services/enrichmentService');
 const RatingsService = require('../services/ratingsService');
@@ -12,22 +13,16 @@ const router = express.Router();
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const DATA_FILE = path.join(DATA_DIR, 'watch-history.json');
 
-const traktService = new TraktService(
+createClient(
   process.env.TRAKT_CLIENT_ID,
   process.env.TRAKT_ACCESS_TOKEN,
   process.env.TRAKT_CLIENT_SECRET,
   process.env.TRAKT_REFRESH_TOKEN
 );
 
-const enrichmentService = new EnrichmentService(
-  process.env.TRAKT_CLIENT_ID,
-  process.env.TRAKT_ACCESS_TOKEN
-);
-
-const ratingsService = new RatingsService(
-  process.env.TRAKT_CLIENT_ID,
-  process.env.TRAKT_ACCESS_TOKEN
-);
+const traktService = new TraktService();
+const enrichmentService = new EnrichmentService();
+const ratingsService = new RatingsService();
 
 // Fallback to file storage if Supabase not configured
 async function saveHistory(data) {

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { calculateStats } = require('../services/statsService');
+const { createClient } = require('../services/traktClient');
 const TraktService = require('../services/traktService');
 const RatingsService = require('../services/ratingsService');
 const supabase = require('../services/supabaseClient');
@@ -10,17 +11,15 @@ const path = require('path');
 
 console.log('Stats route loaded, supabase:', !!supabase);
 
-const traktService = new TraktService(
+createClient(
   process.env.TRAKT_CLIENT_ID,
   process.env.TRAKT_ACCESS_TOKEN,
   process.env.TRAKT_CLIENT_SECRET,
   process.env.TRAKT_REFRESH_TOKEN
 );
 
-const ratingsService = new RatingsService(
-  process.env.TRAKT_CLIENT_ID,
-  process.env.TRAKT_ACCESS_TOKEN
-);
+const traktService = new TraktService();
+const ratingsService = new RatingsService();
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const EXPORT_DIR = path.join(DATA_DIR, 'trakt-export-andris811');

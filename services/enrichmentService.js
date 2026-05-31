@@ -1,9 +1,8 @@
-const axios = require('axios');
 const fs = require('fs').promises;
 const path = require('path');
 const supabase = require('./supabaseClient');
+const { getClient } = require('./traktClient');
 
-const TRAKT_API_URL = 'https://api.trakt.tv';
 const CACHE_FILE = path.join(__dirname, '..', 'data', 'content-cache.json');
 const BATCH_SIZE = 10;
 const BATCH_DELAY_MS = 500;
@@ -37,16 +36,8 @@ function extractDetails(data, type) {
 }
 
 class EnrichmentService {
-  constructor(clientId, accessToken) {
-    this.client = axios.create({
-      baseURL: TRAKT_API_URL,
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-        'trakt-api-key': clientId,
-        'trakt-api-version': '2',
-        'Content-Type': 'application/json'
-      }
-    });
+  constructor() {
+    this.client = getClient();
     this.cache = {};
   }
 
