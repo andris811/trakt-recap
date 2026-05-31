@@ -81,7 +81,18 @@ function App() {
     if (saved) {
       passwordRef.current = saved;
     }
-    loadData();
+    loadData().then(success => {
+      if (!success) return;
+      axios.get('/api/events/sync').then(() => {
+        return Promise.all([
+          axios.get('/api/stats'),
+          axios.get('/api/events')
+        ]);
+      }).then(([statsRes, eventsRes]) => {
+        setStats(statsRes.data);
+        setEvents(eventsRes.data);
+      }).catch(() => {});
+    });
   }, [loadData]);
 
   const handleLogin = async (password, remember) => {
