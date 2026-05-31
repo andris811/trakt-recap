@@ -1,6 +1,10 @@
 const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
 
 const TRAKT_API_URL = 'https://api.trakt.tv';
+const TOKEN_CACHE_FILE = path.join(__dirname, '..', 'data', 'token-cache.json');
+const TMP_TOKEN_CACHE = '/tmp/trakt-token-cache.json';
 
 let client = null;
 let _isRefreshing = false;
@@ -14,12 +18,42 @@ function getAccessToken() {
   return _accessToken;
 }
 
+function loadCachedTokens() {
+  for (const file of [TOKEN_CACHE_FILE, TMP_TOKEN_CACHE]) {
+    try {
+      const data = JSON.parse(fs.readFileSync(file, 'utf-8'));
+      if (data.accessToken && data.refreshToken) {
+        console.log(`Loaded cached tokens from ${file}`);
+        return data;
+      }
+    } catch {}
+  }
+  return null;
+}
+
+function saveCachedTokens(accessToken, refreshToken) {
+  const payload = JSON.stringify({ accessToken, refreshToken });
+  try {
+    fs.mkdirSync(path.dirname(TOKEN_CACHE_FILE), { recursive: true });
+    fs.writeFileSync(TOKEN_CACHE_FILE, payload, 'utf-8');
+  } catch {}
+  try {
+    fs.writeFileSync(TMP_TOKEN_CACHE, payload, 'utf-8');
+  } catch {}
+}
+
 function createClient(clientId, accessToken, clientSecret, refreshToken) {
   if (client) return client;
   _clientId = clientId;
-  _accessToken = accessToken;
   _clientSecret = clientSecret;
-  _refreshToken = refreshToken;
+
+  const cached = loadCachedTokens();
+  _accessToken = cached?.accessToken || accessToken;
+  _refreshToken = cached?.refreshToken || refreshToken;
+
+  if (cached) {
+    console.log('Using cached tokens instead of env vars');
+  }
 
   client = axios.create({
     baseURL: TRAKT_API_URL,
@@ -60,6 +94,7 @@ function createClient(clientId, accessToken, clientSecret, refreshToken) {
             _refreshToken = response.data.refresh_token;
           }
           _accessToken = newToken;
+          saveCachedTokens(_accessToken, _refreshToken);
 
           client.defaults.headers['Authorization'] = `Bearer ${newToken}`;
           originalRequest.headers['Authorization'] = `Bearer ${newToken}`;
